@@ -89,8 +89,10 @@ class TestAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
       double vertexZMax_;
 	edm::Service<TFileService> fs;
 
+	// Declaring variables for passing variables to constructor to the parameter set
 	std::vector<double> ptBins_;
 	std::vector<double> etaBins_;
+	bool applyCuts_;
 	
 	TH1F *demoHisto; 
 	TH1F *vtxPerfX, *vtxPerfY, *vtxPerfZ, 
@@ -122,7 +124,8 @@ TestAnalyzer_v1::TestAnalyzer_v1(const edm::ParameterSet& iConfig)
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
 ptBins_(iConfig.getParameter<std::vector<double> >("ptBins")),
-etaBins_(iConfig.getParameter<std::vector<double> >("etaBins"))
+etaBins_(iConfig.getParameter<std::vector<double> >("etaBins")),
+applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 {
    //now do what ever initialization is needed
         usesResource("TFileService");
