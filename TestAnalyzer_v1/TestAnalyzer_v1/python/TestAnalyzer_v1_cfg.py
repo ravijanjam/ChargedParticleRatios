@@ -30,6 +30,7 @@ process.TFileService = cms.Service("TFileService",
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
+	'/store/hidata/HIRun2015/HIMinimumBias3/AOD/PromptReco-v1/000/263/212/00000/0E6B670A-31A7-E511-A765-02163E014153.root'
     )
 )
 
@@ -45,10 +46,13 @@ process.options = cms.untracked.PSet(
 
 ''' All the parameters to EDAnalyzer '''
 process.demo = cms.EDAnalyzer('TestAnalyzer_v1',
-	trackSrc = cms.InputTag("generalTracks"),
+#	trackSrc = cms.InputTag("generalTracks"),
+	trackSrc = cms.InputTag("hiGeneralTracks"),
 #	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint
+	TrackQuality = cms.string('highPurity'),
+	
         ptBins = cms.vdouble(
         0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
         0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95,

@@ -49,10 +49,10 @@ using namespace reco;
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
 
-class TestAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
+class TestAnalyzer_v2 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
    public:
-      explicit TestAnalyzer_v1(const edm::ParameterSet&);
-      ~TestAnalyzer_v1();
+      explicit TestAnalyzer_v2(const edm::ParameterSet&);
+      ~TestAnalyzer_v2();
 
       static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 	static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );
@@ -102,7 +102,7 @@ class TestAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
 //
 // constructors and destructor
 //
-TestAnalyzer_v1::TestAnalyzer_v1(const edm::ParameterSet& iConfig)
+TestAnalyzer_v2::TestAnalyzer_v2(const edm::ParameterSet& iConfig)
 :trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
@@ -118,7 +118,7 @@ applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 }
 
 
-TestAnalyzer_v1::~TestAnalyzer_v1()
+TestAnalyzer_v2::~TestAnalyzer_v2()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -133,7 +133,7 @@ TestAnalyzer_v1::~TestAnalyzer_v1()
 
 // ------------ method called for each event  ------------
 void
-TestAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+TestAnalyzer_v2::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
    using namespace edm;
 
@@ -177,7 +177,7 @@ TestAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	std::vector<reco::Vertex> vsorted = *vertex;
 	// sort the vertcies by number of tracks in descending order
 	//    // use chi2 as tiebreaker
-	std::sort( vsorted.begin(), vsorted.end(), TestAnalyzer_v1::vtxSort );
+	std::sort( vsorted.begin(), vsorted.end(), TestAnalyzer_v2::vtxSort );
 
    // Vertex performance histograms
    int vcount = 0; 
@@ -254,15 +254,12 @@ if( !passesTrackCuts(*track, vsorted[0]) ) continue;
 
 
 bool
-TestAnalyzer_v1::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
+TestAnalyzer_v2::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
 {
-  if( a.tracksSize() != b.tracksSize() )
-    return  a.tracksSize() > b.tracksSize() ? true : false ;
-  else
-    return  a.chi2() < b.chi2() ? true : false ;  
+	return 0 /*Change here*/;
 }
 
-void TestAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs)
+void TestAnalyzer_v2::initHistos(const edm::Service<TFileService> & fs)
 {
 	cout << "from inside init histos method" << endl;
 	demoHisto = fs->make<TH1F>("multiplicity","Event Multiplicity (selected tracks)",500,0,500);
@@ -290,25 +287,25 @@ void TestAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs)
 }
 
 bool
-TestAnalyzer_v1::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
+TestAnalyzer_v2::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
 
 return 1;/* Change here */
 }
 // ------------ method called once each job just before starting event loop  ------------
 void 
-TestAnalyzer_v1::beginJob()
+TestAnalyzer_v2::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-TestAnalyzer_v1::endJob() 
+TestAnalyzer_v2::endJob() 
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-TestAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+TestAnalyzer_v2::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -317,4 +314,4 @@ TestAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) 
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(TestAnalyzer_v1);
+DEFINE_FWK_MODULE(TestAnalyzer_v2);
