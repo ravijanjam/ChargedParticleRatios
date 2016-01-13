@@ -1,7 +1,35 @@
 import FWCore.ParameterSet.Config as cms
 import FWCore.Utilities.FileUtils as FileUtils
+from FWCore.ParameterSet.VarParsing import VarParsing
 
 process = cms.Process("Demo")
+options = VarParsing('analysis')
+
+''' Declare VarParsing options to be used from commandline '''
+''' ====================================================== '''
+
+options.register('inputFile', 
+				'', 
+				VarParsing.multiplicity.singleton,
+				VarParsing.varType.string,
+				"Maximum file size in Kb")
+
+options.register('maxNumEvents', 
+				0, 
+				VarParsing.multiplicity.singleton,
+				VarParsing.varType.int,
+				"Maximum file size in Kb")
+
+options.register('outputFileName', 
+				'', 
+				VarParsing.multiplicity.singleton,
+				VarParsing.varType.string,
+				"Maximum file size in Kb")
+
+''' Add this line if varparsing needs to work '''
+options.parseArguments()
+''' ====================================================== '''
+''' end of VarParsing options declaration '''
 
 process.load("FWCore.MessageService.MessageLogger_cfi")
 
@@ -19,11 +47,11 @@ process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_L1MinimumBiasHF1AND_v1"]
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
 ''' Number of events to run this config file '''
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxNumEvents) )
 
 ''' Output histograms go here '''
 process.TFileService = cms.Service("TFileService", 
-	fileName = cms.string("myhistogram.root") 
+	fileName = cms.string(options.outputFileName) 
 	)
 
 ''' Files to run in this config file '''
@@ -31,12 +59,15 @@ process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
+#	options.inputFile
     )
 )
 
-mylist = FileUtils.loadListFromFile ('ppRef_MinimumBias1.txt')
+
+mylist = FileUtils.loadListFromFile (options.inputFile)
 for fname in mylist:
  process.source.fileNames.append('%s' % (fname))
+
 
 
 ''' If some product name is not found, this line makes sure the config file runs without a product not found exception '''
@@ -53,7 +84,7 @@ process.demo = cms.EDAnalyzer('TestAnalyzer_v3',
 	vertexZMax = cms.double(15.), # The 15cm constraint
 	TrackQuality = cms.string('highPurity'),
 	
-        ptBins = cms.vdouble(
+         ptBins = cms.vdouble(
         0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
         0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95,
         1.1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 3.2, 4.0, 4.8, 5.6, 6.4,
