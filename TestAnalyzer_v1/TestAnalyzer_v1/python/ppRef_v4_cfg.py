@@ -19,7 +19,7 @@ process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_L1MinimumBiasHF1AND_v1"]
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
 ''' Number of events to run this config file '''
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 ''' Output histograms go here '''
 process.TFileService = cms.Service("TFileService", 
@@ -31,15 +31,15 @@ process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
-	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/262/271/00000/004E78B2-1396-E511-9F94-02163E01439C.root'
+#	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/262/271/00000/004E78B2-1396-E511-9F94-02163E01439C.root'
     )
 )
 
-'''
+
 mylist = FileUtils.loadListFromFile ('ppRef_MinimumBias1.txt')
 for fname in mylist:
  process.source.fileNames.append('%s' % (fname))
-'''
+
 
 
 ''' If some product name is not found, this line makes sure the config file runs without a product not found exception '''
@@ -48,7 +48,7 @@ process.options = cms.untracked.PSet(
 )
 
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('TestAnalyzer_v3',
+process.demo = cms.EDAnalyzer('TestAnalyzer_v4',
 #	trackSrc = cms.InputTag("generalTracks"),
 	trackSrc = cms.InputTag("generalTracks"),
 #	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),

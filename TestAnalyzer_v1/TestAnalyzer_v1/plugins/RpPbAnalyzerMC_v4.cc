@@ -48,16 +48,22 @@ using namespace reco;
 // from  edm::one::EDAnalyzer<> and also remove the line from
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
+//
+struct Info{
 
-class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
+	string m;
+};
+
+class RpPbAnalyzerMC_v4 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
    public:
-      explicit TestAnalyzer_v3(const edm::ParameterSet&);
-      ~TestAnalyzer_v3();
+      explicit RpPbAnalyzerMC_v4(const edm::ParameterSet&);
+      ~RpPbAnalyzerMC_v4();
 
       static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 	static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );
 	void initHistos(const edm::Service<TFileService> & fs);
         bool passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex);
+//	void messageLogger(Info info, bool t);
 
    private:
       virtual void beginJob() override;
@@ -65,8 +71,7 @@ class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
       virtual void endJob() override;
 
       // ----------member data ---------------------------
-      edm::InputTag trackSrc_;
-      edm::InputTag vertexSrc_;
+      edm::InputTag tvertexSrc, tgenSrc;
       std::map<std::string,TH1F*> evtPerf_;
       double vertexZMax_;
 	edm::Service<TFileService> fs;
@@ -75,14 +80,13 @@ class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
 	std::vector<double> ptBins_;
 	std::vector<double> etaBins_;
 	bool applyCuts_;
-	reco::TrackBase::TrackQuality trackQuality_;
    	double trackCharge;
 	
 	TH1F *demoHisto; 
 	TH1F *vtxPerfX, *vtxPerfY, *vtxPerfZ, 
 	     *trackPosEta, *trackPosPt, *trackNegEta, *trackNegPt, 
 	     *trackpT, *trackEta, 
-		*tracksPerEvent, *primaryVerticesPerEvent;
+	     *tracksPerEvent, *primaryVerticesPerEvent;
 
 	double nPosChargedParticles, nNegChargedParticles;
 
@@ -104,23 +108,20 @@ class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
 //
 // constructors and destructor
 //
-TestAnalyzer_v3::TestAnalyzer_v3(const edm::ParameterSet& iConfig)
-:trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
-vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
-vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
-ptBins_(iConfig.getParameter<std::vector<double> >("ptBins")),
-etaBins_(iConfig.getParameter<std::vector<double> >("etaBins")),
-applyCuts_(iConfig.getParameter<bool>("applyCuts"))
+RpPbAnalyzerMC_v4::RpPbAnalyzerMC_v4(const edm::ParameterSet& iConfig)
+//:tgenSrc = (iConfig.getParameter<edm::InputTag>("trackSrc")),
+//tvertexSrc = (iConfig.getParameter<edm::InputTag>("vertexSrc"))
 {
    //now do what ever initialization is needed
         usesResource("TFileService");
 	initHistos(fs);
-	trackQuality_ = TrackBase::qualityByName(iConfig.getParameter<std::string>("TrackQuality"));
+	tgenSrc = (iConfig.getParameter<edm::InputTag>("trackSrc"));
+	tvertexSrc = (iConfig.getParameter<edm::InputTag>("vertexSrc"));
 
 }
 
 
-TestAnalyzer_v3::~TestAnalyzer_v3()
+RpPbAnalyzerMC_v4::~RpPbAnalyzerMC_v4()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -135,120 +136,19 @@ TestAnalyzer_v3::~TestAnalyzer_v3()
 
 // ------------ method called for each event  ------------
 void
-TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+RpPbAnalyzerMC_v4::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
    using namespace edm;
 
-/* Collections */
+   /* Read Collections */
+   /* Do rapidity shift  */
 
-   Handle<reco::TrackCollection> tcol;
-//   Handle<reco::Track> tcol;
-   iEvent.getByLabel(trackSrc_, tcol);
+   Handle<reco::GenParticleCollection> gencol;
+   iEvent.getByLabel(tgenSrc, gencol);
 
-   reco::TrackCollection::const_iterator track;
-//   reco::Track::const_iterator track;
-   double multiplicityPerEvent = tcol->size();
-   cout << "eta, pt, charge" << endl;
+   Handle< vector<reco::Vertex> > vertex;
+   iEvent.getByLabel(tvertexSrc, vertex);
 
-   // Apply Track Quality cuts 
-   // Populate the histograms for pt, et based on charge
-   // trackQuality_ = 2 for "highPurity"
-   cout << "Track Quality String: " << trackQuality_ << endl;
-   nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
-   if (trackQuality_ == 2){
-   for(  track = tcol->begin(); track != tcol->end() ; ++track )
-   { 
- 	trackCharge = track->charge();	
-	/*  
-	cout << "Track charge : " << trackCharge << "\t" 
-	     << "Track pT : " << track->pt()
-	     << endl;
-	 */
-	if ( trackCharge == 1 ) {
-		trackPosPt->Fill(track->pt());
-		trackPosEta->Fill(track->eta());
-	}else if ( trackCharge == -1 ){
-		trackNegPt->Fill(track->pt());
-		trackNegEta->Fill(track->eta());
-	}
-	nTracksWithQualityCut++;
-   }
-	cout << endl;
-  }else { 
-	  
-	  nTracksWithoutQualityCut = multiplicityPerEvent - nTracksWithQualityCut ; 
-  }
-
-   cout << "================================================================" << endl;
-   cout << "Multiplicity per Events: " << multiplicityPerEvent << endl;
-   cout << "Tracks WITH Track Quality cut " << nTracksWithQualityCut << endl;
-   cout << "Tracks WITHOUT CHOSEN Track Quality cut " << nTracksWithoutQualityCut << endl;
-   cout << "================================================================" << endl;
-
-  Handle<std::vector<reco::Vertex> > vertex;
-  iEvent.getByLabel(vertexSrc_, vertex);
-  cout << "Vertex size : " << vertex->size() << endl;
-
-	std::vector<reco::Vertex> vsorted = *vertex;
-	// sort the vertcies by number of tracks in descending order
-	//    // use chi2 as tiebreaker
-	std::sort( vsorted.begin(), vsorted.end(), TestAnalyzer_v3::vtxSort );
-
-   // Vertex performance histograms
-   int vcount = 0; 
-   std::vector<reco::Vertex>::const_iterator vi; 
-   for( vi = vsorted.begin(); vi != vsorted.end() ; vi++ )
-   {
-     vtxPerfX->Fill(vi->x());
-     vtxPerfY->Fill(vi->y());
-     vtxPerfZ->Fill(vi->z());
-
-     cout << "Position of the vertex (x, y, z)" 
-	  << vi->x() << "\t"
-          << vi->y() << "\t"
-          << vi->z() << "\t"
-	  << endl;
-
-     vcount++;
-   }
-
-   // skip events with no PV, this should not happen
-   if( vsorted.size() == 0) return;
-   // skip events failing vertex cut
-   if( fabs(vsorted[0].z()) > vertexZMax_ ) return;
-
-	//initHistos(fs);
-	//
-	// user vertex with most tracks as primary vertex
-	math::XYZPoint vtxPoint(0, 0, 0);
-	vzErr = 0, vxErr = 0, vyErr = 0;
-	if ( vsorted.size() != 0 ){
-		vtxPoint = vsorted.begin()->position();
-		vxErr = vsorted.begin()->xError();
-		vyErr = vsorted.begin()->yError();
-		vzErr = vsorted.begin()->zError();
-	}
-
-	// Loop through reconstructed tracks and fill
-	// track spectrum and performance histograms
-	cout << "Iterating over tracks" << endl;
-	for ( track = tcol->begin(); track != tcol->end(); track++ ){
-		dxy=0, dz=0, dxysigma=0, dzsigma=0;
-		dxy = track->dxy(vtxPoint);
-		dz = track->dz(vtxPoint);
-		dxysigma = sqrt(track->d0Error()*track->d0Error() + vxErr*vyErr);
-		dzsigma = sqrt(track->dzError()*track->dzError() + vzErr*vzErr);
-	if( !passesTrackCuts(*track, vsorted[0]) ) continue;
-		trackpT->Fill(track->pt());
-		trackEta->Fill(track->pt());
-		
-		cout << "dxy, dx, dy, dzsigma :  " << "\t"
-		     << dxy << "\t"
-		     << dz << "\t"
-		     << dzsigma << "\t"
-		     << endl;
-
-	}
 
    // Dummy filling of histograms
 //   cout << "Populating the demo histogram" << endl;
@@ -268,16 +168,16 @@ TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
    ESHandle<SetupData> pSetup;
    iSetup.get<SetupRecord>().get(pSetup);
 #endif
-}
+} //close-RpPbAnalyzerMC::analyze
 
 
 bool
-TestAnalyzer_v3::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
+RpPbAnalyzerMC_v4::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
 {
 	return 0 /*Change here*/;
 }
 
-void TestAnalyzer_v3::initHistos(const edm::Service<TFileService> & fs)
+void RpPbAnalyzerMC_v4::initHistos(const edm::Service<TFileService> & fs)
 {
 	cout << "from inside init histos method" << endl;
 	demoHisto = fs->make<TH1F>("multiplicity","Event Multiplicity (selected tracks)",500,0,500);
@@ -304,26 +204,28 @@ void TestAnalyzer_v3::initHistos(const edm::Service<TFileService> & fs)
 
 }
 
+//void RpPbAnalyzerMC_v4::messageLogger( Info in, bool t ){
+
 bool
-TestAnalyzer_v3::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
+RpPbAnalyzerMC_v4::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
 
 return 1;/* Change here */
 }
 // ------------ method called once each job just before starting event loop  ------------
 void 
-TestAnalyzer_v3::beginJob()
+RpPbAnalyzerMC_v4::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-TestAnalyzer_v3::endJob() 
+RpPbAnalyzerMC_v4::endJob() 
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-TestAnalyzer_v3::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+RpPbAnalyzerMC_v4::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -332,4 +234,4 @@ TestAnalyzer_v3::fillDescriptions(edm::ConfigurationDescriptions& descriptions) 
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(TestAnalyzer_v3);
+DEFINE_FWK_MODULE(RpPbAnalyzerMC_v4);

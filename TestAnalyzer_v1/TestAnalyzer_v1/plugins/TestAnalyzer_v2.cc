@@ -1,5 +1,4 @@
 // system include files
-#include <memory>
 
 // user include files
 #include <memory>
@@ -143,19 +142,15 @@ TestAnalyzer_v2::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
    iEvent.getByLabel(trackSrc_, tcol);
 
 /* Numbers from collections */
-//   int multiplicity =0;
-	double ch;
+   double ch;
    reco::TrackCollection::const_iterator track;
    cout << "Multiplicity in the events: " << tcol->size() << "\t";
    cout << "eta, pt, charge" << endl;
+
+   // Apply Track Quality cuts 
+   cout << "Track Quality String: " << trackQuality_ << endl;
    for(  track = tcol->begin(); track != tcol->end() ; ++track )
    { 
-	/*
-	cout << "(" << track->eta() << "\t"
-	     << track->pt() << "\t"
-	     << track->charge() << "\t"
-	     << ")" << "\t" << ",";
-	*/
  	ch = track->charge();	
 	cout << "Track charge : " << ch 
 	     << "Track pT : " << track->pt()
@@ -221,7 +216,7 @@ TestAnalyzer_v2::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 		dz = track->dz(vtxPoint);
 		dxysigma = sqrt(track->d0Error()*track->d0Error() + vxErr*vyErr);
 		dzsigma = sqrt(track->dzError()*track->dzError() + vzErr*vzErr);
-if( !passesTrackCuts(*track, vsorted[0]) ) continue;
+	if( !passesTrackCuts(*track, vsorted[0]) ) continue;
 		trackpT->Fill(track->pt());
 		trackEta->Fill(track->pt());
 		

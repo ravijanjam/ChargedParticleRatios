@@ -1,5 +1,21 @@
 import FWCore.ParameterSet.Config as cms
 import FWCore.Utilities.FileUtils as FileUtils
+from FWCore.ParameterSet.VarParsing import VarParsing
+
+''' Declare VarParsing options to be used from commandline '''
+options = VarParsing('analysis')
+
+options.register('maxNumEvents',
+			1000,
+			VarParsing.multiplicity.singleton,
+			VarParsing.varType.int,
+			"Maximum num of events"
+		)
+
+options.parseArguments()
+''' ====================================================== '''
+
+
 
 process = cms.Process("Demo")
 
@@ -15,31 +31,33 @@ process.load("HLTrigger.HLTfilters.hltHighLevel_cfi")
 process.hltL1MinimumBiasHF1AND = process.hltHighLevel.clone()
 process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_L1MinimumBiasHF1AND_v1"]
 
-
+''' Writes stdout for every 5000th message, the larger will make the code run faster
+    as writing to the stdout is a bottleneck in running the code '''
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
 ''' Number of events to run this config file '''
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxNumEvents) )
 
 ''' Output histograms go here '''
 process.TFileService = cms.Service("TFileService", 
-	fileName = cms.string("ppRefMinBias1.root") 
+	fileName = cms.string("pPbPAHighPt_HIRun2015_28Sept2013_v1.root") 
 	)
 
 ''' Files to run in this config file '''
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-#	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
-#	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
-	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/262/271/00000/004E78B2-1396-E511-9F94-02163E01439C.root'
+	# dataset=/PAHighPt/HIRun2013-PromptReco-v1/RECO
+	# dataset=/PAHighPt/HIRun2013-PromptReco-v1/AOD
+#	'/store/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/20000/5EB230C1-192C-E311-A0D5-00A0D1E707BC.root'
     )
 )
 
-'''
-mylist = FileUtils.loadListFromFile ('ppRef_MinimumBias1.txt')
+
+mylist = FileUtils.loadListFromFile ('PAHighPt_HIRun2013_28Sept2013_v1.txt')
 for fname in mylist:
- process.source.fileNames.append('%s' % (fname))
-'''
+	process.source.fileNames.append('%s' % (fname))
+
+
 
 
 ''' If some product name is not found, this line makes sure the config file runs without a product not found exception '''
@@ -48,7 +66,7 @@ process.options = cms.untracked.PSet(
 )
 
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('TestAnalyzer_v3',
+process.demo = cms.EDAnalyzer('TestAnalyzer_v4',
 #	trackSrc = cms.InputTag("generalTracks"),
 	trackSrc = cms.InputTag("generalTracks"),
 #	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),

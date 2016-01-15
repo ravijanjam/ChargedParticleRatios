@@ -48,16 +48,22 @@ using namespace reco;
 // from  edm::one::EDAnalyzer<> and also remove the line from
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
+//
+struct Info{
 
-class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
+	string m;
+};
+
+class pPbAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
    public:
-      explicit TestAnalyzer_v3(const edm::ParameterSet&);
-      ~TestAnalyzer_v3();
+      explicit pPbAnalyzer_v1(const edm::ParameterSet&);
+      ~pPbAnalyzer_v1();
 
       static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 	static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );
 	void initHistos(const edm::Service<TFileService> & fs);
         bool passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex);
+//	void messageLogger(Info info, bool t);
 
    private:
       virtual void beginJob() override;
@@ -78,11 +84,10 @@ class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
 	reco::TrackBase::TrackQuality trackQuality_;
    	double trackCharge;
 	
-	TH1F *demoHisto; 
-	TH1F *vtxPerfX, *vtxPerfY, *vtxPerfZ, 
-	     *trackPosEta, *trackPosPt, *trackNegEta, *trackNegPt, 
-	     *trackpT, *trackEta, 
-		*tracksPerEvent, *primaryVerticesPerEvent;
+	TH1F *hvtxPerfX, *hvtxPerfY, *hvtxPerfZ, 
+	     *htrackPosEta, *htrackPosPt, *htrackNegEta, *htrackNegPt, 
+	     *htrackpT, *htrackEta, 
+	     *htracksPerEvent, *hprimaryVerticesPerEvent;
 
 	double nPosChargedParticles, nNegChargedParticles;
 
@@ -91,6 +96,8 @@ class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
 	double vxErr, vyErr, vzErr;
 	double dxy, dz, dxysigma, dzsigma;
 	double nTracksWithQualityCut,  nTracksWithoutQualityCut; 
+	double trackPt, trackEta;
+	bool setPtLimits;
 };
 
 //
@@ -104,7 +111,7 @@ class TestAnalyzer_v3 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
 //
 // constructors and destructor
 //
-TestAnalyzer_v3::TestAnalyzer_v3(const edm::ParameterSet& iConfig)
+pPbAnalyzer_v1::pPbAnalyzer_v1(const edm::ParameterSet& iConfig)
 :trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
@@ -120,7 +127,7 @@ applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 }
 
 
-TestAnalyzer_v3::~TestAnalyzer_v3()
+pPbAnalyzer_v1::~pPbAnalyzer_v1()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -135,23 +142,21 @@ TestAnalyzer_v3::~TestAnalyzer_v3()
 
 // ------------ method called for each event  ------------
 void
-TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+pPbAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
    using namespace edm;
 
 /* Collections */
 
    Handle<reco::TrackCollection> tcol;
-//   Handle<reco::Track> tcol;
    iEvent.getByLabel(trackSrc_, tcol);
 
    reco::TrackCollection::const_iterator track;
-//   reco::Track::const_iterator track;
    double multiplicityPerEvent = tcol->size();
    cout << "eta, pt, charge" << endl;
 
    // Apply Track Quality cuts 
-   // Populate the histograms for pt, et based on charge
+   // Populate the histograms for pt, eta based on charge
    // trackQuality_ = 2 for "highPurity"
    cout << "Track Quality String: " << trackQuality_ << endl;
    nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
@@ -164,12 +169,18 @@ TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	     << "Track pT : " << track->pt()
 	     << endl;
 	 */
+	trackPt = track->pt();
+	trackEta = track->eta();
+
+	// Setting limits for high pT tracks
+	setPtLimits = trackPt > 10 && trackPt < 200;
+
 	if ( trackCharge == 1 ) {
-		trackPosPt->Fill(track->pt());
-		trackPosEta->Fill(track->eta());
-	}else if ( trackCharge == -1 ){
-		trackNegPt->Fill(track->pt());
-		trackNegEta->Fill(track->eta());
+		htrackPosPt->Fill(trackPt);
+		htrackPosEta->Fill(trackEta);
+	} else if ( trackCharge == -1 ){
+		htrackNegPt->Fill(trackPt);
+		htrackNegEta->Fill(trackEta);
 	}
 	nTracksWithQualityCut++;
    }
@@ -192,16 +203,16 @@ TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	std::vector<reco::Vertex> vsorted = *vertex;
 	// sort the vertcies by number of tracks in descending order
 	//    // use chi2 as tiebreaker
-	std::sort( vsorted.begin(), vsorted.end(), TestAnalyzer_v3::vtxSort );
+	std::sort( vsorted.begin(), vsorted.end(), pPbAnalyzer_v1::vtxSort );
 
    // Vertex performance histograms
    int vcount = 0; 
    std::vector<reco::Vertex>::const_iterator vi; 
    for( vi = vsorted.begin(); vi != vsorted.end() ; vi++ )
    {
-     vtxPerfX->Fill(vi->x());
-     vtxPerfY->Fill(vi->y());
-     vtxPerfZ->Fill(vi->z());
+     hvtxPerfX->Fill(vi->x());
+     hvtxPerfY->Fill(vi->y());
+     hvtxPerfZ->Fill(vi->z());
 
      cout << "Position of the vertex (x, y, z)" 
 	  << vi->x() << "\t"
@@ -239,8 +250,8 @@ TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 		dxysigma = sqrt(track->d0Error()*track->d0Error() + vxErr*vyErr);
 		dzsigma = sqrt(track->dzError()*track->dzError() + vzErr*vzErr);
 	if( !passesTrackCuts(*track, vsorted[0]) ) continue;
-		trackpT->Fill(track->pt());
-		trackEta->Fill(track->pt());
+		htrackpT->Fill(track->pt());
+		htrackEta->Fill(track->pt());
 		
 		cout << "dxy, dx, dy, dzsigma :  " << "\t"
 		     << dxy << "\t"
@@ -250,13 +261,6 @@ TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
 	}
 
-   // Dummy filling of histograms
-//   cout << "Populating the demo histogram" << endl;
-   for (int i=0; i<10000; i++){
-	demoHisto->Fill(i);
-	}
-
-/* Processing on collections */
 
 
 #ifdef THIS_IS_AN_EVENT_EXAMPLE
@@ -272,58 +276,59 @@ TestAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
 
 bool
-TestAnalyzer_v3::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
+pPbAnalyzer_v1::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
 {
 	return 0 /*Change here*/;
 }
 
-void TestAnalyzer_v3::initHistos(const edm::Service<TFileService> & fs)
+void pPbAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs)
 {
-	cout << "from inside init histos method" << endl;
-	demoHisto = fs->make<TH1F>("multiplicity","Event Multiplicity (selected tracks)",500,0,500);
 
 	// Vertex performance histograms
-	vtxPerfX = fs->make<TH1F>("vtxX","Vertex x position",1000,-1,1);
-	vtxPerfY = fs->make<TH1F>("vtxY","Vertex x position",1000,-1,1);
-	vtxPerfZ = fs->make<TH1F>("vtxZ","Vertex x position",1000,-1,1);
+	hvtxPerfX = fs->make<TH1F>("hvtxX","Vertex x position",1000,-1,1);
+	hvtxPerfY = fs->make<TH1F>("hvtxY","Vertex x position",1000,-1,1);
+	hvtxPerfZ = fs->make<TH1F>("hvtxZ","Vertex x position",1000,-1,1);
 
 	// Track histograms
-	trackPosPt = fs->make<TH1F>("trackPosPt","Pt of positively charged tracks",1000,-5,10);
-	trackPosEta = fs->make<TH1F>("trackPosEta","Eta of positively charged tracks",1000,-5,10);
+	htrackPosPt = fs->make<TH1F>("htrackPosPt","Pt of positively charged tracks",1000,-5,10);
+	htrackPosEta = fs->make<TH1F>("htrackPosEta","Eta of positively charged tracks",1000,-5,10);
 
-	trackNegPt = fs->make<TH1F>("trackNegPt","Pt of positively charged tracks",1000,-5,10);
-	trackNegEta = fs->make<TH1F>("trackNegEta","Eta of positively charged tracks",1000,-5,10);
+	htrackNegPt = fs->make<TH1F>("htrackNegPt","Pt of positively charged tracks",1000,-5,10);
+	htrackNegEta = fs->make<TH1F>("htrackNegEta","Eta of positively charged tracks",1000,-5,10);
 
 	// For all tracks
-	trackEta = fs->make<TH1F>("trackEta","Eta of all charged tracks",1000,-5,10);
-	trackpT = fs->make<TH1F>("trackpT","pT of all charged tracks",100, 0, 200);
+	htrackEta = fs->make<TH1F>("htrackEta","Eta of all charged tracks",1000,-5,10);
+	htrackpT = fs->make<TH1F>("htrackpT","pT of all charged tracks",100, 0, 200);
 
 	// Number of tracks per event
-	tracksPerEvent = fs->make<TH1F>("tracksPerEvent","Tracks per event",100,0,400);
-	primaryVerticesPerEvent = fs->make<TH1F>("primaryVerticesPerEvent","Primary vertices per event",10,0,10);
+	htracksPerEvent = fs->make<TH1F>("htracksPerEvent","Tracks per event",100,0,400);
+	hprimaryVerticesPerEvent = fs->make<TH1F>("hprimaryVerticesPerEvent","Primary vertices per event",10,0,10);
 
 }
 
+//void pPbAnalyzer_v1::messageLogger( Info in, bool t ){}
+
+
 bool
-TestAnalyzer_v3::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
+pPbAnalyzer_v1::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
 
 return 1;/* Change here */
 }
 // ------------ method called once each job just before starting event loop  ------------
 void 
-TestAnalyzer_v3::beginJob()
+pPbAnalyzer_v1::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-TestAnalyzer_v3::endJob() 
+pPbAnalyzer_v1::endJob() 
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-TestAnalyzer_v3::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+pPbAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -332,4 +337,4 @@ TestAnalyzer_v3::fillDescriptions(edm::ConfigurationDescriptions& descriptions) 
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(TestAnalyzer_v3);
+DEFINE_FWK_MODULE(pPbAnalyzer_v1);

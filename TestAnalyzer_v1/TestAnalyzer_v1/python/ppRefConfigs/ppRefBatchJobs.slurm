@@ -11,4 +11,4 @@
 
 eval `scramv1 runtime -sh`
 #./analyzerFromCommandLine.sh
-cmsRun ppRef_v4_cfg.py
+cmsRun ppRef_v4_cfg.py maxNumEvents=100000

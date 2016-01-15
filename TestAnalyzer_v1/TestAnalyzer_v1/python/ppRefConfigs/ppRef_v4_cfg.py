@@ -1,5 +1,18 @@
 import FWCore.ParameterSet.Config as cms
 import FWCore.Utilities.FileUtils as FileUtils
+from FWCore.ParameterSet.VarParsing import VarParsing
+
+
+''' Declare VarParsing options to be used from commandline '''
+options = VarParsing('analysis')
+options.register('maxNumEvents',
+			1000,
+			VarParsing.multiplicity.singleton,
+			VarParsing.varType.int,
+			"")
+
+options.parseArguments()
+''' ====================================================== '''
 
 process = cms.Process("Demo")
 
@@ -19,7 +32,7 @@ process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_L1MinimumBiasHF1AND_v1"]
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
 ''' Number of events to run this config file '''
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxNumEvents) )
 
 ''' Output histograms go here '''
 process.TFileService = cms.Service("TFileService", 
@@ -29,7 +42,6 @@ process.TFileService = cms.Service("TFileService",
 ''' Files to run in this config file '''
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-#	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
 	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/262/271/00000/004E78B2-1396-E511-9F94-02163E01439C.root'
     )
@@ -42,16 +54,15 @@ for fname in mylist:
 '''
 
 
+
 ''' If some product name is not found, this line makes sure the config file runs without a product not found exception '''
 process.options = cms.untracked.PSet(
 	SkipEvent = cms.untracked.vstring('ProductNotFound')
 )
 
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('TestAnalyzer_v3',
-#	trackSrc = cms.InputTag("generalTracks"),
+process.demo = cms.EDAnalyzer('TestAnalyzer_v4',
 	trackSrc = cms.InputTag("generalTracks"),
-#	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint
 	TrackQuality = cms.string('highPurity'),
