@@ -66,7 +66,7 @@ process.options = cms.untracked.PSet(
 )
 
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('TestAnalyzer_v4',
+process.demo = cms.EDAnalyzer('pPbAnalyzer_v1',
 #	trackSrc = cms.InputTag("generalTracks"),
 	trackSrc = cms.InputTag("generalTracks"),
 #	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),

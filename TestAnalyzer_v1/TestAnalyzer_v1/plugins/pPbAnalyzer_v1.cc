@@ -253,11 +253,13 @@ pPbAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 		htrackpT->Fill(track->pt());
 		htrackEta->Fill(track->pt());
 		
+		/*  
 		cout << "dxy, dx, dy, dzsigma :  " << "\t"
 		     << dxy << "\t"
 		     << dz << "\t"
 		     << dzsigma << "\t"
 		     << endl;
+		*/
 
 	}
 

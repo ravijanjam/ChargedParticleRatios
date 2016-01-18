@@ -190,11 +190,13 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 	  nTracksWithoutQualityCut = multiplicityPerEvent - nTracksWithQualityCut ; 
   }
 
+   /*  
    cout << "================================================================" << endl;
    cout << "Multiplicity per Events: " << multiplicityPerEvent << endl;
    cout << "Tracks WITH Track Quality cut " << nTracksWithQualityCut << endl;
    cout << "Tracks WITHOUT CHOSEN Track Quality cut " << nTracksWithoutQualityCut << endl;
    cout << "================================================================" << endl;
+   */
 
   Handle<std::vector<reco::Vertex> > vertex;
   iEvent.getByLabel(vertexSrc_, vertex);
@@ -253,11 +255,13 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 		htrackpT->Fill(track->pt());
 		htrackEta->Fill(track->pt());
 		
+		/*  
 		cout << "dxy, dx, dy, dzsigma :  " << "\t"
 		     << dxy << "\t"
 		     << dz << "\t"
 		     << dzsigma << "\t"
 		     << endl;
+		*/
 
 	}
 

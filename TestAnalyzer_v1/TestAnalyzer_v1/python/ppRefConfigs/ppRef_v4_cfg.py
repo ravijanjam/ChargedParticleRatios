@@ -61,7 +61,7 @@ process.options = cms.untracked.PSet(
 )
 
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('TestAnalyzer_v4',
+process.demo = cms.EDAnalyzer('ppRefAnalyzer_v1',
 	trackSrc = cms.InputTag("generalTracks"),
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint

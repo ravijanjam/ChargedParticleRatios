@@ -15,7 +15,7 @@ options.register('inputFile',
 				"Maximum file size in Kb")
 
 options.register('maxNumEvents', 
-				0, 
+				1000, 
 				VarParsing.multiplicity.singleton,
 				VarParsing.varType.int,
 				"Maximum file size in Kb")
@@ -77,9 +77,7 @@ process.options = cms.untracked.PSet(
 
 ''' All the parameters to EDAnalyzer '''
 process.demo = cms.EDAnalyzer('TestAnalyzer_v3',
-#	trackSrc = cms.InputTag("generalTracks"),
 	trackSrc = cms.InputTag("generalTracks"),
-#	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint
 	TrackQuality = cms.string('highPurity'),
