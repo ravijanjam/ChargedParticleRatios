@@ -7,7 +7,7 @@ config.General.transferOutputs = True
 config.General.transferLogs = False
 
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'pPbAnalysis_v4_cfg.py'
+config.JobType.psetName = 'pPbAnalysis_cfg.py'
 
 config.Data.inputDataset = '/PAHighPt/HIRun2013-28Sep2013-v1/RECO'
 config.Data.inputDBS = 'global'

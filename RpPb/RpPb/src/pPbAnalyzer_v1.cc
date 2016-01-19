@@ -39,10 +39,10 @@ using namespace std;
 using namespace edm;
 using namespace reco;
 
-class pPbAnalyzer : public edm::EDAnalyzer {
+class pPbAnalyzer_v1 : public edm::EDAnalyzer {
    public:
-      explicit pPbAnalyzer(const edm::ParameterSet&);
-      ~pPbAnalyzer();
+      explicit pPbAnalyzer_v1(const edm::ParameterSet&);
+      ~pPbAnalyzer_v1();
 
        static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
        static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );                   void initHistos(const edm::Service<TFileService> & fs);
@@ -100,7 +100,7 @@ class pPbAnalyzer : public edm::EDAnalyzer {
 //
 // constructors and destructor
 //
-pPbAnalyzer::pPbAnalyzer(const edm::ParameterSet& iConfig)
+pPbAnalyzer_v1::pPbAnalyzer_v1(const edm::ParameterSet& iConfig)
 :trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
@@ -118,7 +118,7 @@ applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 }
 
 
-pPbAnalyzer::~pPbAnalyzer()
+pPbAnalyzer_v1::~pPbAnalyzer_v1()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -133,7 +133,7 @@ pPbAnalyzer::~pPbAnalyzer()
 
 // ------------ method called for each event  ------------
 void
-pPbAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+pPbAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
    using namespace edm;
 
@@ -150,47 +150,47 @@ pPbAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 #endif
 }
 
-void pPbAnalyzer::initHistos(const edm::Service<TFileService> & fs){}
+void pPbAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs){}
 
 // ------------ method called once each job just before starting event loop  ------------
 void 
-pPbAnalyzer::beginJob()
+pPbAnalyzer_v1::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-pPbAnalyzer::endJob() 
+pPbAnalyzer_v1::endJob() 
 {
 }
 
 // ------------ method called when starting to processes a run  ------------
 void 
-pPbAnalyzer::beginRun(edm::Run const&, edm::EventSetup const&)
+pPbAnalyzer_v1::beginRun(edm::Run const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when ending the processing of a run  ------------
 void 
-pPbAnalyzer::endRun(edm::Run const&, edm::EventSetup const&)
+pPbAnalyzer_v1::endRun(edm::Run const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when starting to processes a luminosity block  ------------
 void 
-pPbAnalyzer::beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
+pPbAnalyzer_v1::beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when ending the processing of a luminosity block  ------------
 void 
-pPbAnalyzer::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
+pPbAnalyzer_v1::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-pPbAnalyzer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+pPbAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -199,4 +199,4 @@ pPbAnalyzer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(pPbAnalyzer);
+DEFINE_FWK_MODULE(pPbAnalyzer_v1);

@@ -1,87 +1,86 @@
-# Conditions read from  CMS_CONDITIONS  via FrontierProd 
-DEBUG 2016-01-18 11:19:33,553: 	 Executing command: 'submit'
-DEBUG 2016-01-18 11:19:33,554: 	 Found CRAB cache file /home/janjamrk/.crab3
-DEBUG 2016-01-18 11:19:33,571: 	 Checking credentials
-DEBUG 2016-01-18 11:19:33,571: 	 Found proxy file /tmp/x509up_u171357
-DEBUG 2016-01-18 11:19:33,571: 	 Getting proxy life time left
-DEBUG 2016-01-18 11:19:33,675: 	 Executing : 
+DEBUG 2016-01-19 17:51:51,353: 	 Executing command: 'submit'
+DEBUG 2016-01-19 17:51:51,353: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-19 17:51:51,363: 	 Checking credentials
+DEBUG 2016-01-19 17:51:51,363: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-19 17:51:51,364: 	 Getting proxy life time left
+DEBUG 2016-01-19 17:51:51,467: 	 Executing : 
  command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
- output : 86040
+ output : 86320
 
  error: 
  retcode : 0
-DEBUG 2016-01-18 11:19:33,780: 	 Executing : 
+DEBUG 2016-01-19 17:51:51,571: 	 Executing : 
  command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
- output : 86040
+ output : 86320
 
  error: 
  retcode : 0
-DEBUG 2016-01-18 11:19:33,780: 	 Proxy valid for 23:54:00 hours
-INFO 2016-01-18 11:19:33,780: 	 Will use CRAB configuration file crab3Config_pPb_v3.py
-DEBUG 2016-01-18 11:19:33,780: 	 Loading CRAB configuration file.
-DEBUG 2016-01-18 11:19:36,484: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
-DEBUG 2016-01-18 11:19:36,611: 	 Executing : 
+DEBUG 2016-01-19 17:51:51,571: 	 Proxy valid for 23:58:40 hours
+INFO 2016-01-19 17:51:51,571: 	 Will use CRAB configuration file crab3Config_pPb_v3.py
+DEBUG 2016-01-19 17:51:51,572: 	 Loading CRAB configuration file.
+DEBUG 2016-01-19 17:51:54,169: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2016-01-19 17:51:54,286: 	 Executing : 
  command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
  output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
 
  error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
 
  retcode : 0
-DEBUG 2016-01-18 11:19:36,612: 	 Checking credentials
-DEBUG 2016-01-18 11:19:36,612: 	 Found proxy file /tmp/x509up_u171357
-DEBUG 2016-01-18 11:19:36,612: 	 Getting proxy life time left
-DEBUG 2016-01-18 11:19:36,717: 	 Executing : 
+DEBUG 2016-01-19 17:51:54,286: 	 Checking credentials
+DEBUG 2016-01-19 17:51:54,286: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-19 17:51:54,286: 	 Getting proxy life time left
+DEBUG 2016-01-19 17:51:54,389: 	 Executing : 
  command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
- output : 86037
+ output : 86317
 
  error: 
  retcode : 0
-DEBUG 2016-01-18 11:19:36,822: 	 Executing : 
+DEBUG 2016-01-19 17:51:54,493: 	 Executing : 
  command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
- output : 86037
+ output : 86317
 
  error: 
  retcode : 0
-DEBUG 2016-01-18 11:19:36,822: 	 Proxy valid for 23:53:57 hours
-DEBUG 2016-01-18 11:19:36,927: 	 Executing : 
+DEBUG 2016-01-19 17:51:54,494: 	 Proxy valid for 23:58:37 hours
+DEBUG 2016-01-19 17:51:54,597: 	 Executing : 
  command : env X509_USER_PROXY=/tmp/x509up_u171357 voms-proxy-info -fqan
  output : /cms/Role=NULL/Capability=NULL
 
  error: 
  retcode : 0
-DEBUG 2016-01-18 11:19:38,448: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
-DEBUG 2016-01-18 11:19:38,561: 	 Executing : 
+DEBUG 2016-01-19 17:51:56,070: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-19 17:51:56,183: 	 Executing : 
  command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
  output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
 
  error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
 
  retcode : 0
-DEBUG 2016-01-18 11:19:38,562: 	 Getting myproxy life time left for myproxy.cern.ch
-DEBUG 2016-01-18 11:19:38,562: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
-DEBUG 2016-01-18 11:19:40,170: 	 Executing : 
+DEBUG 2016-01-19 17:51:56,183: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-19 17:51:56,184: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-19 17:51:58,090: 	 Executing : 
  command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
  output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
 owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
   renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
   trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
-  timeleft: 650:27:10  (27.1 days)
+  timeleft: 619:54:52  (25.8 days)
 
  error: 
  retcode : 0
-DEBUG 2016-01-18 11:19:40,173: 	 Myproxy is valid: 2341630
-DEBUG 2016-01-18 11:19:40,173: 	 Command use: submit
-DEBUG 2016-01-18 11:19:40,173: 	 Options use: ['crab3Config_pPb_v3.py']
-DEBUG 2016-01-18 11:19:41,726: 	 CRABClient version: 3.3.1512
-DEBUG 2016-01-18 11:19:41,726: 	 Instance is prod
-DEBUG 2016-01-18 11:19:41,726: 	 Server base url is cmsweb.cern.ch
-DEBUG 2016-01-18 11:19:41,726: 	 Command url /crabserver/prod/workflow
-DEBUG 2016-01-18 11:19:41,726: 	 Started submission
-DEBUG 2016-01-18 11:19:41,726: 	 Working on /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015
-DEBUG 2016-01-18 11:19:43,210: 	 Loading required information from the environment
-DEBUG 2016-01-18 11:19:43,210: 	 Found CMSSW_7_5_8 for slc6_amd64_gcc491 with base /gpfs22/home/janjamrk/CMSSW_7_5_8
-DEBUG 2016-01-18 11:19:43,242: 	 UNIQUE NAME: tarUUID 7e4a2d7e-135a-43fa-bde9-312a0406d261 
-DEBUG 2016-01-18 11:19:43,243: 	 self.config: from WMCore.Configuration import Configuration
+DEBUG 2016-01-19 17:51:58,092: 	 Myproxy is valid: 2231692
+DEBUG 2016-01-19 17:51:58,092: 	 Command use: submit
+DEBUG 2016-01-19 17:51:58,092: 	 Options use: ['crab3Config_pPb_v3.py']
+DEBUG 2016-01-19 17:51:59,570: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-19 17:51:59,570: 	 Instance is prod
+DEBUG 2016-01-19 17:51:59,570: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-19 17:51:59,570: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-19 17:51:59,571: 	 Started submission
+DEBUG 2016-01-19 17:51:59,571: 	 Working on /gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015
+DEBUG 2016-01-19 17:52:01,046: 	 Loading required information from the environment
+DEBUG 2016-01-19 17:52:01,046: 	 Found CMSSW_5_3_26 for slc6_amd64_gcc472 with base /gpfs22/home/janjamrk/CMSSW_5_3_26
+DEBUG 2016-01-19 17:52:01,072: 	 UNIQUE NAME: tarUUID 318ce9ea-b96e-4637-a519-38fcd6922518 
+DEBUG 2016-01-19 17:52:01,073: 	 self.config: from WMCore.Configuration import Configuration
 config = Configuration()
 config.section_('General')
 config.General.transferLogs = False
@@ -89,7 +88,7 @@ config.General.transferOutputs = True
 config.General.workArea = 'pPb_crab_projects'
 config.General.requestName = 'pPbAnalysis_HI2015'
 config.section_('JobType')
-config.JobType.psetName = 'pPbAnalysis_v4_cfg.py'
+config.JobType.psetName = 'pPbAnalysis_cfg.py'
 config.JobType.pluginName = 'Analysis'
 config.section_('Data')
 config.Data.inputDataset = '/PAHighPt/HIRun2013-28Sep2013-v1/RECO'
@@ -106,115 +105,34 @@ config.Site.storageSite = 'T2_US_Vanderbilt'
 config.section_('User')
 config.section_('Debug')
 
-DEBUG 2016-01-18 11:19:43,243: 	 self.config.JobType.psetName: pPbAnalysis_v4_cfg.py
-INFO 2016-01-18 11:19:43,243: 	 Importing CMSSW configuration pPbAnalysis_v4_cfg.py
-INFO 2016-01-18 11:19:43,597: 	 Finished importing CMSSW configuration pPbAnalysis_v4_cfg.py
-DEBUG 2016-01-18 11:19:43,597: 	 Writing CMSSW configuration to /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/inputs/PSet.py
-DEBUG 2016-01-18 11:19:43,788: 	 The following EDM output files will be collected: []
-DEBUG 2016-01-18 11:19:43,789: 	 The following TFile output files will be collected: ['pPbPAHighPt_HIRun2015_28Sept2013_v1.root']
-DEBUG 2016-01-18 11:19:43,789: 	 The following user output files will be collected: []
-DEBUG 2016-01-18 11:19:43,789: 	 Loading required information from the environment
-DEBUG 2016-01-18 11:19:43,789: 	 Found CMSSW_7_5_8 for slc6_amd64_gcc491 with base /gpfs22/home/janjamrk/CMSSW_7_5_8
-DEBUG 2016-01-18 11:19:43,789: 	 Making tarball in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/inputs/7e4a2d7e-135a-43fa-bde9-312a0406d261default.tgz
-DEBUG 2016-01-18 11:19:43,791: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_7_5_8/lib
-DEBUG 2016-01-18 11:19:43,791: 	 Adding directory /gpfs22/home/janjamrk/CMSSW_7_5_8/lib to tarball
-DEBUG 2016-01-18 11:19:44,005: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_7_5_8/biglib
-DEBUG 2016-01-18 11:19:44,005: 	 Adding directory /gpfs22/home/janjamrk/CMSSW_7_5_8/biglib to tarball
-DEBUG 2016-01-18 11:19:44,009: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_7_5_8/module
-DEBUG 2016-01-18 11:19:44,048: 	 Adding data directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/ChargedParticleRatios/RecoHI/HiCentralityAlgos/data to tarball
-DEBUG 2016-01-18 11:19:44,436: 	 Adding data directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/ChargedParticleRatios/RecoHI/HiCentralityAlgos/interface to tarball
-DEBUG 2016-01-18 11:19:44,598: 	 Uploading archive /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/inputs/7e4a2d7e-135a-43fa-bde9-312a0406d261default.tgz to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
-DEBUG 2016-01-18 11:19:47,416: 	 Result uploading input files: bca7552bbbe04e5e1a10379409769802e226a0b9c1b81d6bde35d1f1d728020c.tar.gz 
-DEBUG 2016-01-18 11:19:47,416: 	 Attaching lumi mask https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions13/pPb/Prompt/Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt to the request
-DEBUG 2016-01-18 11:19:47,416: 	 Downloading lumi-mask from https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions13/pPb/Prompt/Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt
-WARNING 2016-01-18 11:19:48,345: 	 Warning: The following output files will not be published, as they are not EDM files: ['pPbPAHighPt_HIRun2015_28Sept2013_v1.root']
-INFO 2016-01-18 11:19:48,346: 	 Sending the request to the server
-DEBUG 2016-01-18 11:19:48,346: 	 Submitting {'maxjobruntime': 1250, 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_US_Vanderbilt', 'algoargs': 20, 'cachefilename': 'bca7552bbbe04e5e1a10379409769802e226a0b9c1b81d6bde35d1f1d728020c.tar.gz', 'numcores': 1, 'addoutputfiles': [], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_7_5_8', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/PAHighPt/HIRun2013-28Sep2013-v1/RECO', 'lfn': '/store/user/rjanjam/', 'dryrun': 0, 'workflow': 'crab_pPbAnalysis_HI2015', 'adduserfiles': [], 'jobarch': 'slc6_amd64_gcc491', 'lumis': ['121,351', '24,347', '101,505,507,1652', '97,793', '1,850', '3,187', '100,1550', '69,911', '89,258', '1,702', '12,1016', '99,914', '80,1062', '81,1040', '1,911', '85,676', '1,339', '133,512,806,962,964,1182', '129,537', '19,63,69,110,112,424', '1,157', '175,1183', '80,756', '55,257', '56,464', '64,724', '99,775', '57,374,471,514', '1,118', '66,404', '1,650', '98,429', '82,669', '50,834', '111,904', '136,391,617,950', '87,1270', '1,227,230,344', '103,420', '80,305', '1,553', '98,758', '95,448', '1,266', '1,373', '72,462'], 'nonprodsw': 0, 'tfileoutfiles': ['pPbPAHighPt_HIRun2015_28Sept2013_v1.root'], 'oneEventMode': 0, 'cacheurl': 'https://cmsweb.cern.ch/crabcache', 'saveoutput': 1, 'publication': 1, 'runs': [u'210498', u'210534', u'210614', u'210634', u'210635', u'210638', u'210658', u'210676', u'210737', u'210738', u'210759', u'210818', u'210837', u'210855', u'210885', u'210906', u'210909', u'210986', u'210998', u'211000', u'211001', u'211032', u'211256', u'211313', u'211328', u'211347', u'211354', u'211362', u'211363', u'211371', u'211390', u'211421', u'211460', u'211532', u'211538', u'211561', u'211568', u'211571', u'211587', u'211598', u'211599', u'211607', u'211620', u'211622', u'211623', u'211631'], 'totalunits': 0, 'splitalgo': 'LumiBased', 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': 'RpPb_PAHighPt_Sept2013'} 
-DEBUG 2016-01-18 11:19:48,347: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_US_Vanderbilt&algoargs=20&cachefilename=bca7552bbbe04e5e1a10379409769802e226a0b9c1b81d6bde35d1f1d728020c.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_7_5_8&primarydataset=&inputdata=%2FPAHighPt%2FHIRun2013-28Sep2013-v1%2FRECO&lfn=%2Fstore%2Fuser%2Frjanjam%2F&dryrun=0&workflow=crab_pPbAnalysis_HI2015&jobarch=slc6_amd64_gcc491&nonprodsw=0&oneEventMode=0&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&saveoutput=1&publication=1&totalunits=0&splitalgo=LumiBased&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=RpPb_PAHighPt_Sept2013&tfileoutfiles=pPbPAHighPt_HIRun2015_28Sept2013_v1.root&runs=210498&runs=210534&runs=210614&runs=210634&runs=210635&runs=210638&runs=210658&runs=210676&runs=210737&runs=210738&runs=210759&runs=210818&runs=210837&runs=210855&runs=210885&runs=210906&runs=210909&runs=210986&runs=210998&runs=211000&runs=211001&runs=211032&runs=211256&runs=211313&runs=211328&runs=211347&runs=211354&runs=211362&runs=211363&runs=211371&runs=211390&runs=211421&runs=211460&runs=211532&runs=211538&runs=211561&runs=211568&runs=211571&runs=211587&runs=211598&runs=211599&runs=211607&runs=211620&runs=211622&runs=211623&runs=211631&lumis=121%2C351&lumis=24%2C347&lumis=101%2C505%2C507%2C1652&lumis=97%2C793&lumis=1%2C850&lumis=3%2C187&lumis=100%2C1550&lumis=69%2C911&lumis=89%2C258&lumis=1%2C702&lumis=12%2C1016&lumis=99%2C914&lumis=80%2C1062&lumis=81%2C1040&lumis=1%2C911&lumis=85%2C676&lumis=1%2C339&lumis=133%2C512%2C806%2C962%2C964%2C1182&lumis=129%2C537&lumis=19%2C63%2C69%2C110%2C112%2C424&lumis=1%2C157&lumis=175%2C1183&lumis=80%2C756&lumis=55%2C257&lumis=56%2C464&lumis=64%2C724&lumis=99%2C775&lumis=57%2C374%2C471%2C514&lumis=1%2C118&lumis=66%2C404&lumis=1%2C650&lumis=98%2C429&lumis=82%2C669&lumis=50%2C834&lumis=111%2C904&lumis=136%2C391%2C617%2C950&lumis=87%2C1270&lumis=1%2C227%2C230%2C344&lumis=103%2C420&lumis=80%2C305&lumis=1%2C553&lumis=98%2C758&lumis=95%2C448&lumis=1%2C266&lumis=1%2C373&lumis=72%2C462
-DEBUG 2016-01-18 11:19:50,875: 	 Result: {'result': [{'RequestName': '160118_171950:rjanjam_crab_pPbAnalysis_HI2015'}]}
-INFO 2016-01-18 11:19:50,880: 	 Success: Your task has been delivered to the CRAB3 server.
-INFO 2016-01-18 11:19:50,880: 	 Task name: 160118_171950:rjanjam_crab_pPbAnalysis_HI2015
-INFO 2016-01-18 11:19:50,881: 	 Please use 'crab status' to check how the submission process proceeds.
-DEBUG 2016-01-18 11:19:50,881: 	 About to return
-INFO 2016-01-18 11:19:50,896: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/crab.log
-DEBUG 2016-01-18 11:22:30,188: 	 Executing command: 'status'
-DEBUG 2016-01-18 11:22:30,189: 	 Found CRAB cache file /home/janjamrk/.crab3
-DEBUG 2016-01-18 11:22:30,205: 	 Checking credentials
-DEBUG 2016-01-18 11:22:30,210: 	 Found proxy file /tmp/x509up_u171357
-DEBUG 2016-01-18 11:22:30,210: 	 Getting proxy life time left
-DEBUG 2016-01-18 11:22:30,314: 	 Executing : 
- command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
- output : 85863
-
- error: 
- retcode : 0
-DEBUG 2016-01-18 11:22:30,418: 	 Executing : 
- command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
- output : 85863
-
- error: 
- retcode : 0
-DEBUG 2016-01-18 11:22:30,419: 	 Proxy valid for 23:51:03 hours
-DEBUG 2016-01-18 11:22:30,541: 	 Executing : 
- command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
- output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
-
- error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
-
- retcode : 0
-DEBUG 2016-01-18 11:22:30,541: 	 Checking credentials
-DEBUG 2016-01-18 11:22:30,541: 	 Found proxy file /tmp/x509up_u171357
-DEBUG 2016-01-18 11:22:30,541: 	 Getting proxy life time left
-DEBUG 2016-01-18 11:22:30,645: 	 Executing : 
- command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
- output : 85863
-
- error: 
- retcode : 0
-DEBUG 2016-01-18 11:22:30,750: 	 Executing : 
- command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
- output : 85863
-
- error: 
- retcode : 0
-DEBUG 2016-01-18 11:22:30,750: 	 Proxy valid for 23:51:03 hours
-DEBUG 2016-01-18 11:22:32,161: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
-DEBUG 2016-01-18 11:22:32,270: 	 Executing : 
- command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
- output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
-
- error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
-
- retcode : 0
-DEBUG 2016-01-18 11:22:32,270: 	 Getting myproxy life time left for myproxy.cern.ch
-DEBUG 2016-01-18 11:22:32,270: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
-DEBUG 2016-01-18 11:22:33,775: 	 Executing : 
- command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
- output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
-owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
-  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
-  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
-  timeleft: 650:24:17  (27.1 days)
-
- error: 
- retcode : 0
-DEBUG 2016-01-18 11:22:33,778: 	 Myproxy is valid: 2341457
-DEBUG 2016-01-18 11:22:33,778: 	 Command use: status
-DEBUG 2016-01-18 11:22:33,778: 	 Options use: []
-DEBUG 2016-01-18 11:22:35,346: 	 CRABClient version: 3.3.1512
-DEBUG 2016-01-18 11:22:35,347: 	 Instance is prod
-DEBUG 2016-01-18 11:22:35,347: 	 Server base url is cmsweb.cern.ch
-DEBUG 2016-01-18 11:22:35,347: 	 Command url /crabserver/prod/workflow
-DEBUG 2016-01-18 11:22:35,347: 	 Looking up detailed status of task 160118_171950:rjanjam_crab_pPbAnalysis_HI2015
-DEBUG 2016-01-18 11:22:37,237: 	 {'status': 'SUBMITTED', 'schedd': 'crab3-4@vocms066.cern.ch', 'jobsPerStatus': {'idle': 90, 'unsubmitted': 175}, 'jobs': {'216': {'State': 'unsubmitted'}, '217': {'State': 'unsubmitted'}, '214': {'State': 'unsubmitted'}, '215': {'State': 'unsubmitted'}, '212': {'State': 'unsubmitted'}, '213': {'State': 'unsubmitted'}, '210': {'State': 'unsubmitted'}, '211': {'State': 'unsubmitted'}, '264': {'State': 'unsubmitted'}, '218': {'State': 'unsubmitted'}, '219': {'State': 'unsubmitted'}, '133': {'State': 'unsubmitted'}, '132': {'State': 'unsubmitted'}, '131': {'State': 'unsubmitted'}, '130': {'State': 'unsubmitted'}, '137': {'State': 'unsubmitted'}, '136': {'State': 'unsubmitted'}, '135': {'State': 'unsubmitted'}, '134': {'State': 'unsubmitted'}, '95': {'State': 'unsubmitted'}, '139': {'State': 'unsubmitted'}, '138': {'State': 'unsubmitted'}, '225': {'State': 'unsubmitted'}, '24': {'State': 'idle'}, '25': {'State': 'idle'}, '26': {'State': 'idle'}, '27': {'State': 'idle'}, '20': {'State': 'idle'}, '21': {'State': 'unsubmitted'}, '22': {'State': 'idle'}, '23': {'State': 'idle'}, '223': {'State': 'unsubmitted'}, '28': {'State': 'idle'}, '29': {'State': 'idle'}, '222': {'State': 'unsubmitted'}, '4': {'State': 'idle'}, '8': {'State': 'idle'}, '220': {'State': 'unsubmitted'}, '68': {'State': 'idle'}, '227': {'State': 'unsubmitted'}, '120': {'State': 'unsubmitted'}, '121': {'State': 'unsubmitted'}, '122': {'State': 'unsubmitted'}, '123': {'State': 'unsubmitted'}, '124': {'State': 'unsubmitted'}, '125': {'State': 'unsubmitted'}, '265': {'State': 'unsubmitted'}, '127': {'State': 'unsubmitted'}, '128': {'State': 'unsubmitted'}, '129': {'State': 'unsubmitted'}, '69': {'State': 'idle'}, '91': {'State': 'idle'}, '59': {'State': 'idle'}, '58': {'State': 'idle'}, '55': {'State': 'idle'}, '54': {'State': 'idle'}, '57': {'State': 'idle'}, '56': {'State': 'idle'}, '51': {'State': 'idle'}, '50': {'State': 'idle'}, '53': {'State': 'idle'}, '52': {'State': 'idle'}, '63': {'State': 'idle'}, '145': {'State': 'unsubmitted'}, '90': {'State': 'idle'}, '93': {'State': 'unsubmitted'}, '199': {'State': 'unsubmitted'}, '198': {'State': 'unsubmitted'}, '147': {'State': 'unsubmitted'}, '195': {'State': 'unsubmitted'}, '194': {'State': 'unsubmitted'}, '197': {'State': 'unsubmitted'}, '67': {'State': 'idle'}, '191': {'State': 'unsubmitted'}, '190': {'State': 'unsubmitted'}, '193': {'State': 'unsubmitted'}, '192': {'State': 'unsubmitted'}, '115': {'State': 'unsubmitted'}, '114': {'State': 'unsubmitted'}, '88': {'State': 'idle'}, '89': {'State': 'idle'}, '111': {'State': 'unsubmitted'}, '110': {'State': 'unsubmitted'}, '113': {'State': 'unsubmitted'}, '112': {'State': 'unsubmitted'}, '82': {'State': 'idle'}, '83': {'State': 'idle'}, '80': {'State': 'idle'}, '81': {'State': 'idle'}, '119': {'State': 'unsubmitted'}, '118': {'State': 'unsubmitted'}, '84': {'State': 'idle'}, '85': {'State': 'idle'}, '174': {'State': 'unsubmitted'}, '140': {'State': 'unsubmitted'}, '173': {'State': 'unsubmitted'}, '141': {'State': 'unsubmitted'}, '226': {'State': 'unsubmitted'}, '172': {'State': 'unsubmitted'}, '3': {'State': 'idle'}, '171': {'State': 'unsubmitted'}, '7': {'State': 'idle'}, '146': {'State': 'unsubmitted'}, '92': {'State': 'unsubmitted'}, '170': {'State': 'unsubmitted'}, '245': {'State': 'unsubmitted'}, '244': {'State': 'unsubmitted'}, '247': {'State': 'unsubmitted'}, '109': {'State': 'unsubmitted'}, '241': {'State': 'unsubmitted'}, '240': {'State': 'unsubmitted'}, '243': {'State': 'unsubmitted'}, '242': {'State': 'unsubmitted'}, '102': {'State': 'unsubmitted'}, '103': {'State': 'unsubmitted'}, '100': {'State': 'unsubmitted'}, '101': {'State': 'unsubmitted'}, '106': {'State': 'unsubmitted'}, '107': {'State': 'unsubmitted'}, '104': {'State': 'unsubmitted'}, '105': {'State': 'unsubmitted'}, '39': {'State': 'idle'}, '38': {'State': 'idle'}, '33': {'State': 'idle'}, '32': {'State': 'idle'}, '31': {'State': 'idle'}, '30': {'State': 'idle'}, '37': {'State': 'idle'}, '108': {'State': 'unsubmitted'}, '35': {'State': 'idle'}, '34': {'State': 'idle'}, '246': {'State': 'unsubmitted'}, '94': {'State': 'unsubmitted'}, '252': {'State': 'unsubmitted'}, '60': {'State': 'idle'}, '61': {'State': 'idle'}, '258': {'State': 'unsubmitted'}, '259': {'State': 'unsubmitted'}, '64': {'State': 'idle'}, '65': {'State': 'idle'}, '179': {'State': 'unsubmitted'}, '178': {'State': 'unsubmitted'}, '177': {'State': 'unsubmitted'}, '176': {'State': 'unsubmitted'}, '175': {'State': 'unsubmitted'}, '251': {'State': 'unsubmitted'}, '256': {'State': 'unsubmitted'}, '257': {'State': 'unsubmitted'}, '254': {'State': 'unsubmitted'}, '255': {'State': 'unsubmitted'}, '249': {'State': 'unsubmitted'}, '253': {'State': 'unsubmitted'}, '248': {'State': 'unsubmitted'}, '182': {'State': 'unsubmitted'}, '183': {'State': 'unsubmitted'}, '180': {'State': 'unsubmitted'}, '181': {'State': 'unsubmitted'}, '186': {'State': 'unsubmitted'}, '187': {'State': 'unsubmitted'}, '184': {'State': 'unsubmitted'}, '6': {'State': 'idle'}, '188': {'State': 'unsubmitted'}, '189': {'State': 'unsubmitted'}, '196': {'State': 'unsubmitted'}, '221': {'State': 'unsubmitted'}, '97': {'State': 'unsubmitted'}, '185': {'State': 'unsubmitted'}, '142': {'State': 'unsubmitted'}, '99': {'State': 'unsubmitted'}, '98': {'State': 'unsubmitted'}, '168': {'State': 'unsubmitted'}, '169': {'State': 'unsubmitted'}, '229': {'State': 'unsubmitted'}, '228': {'State': 'unsubmitted'}, '164': {'State': 'unsubmitted'}, '165': {'State': 'unsubmitted'}, '166': {'State': 'unsubmitted'}, '167': {'State': 'unsubmitted'}, '160': {'State': 'unsubmitted'}, '161': {'State': 'unsubmitted'}, '162': {'State': 'unsubmitted'}, '163': {'State': 'unsubmitted'}, '11': {'State': 'idle'}, '10': {'State': 'idle'}, '13': {'State': 'idle'}, '12': {'State': 'idle'}, '15': {'State': 'idle'}, '14': {'State': 'idle'}, '66': {'State': 'idle'}, '16': {'State': 'idle'}, '19': {'State': 'idle'}, '18': {'State': 'idle'}, '143': {'State': 'unsubmitted'}, '117': {'State': 'unsubmitted'}, '116': {'State': 'unsubmitted'}, '17': {'State': 'idle'}, '151': {'State': 'unsubmitted'}, '150': {'State': 'unsubmitted'}, '153': {'State': 'unsubmitted'}, '152': {'State': 'unsubmitted'}, '155': {'State': 'unsubmitted'}, '250': {'State': 'unsubmitted'}, '157': {'State': 'unsubmitted'}, '156': {'State': 'unsubmitted'}, '159': {'State': 'unsubmitted'}, '158': {'State': 'unsubmitted'}, '62': {'State': 'idle'}, '36': {'State': 'idle'}, '238': {'State': 'unsubmitted'}, '239': {'State': 'unsubmitted'}, '234': {'State': 'unsubmitted'}, '235': {'State': 'unsubmitted'}, '236': {'State': 'unsubmitted'}, '237': {'State': 'unsubmitted'}, '230': {'State': 'unsubmitted'}, '231': {'State': 'unsubmitted'}, '232': {'State': 'unsubmitted'}, '233': {'State': 'unsubmitted'}, '224': {'State': 'unsubmitted'}, '48': {'State': 'idle'}, '49': {'State': 'idle'}, '46': {'State': 'idle'}, '86': {'State': 'idle'}, '44': {'State': 'idle'}, '45': {'State': 'idle'}, '42': {'State': 'idle'}, '43': {'State': 'idle'}, '40': {'State': 'idle'}, '87': {'State': 'idle'}, '1': {'State': 'idle'}, '5': {'State': 'idle'}, '9': {'State': 'idle'}, '201': {'State': 'unsubmitted'}, '200': {'State': 'unsubmitted'}, '203': {'State': 'unsubmitted'}, '202': {'State': 'unsubmitted'}, '205': {'State': 'unsubmitted'}, '204': {'State': 'unsubmitted'}, '207': {'State': 'unsubmitted'}, '206': {'State': 'unsubmitted'}, '209': {'State': 'unsubmitted'}, '208': {'State': 'unsubmitted'}, '148': {'State': 'unsubmitted'}, '149': {'State': 'unsubmitted'}, '77': {'State': 'idle'}, '76': {'State': 'idle'}, '75': {'State': 'idle'}, '74': {'State': 'idle'}, '73': {'State': 'idle'}, '72': {'State': 'idle'}, '71': {'State': 'idle'}, '70': {'State': 'idle'}, '154': {'State': 'unsubmitted'}, '96': {'State': 'unsubmitted'}, '79': {'State': 'idle'}, '78': {'State': 'idle'}, '2': {'State': 'idle'}, '263': {'State': 'unsubmitted'}, '144': {'State': 'unsubmitted'}, '262': {'State': 'unsubmitted'}, '261': {'State': 'unsubmitted'}, '41': {'State': 'idle'}, '260': {'State': 'unsubmitted'}, '47': {'State': 'idle'}, '126': {'State': 'unsubmitted'}}, 'publication': {}, 'taskWarningMsg': [], 'publicationFailures': {}, 'outdatasets': None, 'statusFailureMsg': '', 'taskFailureMsg': '', 'failedJobdefs': 0, 'ASOURL': 'https://cmsweb.cern.ch/couchdb', 'totalJobdefs': 0, 'jobdefErrors': [], 'collector': 'cmssrv221.fnal.gov,vocms099.cern.ch', 'jobList': [['unsubmitted', 216], ['unsubmitted', 217], ['unsubmitted', 214], ['unsubmitted', 215], ['unsubmitted', 212], ['unsubmitted', 213], ['unsubmitted', 210], ['unsubmitted', 211], ['unsubmitted', 165], ['unsubmitted', 264], ['unsubmitted', 265], ['unsubmitted', 218], ['unsubmitted', 133], ['unsubmitted', 132], ['unsubmitted', 131], ['unsubmitted', 130], ['unsubmitted', 137], ['unsubmitted', 136], ['unsubmitted', 135], ['unsubmitted', 134], ['unsubmitted', 139], ['unsubmitted', 138], ['unsubmitted', 166], ['idle', 24], ['idle', 25], ['idle', 26], ['idle', 27], ['idle', 20], ['unsubmitted', 21], ['idle', 22], ['idle', 23], ['unsubmitted', 160], ['idle', 28], ['idle', 29], ['unsubmitted', 161], ['idle', 4], ['idle', 8], ['unsubmitted', 163], ['unsubmitted', 119], ['unsubmitted', 258], ['unsubmitted', 120], ['unsubmitted', 121], ['unsubmitted', 122], ['unsubmitted', 123], ['unsubmitted', 124], ['unsubmitted', 125], ['unsubmitted', 126], ['unsubmitted', 127], ['unsubmitted', 128], ['unsubmitted', 129], ['unsubmitted', 219], ['unsubmitted', 167], ['unsubmitted', 118], ['idle', 59], ['idle', 58], ['idle', 55], ['idle', 54], ['idle', 57], ['idle', 56], ['idle', 51], ['idle', 50], ['idle', 53], ['idle', 52], ['unsubmitted', 259], ['unsubmitted', 164], ['unsubmitted', 201], ['unsubmitted', 199], ['unsubmitted', 179], ['unsubmitted', 200], ['unsubmitted', 195], ['unsubmitted', 194], ['unsubmitted', 197], ['unsubmitted', 178], ['unsubmitted', 191], ['unsubmitted', 190], ['unsubmitted', 193], ['unsubmitted', 192], ['unsubmitted', 115], ['unsubmitted', 114], ['idle', 88], ['idle', 89], ['unsubmitted', 111], ['unsubmitted', 110], ['unsubmitted', 113], ['unsubmitted', 112], ['idle', 82], ['idle', 83], ['idle', 80], ['idle', 81], ['idle', 86], ['idle', 87], ['idle', 84], ['idle', 85], ['unsubmitted', 251], ['unsubmitted', 198], ['unsubmitted', 256], ['unsubmitted', 206], ['unsubmitted', 226], ['unsubmitted', 257], ['idle', 3], ['unsubmitted', 177], ['unsubmitted', 254], ['idle', 7], ['unsubmitted', 247], ['unsubmitted', 255], ['unsubmitted', 225], ['unsubmitted', 245], ['unsubmitted', 244], ['unsubmitted', 108], ['unsubmitted', 109], ['unsubmitted', 241], ['unsubmitted', 240], ['unsubmitted', 243], ['unsubmitted', 242], ['unsubmitted', 102], ['unsubmitted', 103], ['unsubmitted', 100], ['unsubmitted', 101], ['unsubmitted', 106], ['unsubmitted', 107], ['unsubmitted', 104], ['unsubmitted', 105], ['idle', 39], ['idle', 38], ['idle', 33], ['idle', 32], ['idle', 31], ['idle', 30], ['idle', 37], ['idle', 36], ['idle', 35], ['idle', 34], ['unsubmitted', 246], ['unsubmitted', 252], ['unsubmitted', 205], ['unsubmitted', 223], ['unsubmitted', 176], ['idle', 60], ['idle', 61], ['idle', 62], ['idle', 63], ['idle', 64], ['idle', 65], ['idle', 66], ['idle', 67], ['idle', 68], ['idle', 69], ['unsubmitted', 175], ['unsubmitted', 174], ['unsubmitted', 173], ['unsubmitted', 172], ['unsubmitted', 171], ['unsubmitted', 170], ['unsubmitted', 203], ['unsubmitted', 222], ['unsubmitted', 181], ['unsubmitted', 253], ['unsubmitted', 248], ['unsubmitted', 182], ['unsubmitted', 183], ['unsubmitted', 180], ['idle', 2], ['unsubmitted', 162], ['unsubmitted', 187], ['unsubmitted', 184], ['idle', 6], ['unsubmitted', 220], ['unsubmitted', 186], ['unsubmitted', 188], ['unsubmitted', 189], ['unsubmitted', 202], ['unsubmitted', 196], ['unsubmitted', 221], ['unsubmitted', 185], ['unsubmitted', 99], ['unsubmitted', 98], ['unsubmitted', 168], ['unsubmitted', 169], ['unsubmitted', 229], ['unsubmitted', 228], ['idle', 91], ['idle', 90], ['unsubmitted', 93], ['unsubmitted', 92], ['unsubmitted', 95], ['unsubmitted', 94], ['unsubmitted', 97], ['unsubmitted', 96], ['idle', 11], ['idle', 10], ['idle', 13], ['idle', 12], ['idle', 15], ['idle', 14], ['idle', 17], ['idle', 16], ['idle', 19], ['idle', 18], ['unsubmitted', 117], ['unsubmitted', 250], ['unsubmitted', 116], ['unsubmitted', 204], ['unsubmitted', 151], ['unsubmitted', 150], ['unsubmitted', 153], ['unsubmitted', 152], ['unsubmitted', 155], ['unsubmitted', 154], ['unsubmitted', 157], ['unsubmitted', 156], ['unsubmitted', 159], ['unsubmitted', 158], ['unsubmitted', 234], ['unsubmitted', 238], ['unsubmitted', 239], ['unsubmitted', 207], ['unsubmitted', 235], ['unsubmitted', 236], ['unsubmitted', 237], ['unsubmitted', 230], ['unsubmitted', 231], ['unsubmitted', 232], ['unsubmitted', 233], ['unsubmitted', 224], ['idle', 48], ['idle', 49], ['idle', 46], ['idle', 47], ['idle', 44], ['idle', 45], ['idle', 42], ['idle', 43], ['idle', 40], ['idle', 41], ['idle', 1], ['idle', 5], ['idle', 9], ['unsubmitted', 146], ['unsubmitted', 147], ['unsubmitted', 144], ['unsubmitted', 145], ['unsubmitted', 142], ['unsubmitted', 143], ['unsubmitted', 140], ['unsubmitted', 141], ['unsubmitted', 209], ['unsubmitted', 208], ['unsubmitted', 148], ['unsubmitted', 149], ['idle', 77], ['idle', 76], ['idle', 75], ['idle', 74], ['idle', 73], ['idle', 72], ['idle', 71], ['idle', 70], ['idle', 79], ['idle', 78], ['unsubmitted', 263], ['unsubmitted', 249], ['unsubmitted', 262], ['unsubmitted', 227], ['unsubmitted', 261], ['unsubmitted', 260]]}
-INFO 2016-01-18 11:22:37,237: 	 CRAB project directory:		/gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015
-INFO 2016-01-18 11:22:37,238: 	 Task name:			160118_171950:rjanjam_crab_pPbAnalysis_HI2015
-INFO 2016-01-18 11:22:37,238: 	 Grid scheduler:			crab3-4@vocms066.cern.ch
-INFO 2016-01-18 11:22:37,238: 	 Task status:			SUBMITTED
-INFO 2016-01-18 11:22:37,238: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=crab&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=160118_171950%3Arjanjam_crab_pPbAnalysis_HI2015
-INFO 2016-01-18 11:22:37,239: 	 
-Jobs status:			idle           34.0% ( 90/265)
-INFO 2016-01-18 11:22:37,239: 	 				unsubmitted    66.0% (175/265)
-INFO 2016-01-18 11:22:37,239: 	 
-No publication information available yet
-INFO 2016-01-18 11:22:37,274: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/crab.log
+DEBUG 2016-01-19 17:52:01,073: 	 self.config.JobType.psetName: pPbAnalysis_cfg.py
+INFO 2016-01-19 17:52:01,073: 	 Importing CMSSW configuration pPbAnalysis_cfg.py
+INFO 2016-01-19 17:52:01,355: 	 Finished importing CMSSW configuration pPbAnalysis_cfg.py
+DEBUG 2016-01-19 17:52:01,355: 	 Writing CMSSW configuration to /gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/inputs/PSet.py
+DEBUG 2016-01-19 17:52:01,512: 	 The following EDM output files will be collected: []
+DEBUG 2016-01-19 17:52:01,512: 	 The following TFile output files will be collected: ['pPbPAHighPt_HIRun2015_28Sept2013_v1.root']
+DEBUG 2016-01-19 17:52:01,512: 	 The following user output files will be collected: []
+DEBUG 2016-01-19 17:52:01,512: 	 Loading required information from the environment
+DEBUG 2016-01-19 17:52:01,512: 	 Found CMSSW_5_3_26 for slc6_amd64_gcc472 with base /gpfs22/home/janjamrk/CMSSW_5_3_26
+DEBUG 2016-01-19 17:52:01,512: 	 Making tarball in /gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/inputs/318ce9ea-b96e-4637-a519-38fcd6922518default.tgz
+DEBUG 2016-01-19 17:52:01,513: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_5_3_26/lib
+DEBUG 2016-01-19 17:52:01,513: 	 Adding directory /gpfs22/home/janjamrk/CMSSW_5_3_26/lib to tarball
+DEBUG 2016-01-19 17:52:01,590: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_5_3_26/biglib
+DEBUG 2016-01-19 17:52:01,591: 	 Adding directory /gpfs22/home/janjamrk/CMSSW_5_3_26/biglib to tarball
+DEBUG 2016-01-19 17:52:01,595: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_5_3_26/module
+DEBUG 2016-01-19 17:52:01,596: 	 Adding data directory /gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/interface to tarball
+DEBUG 2016-01-19 17:52:01,631: 	 Adding data directory /gpfs22/home/janjamrk/CMSSW_5_3_26/src/ChargedParticleRatios/RpPb/RpPb/interface to tarball
+DEBUG 2016-01-19 17:52:01,766: 	 Uploading archive /gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/inputs/318ce9ea-b96e-4637-a519-38fcd6922518default.tgz to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2016-01-19 17:52:04,242: 	 Result uploading input files: d94d7a58f08b71d2a9fe904e69d78f47271a76ebccd1102fc4f4effeb1f520f0.tar.gz 
+DEBUG 2016-01-19 17:52:04,242: 	 Attaching lumi mask https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions13/pPb/Prompt/Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt to the request
+DEBUG 2016-01-19 17:52:04,243: 	 Downloading lumi-mask from https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions13/pPb/Prompt/Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt
+WARNING 2016-01-19 17:52:05,455: 	 Warning: The following output files will not be published, as they are not EDM files: ['pPbPAHighPt_HIRun2015_28Sept2013_v1.root']
+INFO 2016-01-19 17:52:05,455: 	 Sending the request to the server
+DEBUG 2016-01-19 17:52:05,456: 	 Submitting {'maxjobruntime': 1250, 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_US_Vanderbilt', 'algoargs': 20, 'cachefilename': 'd94d7a58f08b71d2a9fe904e69d78f47271a76ebccd1102fc4f4effeb1f520f0.tar.gz', 'numcores': 1, 'addoutputfiles': [], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_5_3_26', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/PAHighPt/HIRun2013-28Sep2013-v1/RECO', 'lfn': '/store/user/rjanjam/', 'dryrun': 0, 'workflow': 'crab_pPbAnalysis_HI2015', 'adduserfiles': [], 'jobarch': 'slc6_amd64_gcc472', 'lumis': ['121,351', '24,347', '101,505,507,1652', '97,793', '1,850', '3,187', '100,1550', '69,911', '89,258', '1,702', '12,1016', '99,914', '80,1062', '81,1040', '1,911', '85,676', '1,339', '133,512,806,962,964,1182', '129,537', '19,63,69,110,112,424', '1,157', '175,1183', '80,756', '55,257', '56,464', '64,724', '99,775', '57,374,471,514', '1,118', '66,404', '1,650', '98,429', '82,669', '50,834', '111,904', '136,391,617,950', '87,1270', '1,227,230,344', '103,420', '80,305', '1,553', '98,758', '95,448', '1,266', '1,373', '72,462'], 'nonprodsw': 0, 'tfileoutfiles': ['pPbPAHighPt_HIRun2015_28Sept2013_v1.root'], 'oneEventMode': 0, 'cacheurl': 'https://cmsweb.cern.ch/crabcache', 'saveoutput': 1, 'publication': 1, 'runs': [u'210498', u'210534', u'210614', u'210634', u'210635', u'210638', u'210658', u'210676', u'210737', u'210738', u'210759', u'210818', u'210837', u'210855', u'210885', u'210906', u'210909', u'210986', u'210998', u'211000', u'211001', u'211032', u'211256', u'211313', u'211328', u'211347', u'211354', u'211362', u'211363', u'211371', u'211390', u'211421', u'211460', u'211532', u'211538', u'211561', u'211568', u'211571', u'211587', u'211598', u'211599', u'211607', u'211620', u'211622', u'211623', u'211631'], 'totalunits': 0, 'splitalgo': 'LumiBased', 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': 'RpPb_PAHighPt_Sept2013'} 
+DEBUG 2016-01-19 17:52:05,457: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_US_Vanderbilt&algoargs=20&cachefilename=d94d7a58f08b71d2a9fe904e69d78f47271a76ebccd1102fc4f4effeb1f520f0.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_5_3_26&primarydataset=&inputdata=%2FPAHighPt%2FHIRun2013-28Sep2013-v1%2FRECO&lfn=%2Fstore%2Fuser%2Frjanjam%2F&dryrun=0&workflow=crab_pPbAnalysis_HI2015&jobarch=slc6_amd64_gcc472&nonprodsw=0&oneEventMode=0&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&saveoutput=1&publication=1&totalunits=0&splitalgo=LumiBased&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=RpPb_PAHighPt_Sept2013&tfileoutfiles=pPbPAHighPt_HIRun2015_28Sept2013_v1.root&runs=210498&runs=210534&runs=210614&runs=210634&runs=210635&runs=210638&runs=210658&runs=210676&runs=210737&runs=210738&runs=210759&runs=210818&runs=210837&runs=210855&runs=210885&runs=210906&runs=210909&runs=210986&runs=210998&runs=211000&runs=211001&runs=211032&runs=211256&runs=211313&runs=211328&runs=211347&runs=211354&runs=211362&runs=211363&runs=211371&runs=211390&runs=211421&runs=211460&runs=211532&runs=211538&runs=211561&runs=211568&runs=211571&runs=211587&runs=211598&runs=211599&runs=211607&runs=211620&runs=211622&runs=211623&runs=211631&lumis=121%2C351&lumis=24%2C347&lumis=101%2C505%2C507%2C1652&lumis=97%2C793&lumis=1%2C850&lumis=3%2C187&lumis=100%2C1550&lumis=69%2C911&lumis=89%2C258&lumis=1%2C702&lumis=12%2C1016&lumis=99%2C914&lumis=80%2C1062&lumis=81%2C1040&lumis=1%2C911&lumis=85%2C676&lumis=1%2C339&lumis=133%2C512%2C806%2C962%2C964%2C1182&lumis=129%2C537&lumis=19%2C63%2C69%2C110%2C112%2C424&lumis=1%2C157&lumis=175%2C1183&lumis=80%2C756&lumis=55%2C257&lumis=56%2C464&lumis=64%2C724&lumis=99%2C775&lumis=57%2C374%2C471%2C514&lumis=1%2C118&lumis=66%2C404&lumis=1%2C650&lumis=98%2C429&lumis=82%2C669&lumis=50%2C834&lumis=111%2C904&lumis=136%2C391%2C617%2C950&lumis=87%2C1270&lumis=1%2C227%2C230%2C344&lumis=103%2C420&lumis=80%2C305&lumis=1%2C553&lumis=98%2C758&lumis=95%2C448&lumis=1%2C266&lumis=1%2C373&lumis=72%2C462
+DEBUG 2016-01-19 17:52:07,918: 	 Result: {'result': [{'RequestName': '160119_235206:rjanjam_crab_pPbAnalysis_HI2015'}]}
+INFO 2016-01-19 17:52:07,921: 	 Success: Your task has been delivered to the CRAB3 server.
+INFO 2016-01-19 17:52:07,921: 	 Task name: 160119_235206:rjanjam_crab_pPbAnalysis_HI2015
+INFO 2016-01-19 17:52:07,921: 	 Please use 'crab status' to check how the submission process proceeds.
+DEBUG 2016-01-19 17:52:07,921: 	 About to return
+INFO 2016-01-19 17:52:07,931: 	 Log file is /gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015/crab.log

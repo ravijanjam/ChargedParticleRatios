@@ -167,3 +167,51 @@ Traceback (most recent call last):
   File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 445, in loadCache
     raise CachefileNotFoundException(msg)
 CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects
+DEBUG 2016-01-19 17:50:25,786: 	 Executing command: 'submit'
+DEBUG 2016-01-19 17:50:25,787: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-19 17:50:25,801: 	 Checking credentials
+DEBUG 2016-01-19 17:50:25,801: 	 Proxy file /tmp/x509up_u171357 not found
+DEBUG 2016-01-19 17:50:25,802: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2016-01-19 17:50:31,315: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2016-01-19 17:50:31,419: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-19 17:50:31,523: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-19 17:50:31,626: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u171357 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-19 17:50:31,627: 	 Proxy created.
+INFO 2016-01-19 17:50:31,627: 	 Will use CRAB configuration file crab3Config_pPb_v3.py
+DEBUG 2016-01-19 17:50:31,627: 	 Loading CRAB configuration file.
+DEBUG 2016-01-19 17:50:34,565: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2016-01-19 17:50:34,566: 	 Working area '/gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015' already exists 
+Please change the requestName in the config file
+ERROR 2016-01-19 17:50:34,566: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 32, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 299, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 393, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/gpfs22/home/janjamrk/CMSSW_5_3_26/src/RpPb/RpPb/test/pPbConfigs/pPb_crab_projects/crab_pPbAnalysis_HI2015' already exists 
+Please change the requestName in the config file

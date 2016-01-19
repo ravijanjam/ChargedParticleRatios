@@ -234,7 +234,7 @@ sg21
 g14
 ((ltRp88
 sg83
-S'pPbAnalysis_v4_cfg.py'
+S'pPbAnalysis_cfg.py'
 p89
 sg24
 NsbsbsS'voGroup'
@@ -250,7 +250,7 @@ S'prod'
 p94
 sS'RequestName'
 p95
-S'160118_171950:rjanjam_crab_pPbAnalysis_HI2015'
+S'160119_235206:rjanjam_crab_pPbAnalysis_HI2015'
 p96
 sS'voRole'
 p97
