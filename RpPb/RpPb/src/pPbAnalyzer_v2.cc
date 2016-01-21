@@ -39,13 +39,14 @@ using namespace std;
 using namespace edm;
 using namespace reco;
 
-class pPbAnalyzer_v1 : public edm::EDAnalyzer {
+class pPbAnalyzer_v2 : public edm::EDAnalyzer {
    public:
-      explicit pPbAnalyzer_v1(const edm::ParameterSet&);
-      ~pPbAnalyzer_v1();
+      explicit pPbAnalyzer_v2(const edm::ParameterSet&);
+      ~pPbAnalyzer_v2();
 
        static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
        static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );                   void initHistos(const edm::Service<TFileService> & fs);
+       bool passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex);
 
 
    private:
@@ -86,6 +87,7 @@ class pPbAnalyzer_v1 : public edm::EDAnalyzer {
 	double dxy, dz, dxysigma, dzsigma;
 	double nTracksWithQualityCut,  nTracksWithoutQualityCut; 
 	double trackPt, trackEta;
+	bool setPtLimits;
 
 };
 
@@ -100,7 +102,7 @@ class pPbAnalyzer_v1 : public edm::EDAnalyzer {
 //
 // constructors and destructor
 //
-pPbAnalyzer_v1::pPbAnalyzer_v1(const edm::ParameterSet& iConfig)
+pPbAnalyzer_v2::pPbAnalyzer_v2(const edm::ParameterSet& iConfig)
 :trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
@@ -118,7 +120,7 @@ applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 }
 
 
-pPbAnalyzer_v1::~pPbAnalyzer_v1()
+pPbAnalyzer_v2::~pPbAnalyzer_v2()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -133,10 +135,57 @@ pPbAnalyzer_v1::~pPbAnalyzer_v1()
 
 // ------------ method called for each event  ------------
 void
-pPbAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+pPbAnalyzer_v2::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
    using namespace edm;
 
+   Handle<reco::TrackCollection> tcol;
+   iEvent.getByLabel(trackSrc_, tcol);
+
+   reco::TrackCollection::const_iterator track;
+   double multiplicityPerEvent = tcol->size();
+   cout << "eta, pt, charge" << endl;
+
+   // Apply Track Quality cuts 
+   // Populate the histograms for pt, eta based on charge
+   // trackQuality_ = 2 for "highPurity"
+   cout << "Track Quality String: " << trackQuality_ << endl;
+   nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
+   if (trackQuality_ == 2){
+   for(  track = tcol->begin(); track != tcol->end() ; ++track )
+   { 
+ 	trackCharge = track->charge();	
+	/*  
+	cout << "Track charge : " << trackCharge << "\t" 
+	     << "Track pT : " << track->pt()
+	     << endl;
+	 */
+	trackPt = track->pt();
+	trackEta = track->eta();
+
+	// Setting limits for high pT tracks
+	setPtLimits = trackPt > 10 && trackPt < 200;
+
+	if ( trackCharge == 1 ) {
+		htrackPosPt->Fill(trackPt);
+		htrackPosEta->Fill(trackEta);
+	} else if ( trackCharge == -1 ){
+		htrackNegPt->Fill(trackPt);
+		htrackNegEta->Fill(trackEta);
+	}
+	nTracksWithQualityCut++;
+   }
+	cout << endl;
+  }else { 
+	  
+	  nTracksWithoutQualityCut = multiplicityPerEvent - nTracksWithQualityCut ; 
+  }
+
+   cout << "================================================================" << endl;
+   cout << "Multiplicity per Events: " << multiplicityPerEvent << endl;
+   cout << "Tracks WITH Track Quality cut " << nTracksWithQualityCut << endl;
+   cout << "Tracks WITHOUT CHOSEN Track Quality cut " << nTracksWithoutQualityCut << endl;
+   cout << "================================================================" << endl;
 
 
 #ifdef THIS_IS_AN_EVENT_EXAMPLE
@@ -150,48 +199,71 @@ pPbAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 #endif
 }
 
-void pPbAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs){
+void pPbAnalyzer_v2::initHistos(const edm::Service<TFileService> & fs)
+{
+
+	// Vertex performance histograms
+	hvtxPerfX = fs->make<TH1F>("hvtxX","Vertex x position",1000,-1,1);
+	hvtxPerfY = fs->make<TH1F>("hvtxY","Vertex x position",1000,-1,1);
+	hvtxPerfZ = fs->make<TH1F>("hvtxZ","Vertex x position",1000,-1,1);
+
+	// Track histograms
+	htrackPosPt = fs->make<TH1F>("htrackPosPt","Pt of positively charged tracks",1000,-5,200);
+	htrackPosEta = fs->make<TH1F>("htrackPosEta","Eta of positively charged tracks",1000,-5,200);
+
+	htrackNegPt = fs->make<TH1F>("htrackNegPt","Pt of positively charged tracks",1000,-5,200);
+	htrackNegEta = fs->make<TH1F>("htrackNegEta","Eta of positively charged tracks",1000,-5,200);
+
+	// For all tracks
+	htrackEta = fs->make<TH1F>("htrackEta","Eta of all charged tracks",1000,-5,10);
+	htrackpT = fs->make<TH1F>("htrackpT","pT of all charged tracks",100, 0, 200);
+
+	// Number of tracks per event
+	htracksPerEvent = fs->make<TH1F>("htracksPerEvent","Tracks per event",100,0,400);
+	hprimaryVerticesPerEvent = fs->make<TH1F>("hprimaryVerticesPerEvent","Primary vertices per event",10,0,10);
+
 }
+
 
 // ------------ method called once each job just before starting event loop  ------------
 void 
-pPbAnalyzer_v1::beginJob()
+pPbAnalyzer_v2::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-pPbAnalyzer_v1::endJob() 
+pPbAnalyzer_v2::endJob() 
 {
 }
 
 // ------------ method called when starting to processes a run  ------------
 void 
-pPbAnalyzer_v1::beginRun(edm::Run const&, edm::EventSetup const&)
+pPbAnalyzer_v2::beginRun(edm::Run const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when ending the processing of a run  ------------
 void 
-pPbAnalyzer_v1::endRun(edm::Run const&, edm::EventSetup const&)
+pPbAnalyzer_v2::endRun(edm::Run const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when starting to processes a luminosity block  ------------
 void 
-pPbAnalyzer_v1::beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
+pPbAnalyzer_v2::beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when ending the processing of a luminosity block  ------------
 void 
-pPbAnalyzer_v1::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
+pPbAnalyzer_v2::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-pPbAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+pPbAnalyzer_v2::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -200,4 +272,4 @@ pPbAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(pPbAnalyzer_v1);
+DEFINE_FWK_MODULE(pPbAnalyzer_v2);

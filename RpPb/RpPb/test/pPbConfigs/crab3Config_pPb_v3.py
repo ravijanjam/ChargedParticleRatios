@@ -1,7 +1,21 @@
 from CRABClient.UserUtilities import config, getUsernameFromSiteDB
+
+
+''' timeStamp the outputfile from cmsRun '''
+
+from datetime import date
+
+now = date.today()
+timeLabel = '-' + str(now.month) + "-" + str(now.day) + "-" + str(now.year)
+
+timeStampedFolderName = "pPbAnalyzer" + timeLabel 
+
+
+''' ==================================== '''
+
 config = config()
 
-config.General.requestName = 'pPbAnalysis_HI2015'
+config.General.requestName = timeStampedFolderName 
 config.General.workArea = 'pPb_crab_projects'
 config.General.transferOutputs = True
 config.General.transferLogs = False

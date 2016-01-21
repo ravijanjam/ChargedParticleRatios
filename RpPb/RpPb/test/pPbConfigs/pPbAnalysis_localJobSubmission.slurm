@@ -14,4 +14,4 @@ source $VO_CMS_SW_DIR/cmsset_default.sh
 eval `scramv1 runtime -sh`
 
 #./analyzerFromCommandLine.sh
-cmsRun pPbAnalysis_v4_cfg.py maxNumEvents=100000
+cmsRun pPbAnalysis_cfg.py maxNumEvents=-1

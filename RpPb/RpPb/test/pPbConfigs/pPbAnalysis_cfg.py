@@ -2,6 +2,18 @@ import FWCore.ParameterSet.Config as cms
 import FWCore.Utilities.FileUtils as FileUtils
 from FWCore.ParameterSet.VarParsing import VarParsing
 
+''' timeStamp the outputfile from cmsRun '''
+
+from datetime import date
+
+now = date.today()
+timeLabel = '-' + str(now.month) + "-" + str(now.day) + "-" + str(now.year)
+
+timeStampedFileName = "pPbAnalyzer" + timeLabel + ".root"
+
+
+''' ==================================== '''
+
 ''' Declare VarParsing options to be used from commandline '''
 options = VarParsing('analysis')
 
@@ -39,7 +51,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxN
 
 ''' Output histograms go here '''
 process.TFileService = cms.Service("TFileService", 
-	fileName = cms.string("pPbPAHighPt_HIRun2015_28Sept2013_v1.root") 
+	fileName = cms.string(timeStampedFileName) 
 	)
 
 ''' Files to run in this config file '''
@@ -65,7 +77,7 @@ process.options = cms.untracked.PSet(
 )
 
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('pPbAnalyzer_v1',
+process.demo = cms.EDAnalyzer('pPbAnalyzer_v2',
 #	trackSrc = cms.InputTag("generalTracks"),
 	trackSrc = cms.InputTag("generalTracks"),
 #	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),
