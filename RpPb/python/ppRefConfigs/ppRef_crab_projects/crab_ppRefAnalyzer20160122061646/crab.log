@@ -1,0 +1,847 @@
+# Conditions read from  CMS_CONDITIONS  via FrontierProd 
+DEBUG 2016-01-22 06:16:46,512: 	 Executing command: 'submit'
+DEBUG 2016-01-22 06:16:46,513: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:16:46,531: 	 Checking credentials
+DEBUG 2016-01-22 06:16:46,531: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:16:46,531: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:16:46,636: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 84056
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:16:46,740: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 84056
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:16:46,740: 	 Proxy valid for 23:20:56 hours
+INFO 2016-01-22 06:16:46,741: 	 Will use CRAB configuration file crab3Config_ppRef_v3.py
+DEBUG 2016-01-22 06:16:46,741: 	 Loading CRAB configuration file.
+DEBUG 2016-01-22 06:16:49,577: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2016-01-22 06:16:49,696: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:16:49,696: 	 Checking credentials
+DEBUG 2016-01-22 06:16:49,696: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:16:49,696: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:16:49,800: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 84053
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:16:49,904: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 84053
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:16:49,905: 	 Proxy valid for 23:20:53 hours
+DEBUG 2016-01-22 06:16:50,009: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u171357 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:16:51,724: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 06:16:51,838: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:16:51,838: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 06:16:51,838: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 06:16:53,345: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 559:29:57  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:16:53,347: 	 Myproxy is valid: 2014197
+DEBUG 2016-01-22 06:16:53,347: 	 Command use: submit
+DEBUG 2016-01-22 06:16:53,347: 	 Options use: ['crab3Config_ppRef_v3.py']
+DEBUG 2016-01-22 06:16:54,808: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 06:16:54,808: 	 Instance is prod
+DEBUG 2016-01-22 06:16:54,808: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 06:16:54,808: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 06:16:54,808: 	 Started submission
+DEBUG 2016-01-22 06:16:54,808: 	 Working on /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 06:16:56,372: 	 Loading required information from the environment
+DEBUG 2016-01-22 06:16:56,372: 	 Found CMSSW_7_5_8 for slc6_amd64_gcc491 with base /gpfs22/home/janjamrk/CMSSW_7_5_8
+DEBUG 2016-01-22 06:16:56,403: 	 UNIQUE NAME: tarUUID 051893a4-971a-4edf-9628-2d5661454b7a 
+DEBUG 2016-01-22 06:16:56,404: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.transferOutputs = True
+config.General.workArea = 'ppRef_crab_projects'
+config.General.requestName = 'ppRefAnalyzer20160122061646'
+config.section_('JobType')
+config.JobType.psetName = 'ppRef_v3_cfg.py'
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.inputDataset = '/MinimumBias10/Run2015E-PromptReco-v1/AOD'
+config.Data.outputDatasetTag = 'ppRef_Spectra'
+config.Data.publication = True
+config.Data.unitsPerJob = 20
+config.Data.splitting = 'LumiBased'
+config.Data.inputDBS = 'global'
+config.Data.lumiMask = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions15/5TeV/Cert_262168-262172_5TeV_PromptReco_Collisions15_25ns_LOWPU_JSON.txt'
+config.Data.outLFNDirBase = '/store/user/rjanjam/'
+config.Data.runRange = '262168-262172'
+config.section_('Site')
+config.Site.storageSite = 'T2_US_Vanderbilt'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2016-01-22 06:16:56,404: 	 self.config.JobType.psetName: ppRef_v3_cfg.py
+INFO 2016-01-22 06:16:56,404: 	 Importing CMSSW configuration ppRef_v3_cfg.py
+INFO 2016-01-22 06:16:56,731: 	 Finished importing CMSSW configuration ppRef_v3_cfg.py
+DEBUG 2016-01-22 06:16:56,731: 	 Writing CMSSW configuration to /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/inputs/PSet.py
+DEBUG 2016-01-22 06:16:56,947: 	 The following EDM output files will be collected: []
+DEBUG 2016-01-22 06:16:56,947: 	 The following TFile output files will be collected: ['ppRefMinBias1.root']
+DEBUG 2016-01-22 06:16:56,947: 	 The following user output files will be collected: []
+DEBUG 2016-01-22 06:16:56,948: 	 Loading required information from the environment
+DEBUG 2016-01-22 06:16:56,948: 	 Found CMSSW_7_5_8 for slc6_amd64_gcc491 with base /gpfs22/home/janjamrk/CMSSW_7_5_8
+DEBUG 2016-01-22 06:16:56,948: 	 Making tarball in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/inputs/051893a4-971a-4edf-9628-2d5661454b7adefault.tgz
+DEBUG 2016-01-22 06:16:56,949: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_7_5_8/lib
+DEBUG 2016-01-22 06:16:56,949: 	 Adding directory /gpfs22/home/janjamrk/CMSSW_7_5_8/lib to tarball
+DEBUG 2016-01-22 06:16:57,079: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_7_5_8/biglib
+DEBUG 2016-01-22 06:16:57,079: 	 Adding directory /gpfs22/home/janjamrk/CMSSW_7_5_8/biglib to tarball
+DEBUG 2016-01-22 06:16:57,084: 	 Checking directory /gpfs22/home/janjamrk/CMSSW_7_5_8/module
+DEBUG 2016-01-22 06:16:57,145: 	 Uploading archive /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/inputs/051893a4-971a-4edf-9628-2d5661454b7adefault.tgz to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2016-01-22 06:16:59,296: 	 Result uploading input files: 4374bab89f81081d5f8ce7138cf9e8c0b5227d5ec26a7590f3c9f3f79ef83267.tar.gz 
+DEBUG 2016-01-22 06:16:59,297: 	 Attaching lumi mask https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions15/5TeV/Cert_262168-262172_5TeV_PromptReco_Collisions15_25ns_LOWPU_JSON.txt to the request
+DEBUG 2016-01-22 06:16:59,297: 	 Downloading lumi-mask from https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions15/5TeV/Cert_262168-262172_5TeV_PromptReco_Collisions15_25ns_LOWPU_JSON.txt
+WARNING 2016-01-22 06:17:00,472: 	 Warning: The following output files will not be published, as they are not EDM files: ['ppRefMinBias1.root']
+INFO 2016-01-22 06:17:00,472: 	 Sending the request to the server
+DEBUG 2016-01-22 06:17:00,472: 	 Submitting {'maxjobruntime': 1250, 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_US_Vanderbilt', 'algoargs': 20, 'cachefilename': '4374bab89f81081d5f8ce7138cf9e8c0b5227d5ec26a7590f3c9f3f79ef83267.tar.gz', 'numcores': 1, 'addoutputfiles': [], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_7_5_8', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/MinimumBias10/Run2015E-PromptReco-v1/AOD', 'lfn': '/store/user/rjanjam/', 'dryrun': 0, 'workflow': 'crab_ppRefAnalyzer20160122061646', 'adduserfiles': [], 'jobarch': 'slc6_amd64_gcc491', 'lumis': ['13,40,42,50', '1,28,30,56,61,61', '1,164', '1,164'], 'nonprodsw': 0, 'tfileoutfiles': ['ppRefMinBias1.root'], 'oneEventMode': 0, 'cacheurl': 'https://cmsweb.cern.ch/crabcache', 'saveoutput': 1, 'publication': 1, 'runs': [u'262169', u'262170', u'262171', u'262172'], 'totalunits': 0, 'splitalgo': 'LumiBased', 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': 'ppRef_Spectra'} 
+DEBUG 2016-01-22 06:17:00,473: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_US_Vanderbilt&algoargs=20&cachefilename=4374bab89f81081d5f8ce7138cf9e8c0b5227d5ec26a7590f3c9f3f79ef83267.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_7_5_8&primarydataset=&inputdata=%2FMinimumBias10%2FRun2015E-PromptReco-v1%2FAOD&lfn=%2Fstore%2Fuser%2Frjanjam%2F&dryrun=0&workflow=crab_ppRefAnalyzer20160122061646&jobarch=slc6_amd64_gcc491&nonprodsw=0&oneEventMode=0&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&saveoutput=1&publication=1&totalunits=0&splitalgo=LumiBased&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=ppRef_Spectra&tfileoutfiles=ppRefMinBias1.root&runs=262169&runs=262170&runs=262171&runs=262172&lumis=13%2C40%2C42%2C50&lumis=1%2C28%2C30%2C56%2C61%2C61&lumis=1%2C164&lumis=1%2C164
+DEBUG 2016-01-22 06:17:02,444: 	 Result: {'result': [{'RequestName': '160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646'}]}
+INFO 2016-01-22 06:17:02,446: 	 Success: Your task has been delivered to the CRAB3 server.
+INFO 2016-01-22 06:17:02,447: 	 Task name: 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:17:02,447: 	 Please use 'crab status' to check how the submission process proceeds.
+DEBUG 2016-01-22 06:17:02,447: 	 About to return
+INFO 2016-01-22 06:17:02,455: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 06:19:06,191: 	 Executing command: 'status'
+DEBUG 2016-01-22 06:19:06,192: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:19:06,208: 	 Checking credentials
+DEBUG 2016-01-22 06:19:06,214: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:19:06,214: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:19:06,318: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 83916
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:19:06,422: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 83916
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:19:06,422: 	 Proxy valid for 23:18:36 hours
+DEBUG 2016-01-22 06:19:06,542: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:19:06,542: 	 Checking credentials
+DEBUG 2016-01-22 06:19:06,542: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:19:06,542: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:19:06,646: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 83916
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:19:06,750: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 83916
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:19:06,751: 	 Proxy valid for 23:18:36 hours
+DEBUG 2016-01-22 06:19:08,167: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 06:19:08,283: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:19:08,283: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 06:19:08,283: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 06:19:09,890: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 559:27:41  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:19:09,892: 	 Myproxy is valid: 2014061
+DEBUG 2016-01-22 06:19:09,892: 	 Command use: status
+DEBUG 2016-01-22 06:19:09,892: 	 Options use: []
+DEBUG 2016-01-22 06:19:11,326: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 06:19:11,326: 	 Instance is prod
+DEBUG 2016-01-22 06:19:11,326: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 06:19:11,326: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 06:19:11,326: 	 Looking up detailed status of task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 06:19:16,776: 	 {'status': 'SUBMITTED', 'schedd': 'crab3-3@submit-4.t2.ucsd.edu', 'jobsPerStatus': {'idle': 21}, 'jobs': {'11': {'State': 'idle'}, '10': {'State': 'idle'}, '13': {'State': 'idle'}, '12': {'State': 'idle'}, '20': {'State': 'idle'}, '21': {'State': 'idle'}, '17': {'State': 'idle'}, '16': {'State': 'idle'}, '19': {'State': 'idle'}, '18': {'State': 'idle'}, '15': {'State': 'idle'}, '1': {'State': 'idle'}, '3': {'State': 'idle'}, '2': {'State': 'idle'}, '5': {'State': 'idle'}, '4': {'State': 'idle'}, '7': {'State': 'idle'}, '6': {'State': 'idle'}, '9': {'State': 'idle'}, '8': {'State': 'idle'}, '14': {'State': 'idle'}}, 'publication': {}, 'taskWarningMsg': [], 'publicationFailures': {}, 'outdatasets': None, 'statusFailureMsg': '', 'taskFailureMsg': '', 'failedJobdefs': 0, 'ASOURL': 'https://cmsweb.cern.ch/couchdb', 'totalJobdefs': 0, 'jobdefErrors': [], 'collector': 'cmssrv221.fnal.gov,vocms099.cern.ch', 'jobList': [['idle', 20], ['idle', 21], ['idle', 1], ['idle', 3], ['idle', 2], ['idle', 5], ['idle', 4], ['idle', 7], ['idle', 6], ['idle', 9], ['idle', 8], ['idle', 11], ['idle', 10], ['idle', 13], ['idle', 12], ['idle', 15], ['idle', 14], ['idle', 17], ['idle', 16], ['idle', 19], ['idle', 18]]}
+INFO 2016-01-22 06:19:16,776: 	 CRAB project directory:		/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:19:16,776: 	 Task name:			160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:19:16,776: 	 Grid scheduler:			crab3-3@submit-4.t2.ucsd.edu
+INFO 2016-01-22 06:19:16,776: 	 Task status:			SUBMITTED
+INFO 2016-01-22 06:19:16,776: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=crab&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=160122_121701%3Arjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:19:16,777: 	 
+Jobs status:			idle          100.0% (21/21)
+INFO 2016-01-22 06:19:16,777: 	 
+No publication information available yet
+INFO 2016-01-22 06:19:16,784: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 06:26:33,701: 	 Executing command: 'status'
+DEBUG 2016-01-22 06:26:33,705: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:26:33,839: 	 Checking credentials
+DEBUG 2016-01-22 06:26:33,840: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:26:33,841: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:26:34,345: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 83468
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:26:34,851: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 83468
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:26:34,851: 	 Proxy valid for 23:11:08 hours
+DEBUG 2016-01-22 06:26:35,383: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:26:35,384: 	 Checking credentials
+DEBUG 2016-01-22 06:26:35,384: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:26:35,384: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:26:35,889: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 83467
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:26:36,394: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 83466
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:26:36,394: 	 Proxy valid for 23:11:07 hours
+DEBUG 2016-01-22 06:26:37,936: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 06:26:38,463: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:26:38,464: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 06:26:38,464: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 06:26:40,471: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 559:20:10  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:26:40,473: 	 Myproxy is valid: 2013610
+DEBUG 2016-01-22 06:26:40,473: 	 Command use: status
+DEBUG 2016-01-22 06:26:40,473: 	 Options use: []
+DEBUG 2016-01-22 06:26:43,078: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 06:26:43,078: 	 Instance is prod
+DEBUG 2016-01-22 06:26:43,078: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 06:26:43,078: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 06:26:43,078: 	 Looking up detailed status of task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 06:26:48,318: 	 {'status': 'SUBMITTED', 'schedd': 'crab3-3@submit-4.t2.ucsd.edu', 'jobsPerStatus': {'idle': 21}, 'jobs': {'11': {'State': 'idle'}, '10': {'State': 'idle'}, '13': {'State': 'idle'}, '12': {'State': 'idle'}, '20': {'State': 'idle'}, '21': {'State': 'idle'}, '17': {'State': 'idle'}, '16': {'State': 'idle'}, '19': {'State': 'idle'}, '18': {'State': 'idle'}, '15': {'State': 'idle'}, '1': {'State': 'idle'}, '3': {'State': 'idle'}, '2': {'State': 'idle'}, '5': {'State': 'idle'}, '4': {'State': 'idle'}, '7': {'State': 'idle'}, '6': {'State': 'idle'}, '9': {'State': 'idle'}, '8': {'State': 'idle'}, '14': {'State': 'idle'}}, 'publication': {}, 'taskWarningMsg': [], 'publicationFailures': {}, 'outdatasets': None, 'statusFailureMsg': '', 'taskFailureMsg': '', 'failedJobdefs': 0, 'ASOURL': 'https://cmsweb.cern.ch/couchdb', 'totalJobdefs': 0, 'jobdefErrors': [], 'collector': 'cmssrv221.fnal.gov,vocms099.cern.ch', 'jobList': [['idle', 20], ['idle', 21], ['idle', 1], ['idle', 3], ['idle', 2], ['idle', 5], ['idle', 4], ['idle', 7], ['idle', 6], ['idle', 9], ['idle', 8], ['idle', 11], ['idle', 10], ['idle', 13], ['idle', 12], ['idle', 15], ['idle', 14], ['idle', 17], ['idle', 16], ['idle', 19], ['idle', 18]]}
+INFO 2016-01-22 06:26:48,318: 	 CRAB project directory:		/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:26:48,318: 	 Task name:			160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:26:48,318: 	 Grid scheduler:			crab3-3@submit-4.t2.ucsd.edu
+INFO 2016-01-22 06:26:48,318: 	 Task status:			SUBMITTED
+INFO 2016-01-22 06:26:48,318: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=crab&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=160122_121701%3Arjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:26:48,319: 	 
+Jobs status:			idle          100.0% (21/21)
+INFO 2016-01-22 06:26:48,319: 	 
+No publication information available yet
+INFO 2016-01-22 06:26:48,327: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 06:42:39,663: 	 Executing command: 'status'
+DEBUG 2016-01-22 06:42:39,664: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:42:39,682: 	 Checking credentials
+DEBUG 2016-01-22 06:42:39,687: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:42:39,687: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:42:39,791: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 82503
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:42:39,895: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 82503
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:42:39,895: 	 Proxy valid for 22:55:03 hours
+DEBUG 2016-01-22 06:42:40,014: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:42:40,015: 	 Checking credentials
+DEBUG 2016-01-22 06:42:40,015: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:42:40,015: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:42:40,119: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 82502
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:42:40,223: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 82502
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:42:40,223: 	 Proxy valid for 22:55:02 hours
+DEBUG 2016-01-22 06:42:41,656: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 06:42:41,768: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:42:41,768: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 06:42:41,769: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 06:42:43,175: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 559:04:07  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:42:43,177: 	 Myproxy is valid: 2012647
+DEBUG 2016-01-22 06:42:43,177: 	 Command use: status
+DEBUG 2016-01-22 06:42:43,177: 	 Options use: []
+DEBUG 2016-01-22 06:42:44,610: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 06:42:44,611: 	 Instance is prod
+DEBUG 2016-01-22 06:42:44,611: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 06:42:44,611: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 06:42:44,611: 	 Looking up detailed status of task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 06:42:57,041: 	 {'status': 'SUBMITTED', 'schedd': 'crab3-3@submit-4.t2.ucsd.edu', 'jobsPerStatus': {'running': 21}, 'jobs': {'11': {'State': 'running'}, '10': {'State': 'running'}, '13': {'State': 'running'}, '12': {'State': 'running'}, '20': {'State': 'running'}, '21': {'State': 'running'}, '17': {'State': 'running'}, '16': {'State': 'running'}, '19': {'State': 'running'}, '18': {'State': 'running'}, '15': {'State': 'running'}, '1': {'State': 'running'}, '3': {'State': 'running'}, '2': {'State': 'running'}, '5': {'State': 'running'}, '4': {'State': 'running'}, '7': {'State': 'running'}, '6': {'State': 'running'}, '9': {'State': 'running'}, '8': {'State': 'running'}, '14': {'State': 'running'}}, 'publication': {}, 'taskWarningMsg': [], 'publicationFailures': {}, 'outdatasets': None, 'statusFailureMsg': '', 'taskFailureMsg': '', 'failedJobdefs': 0, 'ASOURL': 'https://cmsweb.cern.ch/couchdb', 'totalJobdefs': 0, 'jobdefErrors': [], 'collector': 'cmssrv221.fnal.gov,vocms099.cern.ch', 'jobList': [['running', 20], ['running', 21], ['running', 1], ['running', 3], ['running', 2], ['running', 5], ['running', 4], ['running', 7], ['running', 6], ['running', 9], ['running', 8], ['running', 11], ['running', 10], ['running', 13], ['running', 12], ['running', 15], ['running', 14], ['running', 17], ['running', 16], ['running', 19], ['running', 18]]}
+INFO 2016-01-22 06:42:57,041: 	 CRAB project directory:		/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:42:57,041: 	 Task name:			160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:42:57,042: 	 Grid scheduler:			crab3-3@submit-4.t2.ucsd.edu
+INFO 2016-01-22 06:42:57,042: 	 Task status:			SUBMITTED
+INFO 2016-01-22 06:42:57,042: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=crab&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=160122_121701%3Arjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:42:57,042: 	 
+Jobs status:			running       100.0% (21/21)
+INFO 2016-01-22 06:42:57,043: 	 
+No publication information available yet
+INFO 2016-01-22 06:42:57,049: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 06:58:38,727: 	 Executing command: 'status'
+DEBUG 2016-01-22 06:58:38,728: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:58:38,749: 	 Checking credentials
+DEBUG 2016-01-22 06:58:38,752: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:58:38,752: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:58:38,857: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 81544
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:58:38,961: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 81544
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:58:38,961: 	 Proxy valid for 22:39:04 hours
+DEBUG 2016-01-22 06:58:39,082: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:58:39,082: 	 Checking credentials
+DEBUG 2016-01-22 06:58:39,082: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:58:39,083: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:58:39,187: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 81543
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:58:39,291: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 81543
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:58:39,291: 	 Proxy valid for 22:39:03 hours
+DEBUG 2016-01-22 06:58:41,052: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 06:58:41,164: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 06:58:41,164: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 06:58:41,164: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 06:58:42,671: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 558:48:08  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:58:42,673: 	 Myproxy is valid: 2011688
+DEBUG 2016-01-22 06:58:42,673: 	 Command use: status
+DEBUG 2016-01-22 06:58:42,673: 	 Options use: []
+DEBUG 2016-01-22 06:58:44,384: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 06:58:44,384: 	 Instance is prod
+DEBUG 2016-01-22 06:58:44,384: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 06:58:44,385: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 06:58:44,385: 	 Looking up detailed status of task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 06:58:50,230: 	 {'status': 'SUBMITTED', 'schedd': 'crab3-3@submit-4.t2.ucsd.edu', 'jobsPerStatus': {'finished': 9, 'transferring': 12}, 'jobs': {'11': {'State': 'finished'}, '10': {'State': 'finished'}, '13': {'State': 'transferring'}, '12': {'State': 'finished'}, '20': {'State': 'transferring'}, '21': {'State': 'transferring'}, '17': {'State': 'finished'}, '16': {'State': 'finished'}, '19': {'State': 'transferring'}, '18': {'State': 'finished'}, '15': {'State': 'transferring'}, '1': {'State': 'transferring'}, '3': {'State': 'transferring'}, '2': {'State': 'transferring'}, '5': {'State': 'transferring'}, '4': {'State': 'transferring'}, '7': {'State': 'finished'}, '6': {'State': 'finished'}, '9': {'State': 'transferring'}, '8': {'State': 'transferring'}, '14': {'State': 'finished'}}, 'publication': {}, 'taskWarningMsg': [], 'publicationFailures': {}, 'outdatasets': None, 'statusFailureMsg': '', 'taskFailureMsg': '', 'failedJobdefs': 0, 'ASOURL': 'https://cmsweb.cern.ch/couchdb', 'totalJobdefs': 0, 'jobdefErrors': [], 'collector': 'cmssrv221.fnal.gov,vocms099.cern.ch', 'jobList': [['transferring', 20], ['transferring', 21], ['transferring', 1], ['transferring', 3], ['transferring', 2], ['transferring', 5], ['transferring', 4], ['finished', 7], ['finished', 6], ['transferring', 9], ['transferring', 8], ['finished', 11], ['finished', 10], ['transferring', 13], ['finished', 12], ['transferring', 15], ['finished', 14], ['finished', 17], ['finished', 16], ['transferring', 19], ['finished', 18]]}
+INFO 2016-01-22 06:58:50,230: 	 CRAB project directory:		/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:58:50,230: 	 Task name:			160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:58:50,230: 	 Grid scheduler:			crab3-3@submit-4.t2.ucsd.edu
+INFO 2016-01-22 06:58:50,231: 	 Task status:			SUBMITTED
+INFO 2016-01-22 06:58:50,231: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=crab&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=160122_121701%3Arjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 06:58:50,231: 	 
+Jobs status:			finished       42.9% ( 9/21)
+INFO 2016-01-22 06:58:50,231: 	 				transferring   57.1% (12/21)
+INFO 2016-01-22 06:58:50,231: 	 
+No publication information available yet
+INFO 2016-01-22 06:58:50,238: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 07:19:40,261: 	 Executing command: 'status'
+DEBUG 2016-01-22 07:19:40,262: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 07:19:40,285: 	 Checking credentials
+DEBUG 2016-01-22 07:19:40,289: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 07:19:40,289: 	 Getting proxy life time left
+DEBUG 2016-01-22 07:19:40,393: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 80282
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:19:40,498: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 80282
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:19:40,498: 	 Proxy valid for 22:18:02 hours
+DEBUG 2016-01-22 07:19:40,620: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 07:19:40,621: 	 Checking credentials
+DEBUG 2016-01-22 07:19:40,621: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 07:19:40,621: 	 Getting proxy life time left
+DEBUG 2016-01-22 07:19:40,725: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 80282
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:19:40,829: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 80282
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:19:40,830: 	 Proxy valid for 22:18:02 hours
+DEBUG 2016-01-22 07:19:42,289: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 07:19:42,402: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 07:19:42,402: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 07:19:42,403: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 07:19:43,909: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 558:27:07  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:19:43,911: 	 Myproxy is valid: 2010427
+DEBUG 2016-01-22 07:19:43,911: 	 Command use: status
+DEBUG 2016-01-22 07:19:43,912: 	 Options use: []
+DEBUG 2016-01-22 07:19:45,592: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 07:19:45,592: 	 Instance is prod
+DEBUG 2016-01-22 07:19:45,592: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 07:19:45,592: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 07:19:45,592: 	 Looking up detailed status of task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 07:19:51,107: 	 {'status': 'SUBMITTED', 'schedd': 'crab3-3@submit-4.t2.ucsd.edu', 'jobsPerStatus': {'finished': 9, 'transferring': 12}, 'jobs': {'11': {'State': 'finished'}, '10': {'State': 'finished'}, '13': {'State': 'transferring'}, '12': {'State': 'finished'}, '20': {'State': 'transferring'}, '21': {'State': 'transferring'}, '17': {'State': 'finished'}, '16': {'State': 'finished'}, '19': {'State': 'transferring'}, '18': {'State': 'finished'}, '15': {'State': 'transferring'}, '1': {'State': 'transferring'}, '3': {'State': 'transferring'}, '2': {'State': 'transferring'}, '5': {'State': 'transferring'}, '4': {'State': 'transferring'}, '7': {'State': 'finished'}, '6': {'State': 'finished'}, '9': {'State': 'transferring'}, '8': {'State': 'transferring'}, '14': {'State': 'finished'}}, 'publication': {}, 'taskWarningMsg': [], 'publicationFailures': {}, 'outdatasets': None, 'statusFailureMsg': '', 'taskFailureMsg': '', 'failedJobdefs': 0, 'ASOURL': 'https://cmsweb.cern.ch/couchdb', 'totalJobdefs': 0, 'jobdefErrors': [], 'collector': 'cmssrv221.fnal.gov,vocms099.cern.ch', 'jobList': [['transferring', 20], ['transferring', 21], ['transferring', 1], ['transferring', 3], ['transferring', 2], ['transferring', 5], ['transferring', 4], ['finished', 7], ['finished', 6], ['transferring', 9], ['transferring', 8], ['finished', 11], ['finished', 10], ['transferring', 13], ['finished', 12], ['transferring', 15], ['finished', 14], ['finished', 17], ['finished', 16], ['transferring', 19], ['finished', 18]]}
+INFO 2016-01-22 07:19:51,107: 	 CRAB project directory:		/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 07:19:51,107: 	 Task name:			160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 07:19:51,107: 	 Grid scheduler:			crab3-3@submit-4.t2.ucsd.edu
+INFO 2016-01-22 07:19:51,107: 	 Task status:			SUBMITTED
+INFO 2016-01-22 07:19:51,108: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=crab&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=160122_121701%3Arjanjam_crab_ppRefAnalyzer20160122061646
+INFO 2016-01-22 07:19:51,108: 	 
+Jobs status:			finished       42.9% ( 9/21)
+INFO 2016-01-22 07:19:51,108: 	 				transferring   57.1% (12/21)
+INFO 2016-01-22 07:19:51,108: 	 
+No publication information available yet
+INFO 2016-01-22 07:19:51,116: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 07:33:18,111: 	 Executing command: 'getoutput'
+DEBUG 2016-01-22 07:33:18,112: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 07:33:18,133: 	 Checking credentials
+DEBUG 2016-01-22 07:33:18,137: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 07:33:18,137: 	 Getting proxy life time left
+DEBUG 2016-01-22 07:33:18,241: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 79464
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:33:18,345: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 79464
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:33:18,346: 	 Proxy valid for 22:04:24 hours
+DEBUG 2016-01-22 07:33:18,347: 	 Using VO group '' and VO role 'NULL' as written in the request cache file for this task.
+DEBUG 2016-01-22 07:33:18,466: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 07:33:18,466: 	 Checking credentials
+DEBUG 2016-01-22 07:33:18,466: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 07:33:18,466: 	 Getting proxy life time left
+DEBUG 2016-01-22 07:33:18,570: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 79464
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:33:18,674: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 79464
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:33:18,675: 	 Proxy valid for 22:04:24 hours
+DEBUG 2016-01-22 07:33:18,779: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u171357 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:33:20,547: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 07:33:20,660: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 07:33:20,660: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 07:33:20,660: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 07:33:22,167: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 558:13:28  (23.3 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 07:33:22,169: 	 Myproxy is valid: 2009608
+DEBUG 2016-01-22 07:33:22,169: 	 Command use: getoutput
+DEBUG 2016-01-22 07:33:22,169: 	 Options use: []
+DEBUG 2016-01-22 07:33:24,150: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 07:33:24,150: 	 Instance is prod
+DEBUG 2016-01-22 07:33:24,150: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 07:33:24,150: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 07:33:28,736: 	 Server result: {'result': ['160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646', '-1', 'SUBMITTED', '2016-01-22 12:17:02.325210', 'None', '2016-01-22 12:18:21.386293', 'None', 'CMSSW_7_5_8', 'slc6_amd64_gcc491', '/MinimumBias10/Run2015E-PromptReco-v1/AOD', '[]', '[]', 'LumiBased', "{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'lumis': ['13,40,42,50', '1,28,30,56,61,61', '1,164', '1,164'], 'runs': ['262169', '262170', '262171', '262172'], 'lumis_per_job': 20}", '0', '4374bab89f81081d5f8ce7138cf9e8c0b5227d5ec26a7590f3c9f3f79ef83267.tar.gz', 'https://cmsweb.cern.ch/crabcache', 'rjanjam', '/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam', 'cms', 'None', 'None', 'ppRef_Spectra-00000000000000000000000000000000', 'T2_US_Vanderbilt', 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'T', 'Analysis', '{}', '[]', 'F', 'vocms052', '[]', '1250', '1', '2000', '10', 'None', 'http://submit-4.t2.ucsd.edu/CSstoragePath/68/uscms5162/160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646', 'None', 'None', '[]', '[]', '[]', 'pythia', '[]', "['ppRefMinBias1.root']", '[]', 'https://cmsweb.cern.ch/couchdb', 'None', '0', 'cmssrv221.fnal.gov,vocms099.cern.ch', 'crab3-3@submit-4.t2.ucsd.edu', 'F', '[]', 'T', '/store/user/rjanjam/', 'F', 'None', 'F', 'F', 'F', 'None', 'MinimumBias10'], 'desc': {'columns': ['tm_taskname', 'panda_jobset_id', 'tm_task_status', 'tm_start_time', 'tm_start_injection', 'tm_end_injection', 'tm_task_failure', 'tm_job_sw', 'tm_job_arch', 'tm_input_dataset', 'tm_site_whitelist', 'tm_site_blacklist', 'tm_split_algo', 'tm_split_args', 'tm_totalunits', 'tm_user_sandbox', 'tm_cache_url', 'tm_username', 'tm_user_dn', 'tm_user_vo', 'tm_user_role', 'tm_user_group', 'tm_publish_name', 'tm_asyncdest', 'tm_dbs_url', 'tm_publish_dbs_url', 'tm_publication', 'tm_job_type', 'tm_arguments', 'panda_resubmitted_jobs', 'tm_save_logs', 'tw_name', 'tm_user_infiles', 'tm_maxjobruntime', 'tm_numcores', 'tm_maxmemory', 'tm_priority', 'tm_output_dataset', 'tm_user_webdir', 'tm_activity', 'tm_scriptexe', 'tm_scriptargs', 'tm_extrajdl', 'tm_task_warnings', 'tm_generator', 'tm_outfiles', 'tm_tfile_outfiles', 'tm_edm_outfiles', 'tm_asourl', 'tm_events_per_lumi', 'tm_use_parent', 'tm_collector', 'tm_schedd', 'tm_dry_run', 'tm_user_files', 'tm_transfer_outputs', 'tm_output_lfn', 'tm_ignore_locality', 'tm_fail_limit', 'tm_one_event_mode', 'tm_publish_groupname', 'tm_nonvalid_input_dataset', 'tm_secondary_input_dataset', 'tm_primary_dataset']}}
+DEBUG 2016-01-22 07:33:28,736: 	 Retrieving locations for task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 07:33:28,736: 	 Retrieving all file locations
+DEBUG 2016-01-22 07:33:34,318: 	 Server result: {'result': [{'checksum': {'adler32': '9c815c7e', 'cksum': 543130201, 'md5': '9c815c7e'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'jobid': 14, 'size': 17347}, {'checksum': {'adler32': '72c637c2', 'cksum': 1630806551, 'md5': '72c637c2'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'jobid': 10, 'size': 17397}, {'checksum': {'adler32': 'e4745e05', 'cksum': 3611544873, 'md5': 'e4745e05'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'jobid': 11, 'size': 17439}, {'checksum': {'adler32': 'b97a031f', 'cksum': 1972280365, 'md5': 'b97a031f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'jobid': 7, 'size': 17371}, {'checksum': {'adler32': '3c433f3f', 'cksum': 685786124, 'md5': '3c433f3f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'jobid': 17, 'size': 17431}, {'checksum': {'adler32': '8cdc8503', 'cksum': 3861973483, 'md5': '8cdc8503'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'jobid': 12, 'size': 17471}, {'checksum': {'adler32': '228d22e9', 'cksum': 495907069, 'md5': '228d22e9'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'jobid': 18, 'size': 17398}, {'checksum': {'adler32': 'd40d2c9b', 'cksum': 3132041952, 'md5': 'd40d2c9b'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'jobid': 6, 'size': 17417}, {'checksum': {'adler32': 'e19243e6', 'cksum': 1785945145, 'md5': 'e19243e6'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'jobid': 16, 'size': 17445}], 'desc': {'columns': ['tm_taskname', 'panda_jobset_id', 'tm_task_status', 'tm_user_role', 'tm_user_group', 'tm_task_failure', 'tm_split_args', 'panda_resubmitted_jobs', 'tm_save_logs', 'tm_username', 'tm_user_dn', 'tm_arguments', 'tm_input_dataset', 'tm_dbs_url', 'tm_task_warnings', 'tm_publication', 'tm_user_webdir', 'tm_asourl', 'tm_output_dataset', 'tm_collector', 'tm_schedd', 'tm_dry_run']}}
+INFO 2016-01-22 07:33:34,319: 	 Setting the destination to /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results 
+INFO 2016-01-22 07:33:34,319: 	 Retrieving 9 files
+DEBUG 2016-01-22 07:33:34,319: 	 Executing command: 'remote_copy'
+DEBUG 2016-01-22 07:33:34,319: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 07:33:34,327: 	 Skipping proxy creation
+DEBUG 2016-01-22 07:33:34,327: 	 Command use: remote_copy
+DEBUG 2016-01-22 07:33:34,327: 	 Options use: ['--destination', '/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results', '--input', [{'checksum': {'adler32': '9c815c7e', 'cksum': 543130201, 'md5': '9c815c7e'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'jobid': 14, 'size': 17347}, {'checksum': {'adler32': '72c637c2', 'cksum': 1630806551, 'md5': '72c637c2'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'jobid': 10, 'size': 17397}, {'checksum': {'adler32': 'e4745e05', 'cksum': 3611544873, 'md5': 'e4745e05'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'jobid': 11, 'size': 17439}, {'checksum': {'adler32': 'b97a031f', 'cksum': 1972280365, 'md5': 'b97a031f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'jobid': 7, 'size': 17371}, {'checksum': {'adler32': '3c433f3f', 'cksum': 685786124, 'md5': '3c433f3f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'jobid': 17, 'size': 17431}, {'checksum': {'adler32': '8cdc8503', 'cksum': 3861973483, 'md5': '8cdc8503'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'jobid': 12, 'size': 17471}, {'checksum': {'adler32': '228d22e9', 'cksum': 495907069, 'md5': '228d22e9'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'jobid': 18, 'size': 17398}, {'checksum': {'adler32': 'd40d2c9b', 'cksum': 3132041952, 'md5': 'd40d2c9b'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'jobid': 6, 'size': 17417}, {'checksum': {'adler32': 'e19243e6', 'cksum': 1785945145, 'md5': 'e19243e6'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'jobid': 16, 'size': 17445}], '--dir', '/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646', '--proxy', '/tmp/x509up_u171357', '--parallel', None, '--wait', None, '--checksum', 'ADLER32', '--command', None]
+DEBUG 2016-01-22 07:33:35,776: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 07:33:35,776: 	 Instance is prod
+DEBUG 2016-01-22 07:33:35,776: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 07:33:35,776: 	 Command url /crabserver/prod/workflow
+INFO 2016-01-22 07:33:35,861: 	 Will use `gfal-copy` command for file transfers
+DEBUG 2016-01-22 07:33:36,327: 	 Starting ChildProcess with 10 ChildProcess
+INFO 2016-01-22 07:33:36,531: 	 Placing file 'ppRefMinBias1_14.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,538: 	 Placing file 'ppRefMinBias1_10.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,545: 	 Placing file 'ppRefMinBias1_11.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,553: 	 Placing file 'ppRefMinBias1_7.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,559: 	 Placing file 'ppRefMinBias1_17.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,567: 	 Placing file 'ppRefMinBias1_12.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,575: 	 Placing file 'ppRefMinBias1_18.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,583: 	 Placing file 'ppRefMinBias1_6.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,592: 	 Placing file 'ppRefMinBias1_16.root' in retrieval queue 
+INFO 2016-01-22 07:33:36,593: 	 Please wait
+DEBUG 2016-01-22 07:33:36,593: 	 stopchildproc() method has been called
+DEBUG 2016-01-22 07:33:43,870: 	 The output of the transfer subprocesses follows:
+DEBUG 2016-01-22 07:33:43,871: 	 	INFO 2016-01-22 07:33:36,533: 	 Retrieving ppRefMinBias1_14.root 
+DEBUG 2016-01-22 07:33:43,871: 	 	DEBUG 2016-01-22 07:33:36,534: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_14.root
+DEBUG 2016-01-22 07:33:43,871: 	 	INFO 2016-01-22 07:33:36,540: 	 Retrieving ppRefMinBias1_10.root 
+DEBUG 2016-01-22 07:33:43,871: 	 	DEBUG 2016-01-22 07:33:36,540: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_10.root
+DEBUG 2016-01-22 07:33:43,871: 	 	INFO 2016-01-22 07:33:36,547: 	 Retrieving ppRefMinBias1_11.root 
+DEBUG 2016-01-22 07:33:43,871: 	 	DEBUG 2016-01-22 07:33:36,547: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_11.root
+DEBUG 2016-01-22 07:33:43,871: 	 	INFO 2016-01-22 07:33:36,554: 	 Retrieving ppRefMinBias1_7.root 
+DEBUG 2016-01-22 07:33:43,871: 	 	DEBUG 2016-01-22 07:33:36,555: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_7.root
+DEBUG 2016-01-22 07:33:43,871: 	 	INFO 2016-01-22 07:33:36,561: 	 Retrieving ppRefMinBias1_17.root 
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:36,561: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_17.root
+DEBUG 2016-01-22 07:33:43,872: 	 	INFO 2016-01-22 07:33:36,569: 	 Retrieving ppRefMinBias1_12.root 
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:36,570: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_12.root
+DEBUG 2016-01-22 07:33:43,872: 	 	INFO 2016-01-22 07:33:36,577: 	 Retrieving ppRefMinBias1_18.root 
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:36,577: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_18.root
+DEBUG 2016-01-22 07:33:43,872: 	 	INFO 2016-01-22 07:33:36,585: 	 Retrieving ppRefMinBias1_6.root 
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:36,586: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_6.root
+DEBUG 2016-01-22 07:33:43,872: 	 	INFO 2016-01-22 07:33:36,594: 	 Retrieving ppRefMinBias1_16.root 
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:36,595: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_16.root
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:42,208: 	 Finish executing for file ppRefMinBias1_14.root
+DEBUG 2016-01-22 07:33:43,872: 	 	INFO 2016-01-22 07:33:42,209: 	 Success: Success in retrieving ppRefMinBias1_14.root 
+DEBUG 2016-01-22 07:33:43,872: 	 	DEBUG 2016-01-22 07:33:42,256: 	 Finish executing for file ppRefMinBias1_12.root
+DEBUG 2016-01-22 07:33:43,872: 	 	INFO 2016-01-22 07:33:42,257: 	 Success: Success in retrieving ppRefMinBias1_12.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:42,356: 	 Finish executing for file ppRefMinBias1_17.root
+DEBUG 2016-01-22 07:33:43,873: 	 	INFO 2016-01-22 07:33:42,356: 	 Success: Success in retrieving ppRefMinBias1_17.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:42,557: 	 Finish executing for file ppRefMinBias1_16.root
+DEBUG 2016-01-22 07:33:43,873: 	 	INFO 2016-01-22 07:33:42,558: 	 Success: Success in retrieving ppRefMinBias1_16.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:42,560: 	 Finish executing for file ppRefMinBias1_18.root
+DEBUG 2016-01-22 07:33:43,873: 	 	INFO 2016-01-22 07:33:42,560: 	 Success: Success in retrieving ppRefMinBias1_18.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:42,608: 	 Finish executing for file ppRefMinBias1_11.root
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:42,608: 	 Finish executing for file ppRefMinBias1_10.root
+DEBUG 2016-01-22 07:33:43,873: 	 	INFO 2016-01-22 07:33:42,608: 	 Success: Success in retrieving ppRefMinBias1_11.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	INFO 2016-01-22 07:33:42,609: 	 Success: Success in retrieving ppRefMinBias1_10.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:42,957: 	 Finish executing for file ppRefMinBias1_7.root
+DEBUG 2016-01-22 07:33:43,873: 	 	INFO 2016-01-22 07:33:42,958: 	 Success: Success in retrieving ppRefMinBias1_7.root 
+DEBUG 2016-01-22 07:33:43,873: 	 	DEBUG 2016-01-22 07:33:43,862: 	 Finish executing for file ppRefMinBias1_6.root
+DEBUG 2016-01-22 07:33:43,874: 	 	INFO 2016-01-22 07:33:43,863: 	 Success: Success in retrieving ppRefMinBias1_6.root 
+INFO 2016-01-22 07:33:43,876: 	 Success: All files successfully retrieved
+INFO 2016-01-22 07:33:43,896: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log
+DEBUG 2016-01-22 08:30:02,967: 	 Executing command: 'getoutput'
+DEBUG 2016-01-22 08:30:02,967: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 08:30:02,985: 	 Checking credentials
+DEBUG 2016-01-22 08:30:02,990: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 08:30:02,990: 	 Getting proxy life time left
+DEBUG 2016-01-22 08:30:03,094: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 76059
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 08:30:03,198: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 76059
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 08:30:03,199: 	 Proxy valid for 21:07:39 hours
+DEBUG 2016-01-22 08:30:03,200: 	 Using VO group '' and VO role 'NULL' as written in the request cache file for this task.
+DEBUG 2016-01-22 08:30:03,317: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 08:30:03,318: 	 Checking credentials
+DEBUG 2016-01-22 08:30:03,318: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 08:30:03,318: 	 Getting proxy life time left
+DEBUG 2016-01-22 08:30:03,422: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 76059
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 08:30:03,526: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 76059
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 08:30:03,527: 	 Proxy valid for 21:07:39 hours
+DEBUG 2016-01-22 08:30:03,631: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u171357 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 08:30:05,378: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+DEBUG 2016-01-22 08:30:05,491: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+
+ error: WARNING: can't open config file: /build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/tmp/BUILDROOT/ef35842be28ecca6d10195ea8182a5ac/build/dmwmbld/srv/state/dmwmbld/builds/comp_gcc481/w/slc6_amd64_gcc481/external/openssl/1.0.1p/ssl/openssl.cnf
+
+ retcode : 0
+DEBUG 2016-01-22 08:30:05,492: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2016-01-22 08:30:05,492: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam_cmsweb.cern.ch for credential name
+DEBUG 2016-01-22 08:30:07,199: 	 Executing : 
+ command : myproxy-info -l 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2 -s myproxy.cern.ch
+ output : username: 0eff835fcbff4f4bf4a7e44170c1d3b1a16589c2
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119).cern.ch
+  timeleft: 557:16:43  (23.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 08:30:07,201: 	 Myproxy is valid: 2006203
+DEBUG 2016-01-22 08:30:07,201: 	 Command use: getoutput
+DEBUG 2016-01-22 08:30:07,201: 	 Options use: []
+DEBUG 2016-01-22 08:30:08,794: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 08:30:08,795: 	 Instance is prod
+DEBUG 2016-01-22 08:30:08,795: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 08:30:08,795: 	 Command url /crabserver/prod/workflow
+DEBUG 2016-01-22 08:30:10,155: 	 Server result: {'result': ['160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646', '-1', 'SUBMITTED', '2016-01-22 12:17:02.325210', 'None', '2016-01-22 12:18:21.386293', 'None', 'CMSSW_7_5_8', 'slc6_amd64_gcc491', '/MinimumBias10/Run2015E-PromptReco-v1/AOD', '[]', '[]', 'LumiBased', "{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'lumis': ['13,40,42,50', '1,28,30,56,61,61', '1,164', '1,164'], 'runs': ['262169', '262170', '262171', '262172'], 'lumis_per_job': 20}", '0', '4374bab89f81081d5f8ce7138cf9e8c0b5227d5ec26a7590f3c9f3f79ef83267.tar.gz', 'https://cmsweb.cern.ch/crabcache', 'rjanjam', '/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=rjanjam/CN=746084/CN=Ravi Kishore Janjam', 'cms', 'None', 'None', 'ppRef_Spectra-00000000000000000000000000000000', 'T2_US_Vanderbilt', 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'T', 'Analysis', '{}', '[]', 'F', 'vocms052', '[]', '1250', '1', '2000', '10', 'None', 'http://submit-4.t2.ucsd.edu/CSstoragePath/68/uscms5162/160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646', 'None', 'None', '[]', '[]', '[]', 'pythia', '[]', "['ppRefMinBias1.root']", '[]', 'https://cmsweb.cern.ch/couchdb', 'None', '0', 'cmssrv221.fnal.gov,vocms099.cern.ch', 'crab3-3@submit-4.t2.ucsd.edu', 'F', '[]', 'T', '/store/user/rjanjam/', 'F', 'None', 'F', 'F', 'F', 'None', 'MinimumBias10'], 'desc': {'columns': ['tm_taskname', 'panda_jobset_id', 'tm_task_status', 'tm_start_time', 'tm_start_injection', 'tm_end_injection', 'tm_task_failure', 'tm_job_sw', 'tm_job_arch', 'tm_input_dataset', 'tm_site_whitelist', 'tm_site_blacklist', 'tm_split_algo', 'tm_split_args', 'tm_totalunits', 'tm_user_sandbox', 'tm_cache_url', 'tm_username', 'tm_user_dn', 'tm_user_vo', 'tm_user_role', 'tm_user_group', 'tm_publish_name', 'tm_asyncdest', 'tm_dbs_url', 'tm_publish_dbs_url', 'tm_publication', 'tm_job_type', 'tm_arguments', 'panda_resubmitted_jobs', 'tm_save_logs', 'tw_name', 'tm_user_infiles', 'tm_maxjobruntime', 'tm_numcores', 'tm_maxmemory', 'tm_priority', 'tm_output_dataset', 'tm_user_webdir', 'tm_activity', 'tm_scriptexe', 'tm_scriptargs', 'tm_extrajdl', 'tm_task_warnings', 'tm_generator', 'tm_outfiles', 'tm_tfile_outfiles', 'tm_edm_outfiles', 'tm_asourl', 'tm_events_per_lumi', 'tm_use_parent', 'tm_collector', 'tm_schedd', 'tm_dry_run', 'tm_user_files', 'tm_transfer_outputs', 'tm_output_lfn', 'tm_ignore_locality', 'tm_fail_limit', 'tm_one_event_mode', 'tm_publish_groupname', 'tm_nonvalid_input_dataset', 'tm_secondary_input_dataset', 'tm_primary_dataset']}}
+DEBUG 2016-01-22 08:30:10,155: 	 Retrieving locations for task 160122_121701:rjanjam_crab_ppRefAnalyzer20160122061646
+DEBUG 2016-01-22 08:30:10,155: 	 Retrieving all file locations
+DEBUG 2016-01-22 08:30:13,973: 	 Server result: {'result': [{'checksum': {'adler32': '73a8eb58', 'cksum': 2921255859, 'md5': '73a8eb58'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_3.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_3.root', 'jobid': 3, 'size': 17494}, {'checksum': {'adler32': '7f313278', 'cksum': 3056772954, 'md5': '7f313278'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_20.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_20.root', 'jobid': 20, 'size': 17446}, {'checksum': {'adler32': 'a90fb062', 'cksum': 377023887, 'md5': 'a90fb062'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_8.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_8.root', 'jobid': 8, 'size': 17434}, {'checksum': {'adler32': '4536505e', 'cksum': 3769051886, 'md5': '4536505e'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_4.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_4.root', 'jobid': 4, 'size': 17403}, {'checksum': {'adler32': '74383d68', 'cksum': 2279372749, 'md5': '74383d68'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_15.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_15.root', 'jobid': 15, 'size': 17396}, {'checksum': {'adler32': 'b0102a47', 'cksum': 197123423, 'md5': 'b0102a47'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_5.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_5.root', 'jobid': 5, 'size': 17334}, {'checksum': {'adler32': 'c525578f', 'cksum': 1074462007, 'md5': 'c525578f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_2.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_2.root', 'jobid': 2, 'size': 17468}, {'checksum': {'adler32': 'b2ef314a', 'cksum': 1372794027, 'md5': 'b2ef314a'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_13.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_13.root', 'jobid': 13, 'size': 17456}, {'checksum': {'adler32': '39805bec', 'cksum': 2777742444, 'md5': '39805bec'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_1.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_1.root', 'jobid': 1, 'size': 17423}, {'checksum': {'adler32': '2e9972e7', 'cksum': 2370318645, 'md5': '2e9972e7'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_19.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_19.root', 'jobid': 19, 'size': 17469}, {'checksum': {'adler32': '750950e8', 'cksum': 766231819, 'md5': '750950e8'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_21.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_21.root', 'jobid': 21, 'size': 16363}, {'checksum': {'adler32': 'a1cee5f5', 'cksum': 1267800185, 'md5': 'a1cee5f5'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_9.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_9.root', 'jobid': 9, 'size': 17388}, {'checksum': {'adler32': '9c815c7e', 'cksum': 543130201, 'md5': '9c815c7e'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'jobid': 14, 'size': 17347}, {'checksum': {'adler32': '72c637c2', 'cksum': 1630806551, 'md5': '72c637c2'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'jobid': 10, 'size': 17397}, {'checksum': {'adler32': 'e4745e05', 'cksum': 3611544873, 'md5': 'e4745e05'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'jobid': 11, 'size': 17439}, {'checksum': {'adler32': 'b97a031f', 'cksum': 1972280365, 'md5': 'b97a031f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'jobid': 7, 'size': 17371}, {'checksum': {'adler32': '3c433f3f', 'cksum': 685786124, 'md5': '3c433f3f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'jobid': 17, 'size': 17431}, {'checksum': {'adler32': '8cdc8503', 'cksum': 3861973483, 'md5': '8cdc8503'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'jobid': 12, 'size': 17471}, {'checksum': {'adler32': '228d22e9', 'cksum': 495907069, 'md5': '228d22e9'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'jobid': 18, 'size': 17398}, {'checksum': {'adler32': 'd40d2c9b', 'cksum': 3132041952, 'md5': 'd40d2c9b'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'jobid': 6, 'size': 17417}, {'checksum': {'adler32': 'e19243e6', 'cksum': 1785945145, 'md5': 'e19243e6'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'jobid': 16, 'size': 17445}], 'desc': {'columns': ['tm_taskname', 'panda_jobset_id', 'tm_task_status', 'tm_user_role', 'tm_user_group', 'tm_task_failure', 'tm_split_args', 'panda_resubmitted_jobs', 'tm_save_logs', 'tm_username', 'tm_user_dn', 'tm_arguments', 'tm_input_dataset', 'tm_dbs_url', 'tm_task_warnings', 'tm_publication', 'tm_user_webdir', 'tm_asourl', 'tm_output_dataset', 'tm_collector', 'tm_schedd', 'tm_dry_run']}}
+INFO 2016-01-22 08:30:13,973: 	 Setting the destination to /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results 
+INFO 2016-01-22 08:30:13,974: 	 Retrieving 21 files
+DEBUG 2016-01-22 08:30:13,974: 	 Executing command: 'remote_copy'
+DEBUG 2016-01-22 08:30:13,974: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 08:30:13,981: 	 Skipping proxy creation
+DEBUG 2016-01-22 08:30:13,982: 	 Command use: remote_copy
+DEBUG 2016-01-22 08:30:13,982: 	 Options use: ['--destination', '/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results', '--input', [{'checksum': {'adler32': '73a8eb58', 'cksum': 2921255859, 'md5': '73a8eb58'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_3.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_3.root', 'jobid': 3, 'size': 17494}, {'checksum': {'adler32': '7f313278', 'cksum': 3056772954, 'md5': '7f313278'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_20.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_20.root', 'jobid': 20, 'size': 17446}, {'checksum': {'adler32': 'a90fb062', 'cksum': 377023887, 'md5': 'a90fb062'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_8.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_8.root', 'jobid': 8, 'size': 17434}, {'checksum': {'adler32': '4536505e', 'cksum': 3769051886, 'md5': '4536505e'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_4.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_4.root', 'jobid': 4, 'size': 17403}, {'checksum': {'adler32': '74383d68', 'cksum': 2279372749, 'md5': '74383d68'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_15.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_15.root', 'jobid': 15, 'size': 17396}, {'checksum': {'adler32': 'b0102a47', 'cksum': 197123423, 'md5': 'b0102a47'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_5.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_5.root', 'jobid': 5, 'size': 17334}, {'checksum': {'adler32': 'c525578f', 'cksum': 1074462007, 'md5': 'c525578f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_2.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_2.root', 'jobid': 2, 'size': 17468}, {'checksum': {'adler32': 'b2ef314a', 'cksum': 1372794027, 'md5': 'b2ef314a'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_13.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_13.root', 'jobid': 13, 'size': 17456}, {'checksum': {'adler32': '39805bec', 'cksum': 2777742444, 'md5': '39805bec'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_1.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_1.root', 'jobid': 1, 'size': 17423}, {'checksum': {'adler32': '2e9972e7', 'cksum': 2370318645, 'md5': '2e9972e7'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_19.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_19.root', 'jobid': 19, 'size': 17469}, {'checksum': {'adler32': '750950e8', 'cksum': 766231819, 'md5': '750950e8'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_21.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_21.root', 'jobid': 21, 'size': 16363}, {'checksum': {'adler32': 'a1cee5f5', 'cksum': 1267800185, 'md5': 'a1cee5f5'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_9.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_9.root', 'jobid': 9, 'size': 17388}, {'checksum': {'adler32': '9c815c7e', 'cksum': 543130201, 'md5': '9c815c7e'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_14.root', 'jobid': 14, 'size': 17347}, {'checksum': {'adler32': '72c637c2', 'cksum': 1630806551, 'md5': '72c637c2'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_10.root', 'jobid': 10, 'size': 17397}, {'checksum': {'adler32': 'e4745e05', 'cksum': 3611544873, 'md5': 'e4745e05'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_11.root', 'jobid': 11, 'size': 17439}, {'checksum': {'adler32': 'b97a031f', 'cksum': 1972280365, 'md5': 'b97a031f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_7.root', 'jobid': 7, 'size': 17371}, {'checksum': {'adler32': '3c433f3f', 'cksum': 685786124, 'md5': '3c433f3f'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_17.root', 'jobid': 17, 'size': 17431}, {'checksum': {'adler32': '8cdc8503', 'cksum': 3861973483, 'md5': '8cdc8503'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_12.root', 'jobid': 12, 'size': 17471}, {'checksum': {'adler32': '228d22e9', 'cksum': 495907069, 'md5': '228d22e9'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_18.root', 'jobid': 18, 'size': 17398}, {'checksum': {'adler32': 'd40d2c9b', 'cksum': 3132041952, 'md5': 'd40d2c9b'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_6.root', 'jobid': 6, 'size': 17417}, {'checksum': {'adler32': 'e19243e6', 'cksum': 1785945145, 'md5': 'e19243e6'}, 'pfn': 'srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'lfn': '/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_16.root', 'jobid': 16, 'size': 17445}], '--dir', '/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646', '--proxy', '/tmp/x509up_u171357', '--parallel', None, '--wait', None, '--checksum', 'ADLER32', '--command', None]
+DEBUG 2016-01-22 08:30:15,388: 	 CRABClient version: 3.3.1512
+DEBUG 2016-01-22 08:30:15,388: 	 Instance is prod
+DEBUG 2016-01-22 08:30:15,388: 	 Server base url is cmsweb.cern.ch
+DEBUG 2016-01-22 08:30:15,388: 	 Command url /crabserver/prod/workflow
+INFO 2016-01-22 08:30:15,399: 	 Will use `gfal-copy` command for file transfers
+DEBUG 2016-01-22 08:30:15,483: 	 Starting ChildProcess with 10 ChildProcess
+INFO 2016-01-22 08:30:15,512: 	 Placing file 'ppRefMinBias1_3.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,520: 	 Placing file 'ppRefMinBias1_20.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,527: 	 Placing file 'ppRefMinBias1_8.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,534: 	 Placing file 'ppRefMinBias1_4.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,541: 	 Placing file 'ppRefMinBias1_15.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,549: 	 Placing file 'ppRefMinBias1_5.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,556: 	 Placing file 'ppRefMinBias1_2.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,563: 	 Placing file 'ppRefMinBias1_13.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,572: 	 Placing file 'ppRefMinBias1_1.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,582: 	 Placing file 'ppRefMinBias1_19.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,589: 	 Placing file 'ppRefMinBias1_21.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,604: 	 Placing file 'ppRefMinBias1_9.root' in retrieval queue 
+INFO 2016-01-22 08:30:15,605: 	 Skipping ppRefMinBias1_14.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_14.root
+INFO 2016-01-22 08:30:15,606: 	 Skipping ppRefMinBias1_10.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_10.root
+INFO 2016-01-22 08:30:15,607: 	 Skipping ppRefMinBias1_11.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_11.root
+INFO 2016-01-22 08:30:15,607: 	 Skipping ppRefMinBias1_7.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_7.root
+INFO 2016-01-22 08:30:15,608: 	 Skipping ppRefMinBias1_17.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_17.root
+INFO 2016-01-22 08:30:15,608: 	 Skipping ppRefMinBias1_12.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_12.root
+INFO 2016-01-22 08:30:15,609: 	 Skipping ppRefMinBias1_18.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_18.root
+INFO 2016-01-22 08:30:15,609: 	 Skipping ppRefMinBias1_6.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_6.root
+INFO 2016-01-22 08:30:15,610: 	 Skipping ppRefMinBias1_16.root as file already exists in /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_16.root
+INFO 2016-01-22 08:30:15,610: 	 Please wait
+DEBUG 2016-01-22 08:30:15,610: 	 stopchildproc() method has been called
+DEBUG 2016-01-22 08:30:27,278: 	 The output of the transfer subprocesses follows:
+DEBUG 2016-01-22 08:30:27,279: 	 	INFO 2016-01-22 08:30:15,514: 	 Retrieving ppRefMinBias1_3.root 
+DEBUG 2016-01-22 08:30:27,279: 	 	DEBUG 2016-01-22 08:30:15,515: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_3.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_3.root
+DEBUG 2016-01-22 08:30:27,279: 	 	INFO 2016-01-22 08:30:15,522: 	 Retrieving ppRefMinBias1_20.root 
+DEBUG 2016-01-22 08:30:27,279: 	 	DEBUG 2016-01-22 08:30:15,522: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_20.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_20.root
+DEBUG 2016-01-22 08:30:27,279: 	 	INFO 2016-01-22 08:30:15,528: 	 Retrieving ppRefMinBias1_8.root 
+DEBUG 2016-01-22 08:30:27,279: 	 	DEBUG 2016-01-22 08:30:15,529: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_8.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_8.root
+DEBUG 2016-01-22 08:30:27,279: 	 	INFO 2016-01-22 08:30:15,535: 	 Retrieving ppRefMinBias1_4.root 
+DEBUG 2016-01-22 08:30:27,279: 	 	DEBUG 2016-01-22 08:30:15,535: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_4.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_4.root
+DEBUG 2016-01-22 08:30:27,279: 	 	INFO 2016-01-22 08:30:15,542: 	 Retrieving ppRefMinBias1_15.root 
+DEBUG 2016-01-22 08:30:27,279: 	 	DEBUG 2016-01-22 08:30:15,543: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_15.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_15.root
+DEBUG 2016-01-22 08:30:27,280: 	 	INFO 2016-01-22 08:30:15,550: 	 Retrieving ppRefMinBias1_5.root 
+DEBUG 2016-01-22 08:30:27,280: 	 	DEBUG 2016-01-22 08:30:15,551: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_5.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_5.root
+DEBUG 2016-01-22 08:30:27,280: 	 	INFO 2016-01-22 08:30:15,557: 	 Retrieving ppRefMinBias1_2.root 
+DEBUG 2016-01-22 08:30:27,280: 	 	DEBUG 2016-01-22 08:30:15,558: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_2.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_2.root
+DEBUG 2016-01-22 08:30:27,280: 	 	INFO 2016-01-22 08:30:15,565: 	 Retrieving ppRefMinBias1_13.root 
+DEBUG 2016-01-22 08:30:27,280: 	 	DEBUG 2016-01-22 08:30:15,566: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_13.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_13.root
+DEBUG 2016-01-22 08:30:27,280: 	 	INFO 2016-01-22 08:30:15,573: 	 Retrieving ppRefMinBias1_1.root 
+DEBUG 2016-01-22 08:30:27,280: 	 	DEBUG 2016-01-22 08:30:15,574: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_1.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_1.root
+DEBUG 2016-01-22 08:30:27,280: 	 	INFO 2016-01-22 08:30:15,583: 	 Retrieving ppRefMinBias1_19.root 
+DEBUG 2016-01-22 08:30:27,280: 	 	DEBUG 2016-01-22 08:30:15,584: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_19.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_19.root
+DEBUG 2016-01-22 08:30:27,280: 	 	DEBUG 2016-01-22 08:30:21,157: 	 Finish executing for file ppRefMinBias1_1.root
+DEBUG 2016-01-22 08:30:27,280: 	 	INFO 2016-01-22 08:30:21,158: 	 Success: Success in retrieving ppRefMinBias1_1.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	INFO 2016-01-22 08:30:21,160: 	 Retrieving ppRefMinBias1_21.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,161: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_21.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_21.root
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,176: 	 Finish executing for file ppRefMinBias1_15.root
+DEBUG 2016-01-22 08:30:27,281: 	 	INFO 2016-01-22 08:30:21,177: 	 Success: Success in retrieving ppRefMinBias1_15.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	INFO 2016-01-22 08:30:21,179: 	 Retrieving ppRefMinBias1_9.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,180: 	 Executing env -i X509_USER_PROXY=/tmp/x509up_u171357 gfal-copy -v -K ADLER32  -T 1800  -t 60  srm://se1.accre.vanderbilt.edu:6288/srm/v2/server?SFN=/lio/lfs/cms/store/user/rjanjam/MinimumBias10/ppRef_Spectra/160122_121701/0000/ppRefMinBias1_9.root file:///gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/results/ppRefMinBias1_9.root
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,523: 	 Finish executing for file ppRefMinBias1_4.root
+DEBUG 2016-01-22 08:30:27,281: 	 	INFO 2016-01-22 08:30:21,524: 	 Success: Success in retrieving ppRefMinBias1_4.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,524: 	 Finish executing for file ppRefMinBias1_8.root
+DEBUG 2016-01-22 08:30:27,281: 	 	INFO 2016-01-22 08:30:21,524: 	 Success: Success in retrieving ppRefMinBias1_8.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,781: 	 Finish executing for file ppRefMinBias1_5.root
+DEBUG 2016-01-22 08:30:27,281: 	 	INFO 2016-01-22 08:30:21,781: 	 Success: Success in retrieving ppRefMinBias1_5.root 
+DEBUG 2016-01-22 08:30:27,281: 	 	DEBUG 2016-01-22 08:30:21,916: 	 Finish executing for file ppRefMinBias1_20.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:21,916: 	 Success: Success in retrieving ppRefMinBias1_20.root 
+DEBUG 2016-01-22 08:30:27,282: 	 	DEBUG 2016-01-22 08:30:21,943: 	 Finish executing for file ppRefMinBias1_2.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:21,944: 	 Success: Success in retrieving ppRefMinBias1_2.root 
+DEBUG 2016-01-22 08:30:27,282: 	 	DEBUG 2016-01-22 08:30:21,960: 	 Finish executing for file ppRefMinBias1_13.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:21,960: 	 Success: Success in retrieving ppRefMinBias1_13.root 
+DEBUG 2016-01-22 08:30:27,282: 	 	DEBUG 2016-01-22 08:30:22,013: 	 Finish executing for file ppRefMinBias1_3.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:22,013: 	 Success: Success in retrieving ppRefMinBias1_3.root 
+DEBUG 2016-01-22 08:30:27,282: 	 	DEBUG 2016-01-22 08:30:25,335: 	 Finish executing for file ppRefMinBias1_9.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:25,336: 	 Success: Success in retrieving ppRefMinBias1_9.root 
+DEBUG 2016-01-22 08:30:27,282: 	 	DEBUG 2016-01-22 08:30:25,921: 	 Finish executing for file ppRefMinBias1_21.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:25,922: 	 Success: Success in retrieving ppRefMinBias1_21.root 
+DEBUG 2016-01-22 08:30:27,282: 	 	DEBUG 2016-01-22 08:30:27,270: 	 Finish executing for file ppRefMinBias1_19.root
+DEBUG 2016-01-22 08:30:27,282: 	 	INFO 2016-01-22 08:30:27,271: 	 Success: Success in retrieving ppRefMinBias1_19.root 
+INFO 2016-01-22 08:30:27,285: 	 Success: All files successfully retrieved
+INFO 2016-01-22 08:30:27,307: 	 Log file is /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer20160122061646/crab.log

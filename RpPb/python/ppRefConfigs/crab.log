@@ -1,0 +1,285 @@
+DEBUG 2016-01-22 05:42:10,100: 	 Executing command: 'status'
+DEBUG 2016-01-22 05:42:10,101: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 05:42:10,120: 	 Checking credentials
+DEBUG 2016-01-22 05:42:10,124: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 05:42:10,125: 	 Getting proxy life time left
+DEBUG 2016-01-22 05:42:10,229: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 86132
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:42:10,333: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 86132
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:42:10,334: 	 Proxy valid for 23:55:32 hours
+ERROR 2016-01-22 05:42:10,335: 	 Cannot find .requestcache file in CRAB project directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer-1-22-2016
+ERROR 2016-01-22 05:42:10,335: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 318, in __init__
+    self.loadLocalCache(proxyOptsSetPlace)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 428, in loadLocalCache
+    self.cachedinfo, self.logfile = loadCache(self.requestarea, self.logger)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 445, in loadCache
+    raise CachefileNotFoundException(msg)
+CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer-1-22-2016
+DEBUG 2016-01-22 05:42:30,710: 	 Executing command: 'status'
+DEBUG 2016-01-22 05:42:30,711: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 05:42:30,721: 	 Checking credentials
+DEBUG 2016-01-22 05:42:30,722: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 05:42:30,722: 	 Getting proxy life time left
+DEBUG 2016-01-22 05:42:30,826: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 86112
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:42:30,930: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 86112
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:42:30,930: 	 Proxy valid for 23:55:12 hours
+ERROR 2016-01-22 05:42:30,931: 	 Cannot find .requestcache file in CRAB project directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects
+ERROR 2016-01-22 05:42:30,931: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 318, in __init__
+    self.loadLocalCache(proxyOptsSetPlace)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 428, in loadLocalCache
+    self.cachedinfo, self.logfile = loadCache(self.requestarea, self.logger)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 445, in loadCache
+    raise CachefileNotFoundException(msg)
+CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects
+DEBUG 2016-01-22 05:43:46,574: 	 Executing command: 'submit'
+DEBUG 2016-01-22 05:43:46,575: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 05:43:46,588: 	 Checking credentials
+DEBUG 2016-01-22 05:43:46,588: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 05:43:46,588: 	 Getting proxy life time left
+DEBUG 2016-01-22 05:43:46,693: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 86036
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:43:46,797: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 86036
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:43:46,797: 	 Proxy valid for 23:53:56 hours
+INFO 2016-01-22 05:43:46,797: 	 Will use CRAB configuration file crab3Config_ppRef_v3.py
+DEBUG 2016-01-22 05:43:46,798: 	 Loading CRAB configuration file.
+DEBUG 2016-01-22 05:43:49,483: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2016-01-22 05:43:49,484: 	 Working area '/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer-1-22-2016' already exists 
+Please change the requestName in the config file
+ERROR 2016-01-22 05:43:49,484: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 32, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 299, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 393, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer-1-22-2016' already exists 
+Please change the requestName in the config file
+DEBUG 2016-01-22 05:47:09,899: 	 Executing command: 'submit'
+DEBUG 2016-01-22 05:47:09,900: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 05:47:09,914: 	 Checking credentials
+DEBUG 2016-01-22 05:47:09,915: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 05:47:09,915: 	 Getting proxy life time left
+DEBUG 2016-01-22 05:47:10,019: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 85833
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:47:10,123: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 85832
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:47:10,123: 	 Proxy valid for 23:50:33 hours
+INFO 2016-01-22 05:47:10,123: 	 Will use CRAB configuration file crab3Config_ppRef_v3.py
+DEBUG 2016-01-22 05:47:10,123: 	 Loading CRAB configuration file.
+ERROR 2016-01-22 05:47:10,128: 	 Error while loading CRAB configuration:
+name 'time' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2016-01-22 05:47:10,128: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 32, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 295, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 84, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+name 'time' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2016-01-22 05:48:11,137: 	 Executing command: 'submit'
+DEBUG 2016-01-22 05:48:11,138: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 05:48:11,154: 	 Checking credentials
+DEBUG 2016-01-22 05:48:11,154: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 05:48:11,154: 	 Getting proxy life time left
+DEBUG 2016-01-22 05:48:11,258: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 85771
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:48:11,362: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 85771
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 05:48:11,362: 	 Proxy valid for 23:49:31 hours
+INFO 2016-01-22 05:48:11,363: 	 Will use CRAB configuration file crab3Config_ppRef_v3.py
+DEBUG 2016-01-22 05:48:11,363: 	 Loading CRAB configuration file.
+ERROR 2016-01-22 05:48:11,367: 	 Error while loading CRAB configuration:
+name 'time' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2016-01-22 05:48:11,368: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 32, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 295, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 84, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+name 'time' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2016-01-22 06:14:15,301: 	 Executing command: 'status'
+DEBUG 2016-01-22 06:14:15,302: 	 Found CRAB cache file /home/janjamrk/.crab3
+ERROR 2016-01-22 06:14:15,303: 	 Error: /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer-1-22-2016 is not a valid CRAB project directory.
+ERROR 2016-01-22 06:14:15,303: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 254, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 745, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 559, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer-1-22-2016 is not a valid CRAB project directory.
+DEBUG 2016-01-22 06:14:53,042: 	 Executing command: 'submit'
+DEBUG 2016-01-22 06:14:53,042: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:14:53,058: 	 Checking credentials
+DEBUG 2016-01-22 06:14:53,058: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:14:53,059: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:14:53,162: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 84169
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:14:53,266: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 84169
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:14:53,267: 	 Proxy valid for 23:22:49 hours
+INFO 2016-01-22 06:14:53,267: 	 Will use CRAB configuration file crab3Config_ppRef_v3.py
+DEBUG 2016-01-22 06:14:53,267: 	 Loading CRAB configuration file.
+ERROR 2016-01-22 06:14:53,272: 	 Error while loading CRAB configuration:
+type object 'datetime.time' has no attribute 'time'
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2016-01-22 06:14:53,272: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 32, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 295, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 84, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+type object 'datetime.time' has no attribute 'time'
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2016-01-22 06:15:42,975: 	 Executing command: 'submit'
+DEBUG 2016-01-22 06:15:42,976: 	 Found CRAB cache file /home/janjamrk/.crab3
+DEBUG 2016-01-22 06:15:42,987: 	 Checking credentials
+DEBUG 2016-01-22 06:15:42,987: 	 Found proxy file /tmp/x509up_u171357
+DEBUG 2016-01-22 06:15:42,987: 	 Getting proxy life time left
+DEBUG 2016-01-22 06:15:43,092: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -timeleft
+ output : 84119
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:15:43,196: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u171357 -actimeleft
+ output : 84119
+
+ error: 
+ retcode : 0
+DEBUG 2016-01-22 06:15:43,196: 	 Proxy valid for 23:21:59 hours
+INFO 2016-01-22 06:15:43,196: 	 Will use CRAB configuration file crab3Config_ppRef_v3.py
+DEBUG 2016-01-22 06:15:43,197: 	 Loading CRAB configuration file.
+ERROR 2016-01-22 06:15:43,201: 	 Error while loading CRAB configuration:
+name 'time' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2016-01-22 06:15:43,202: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 32, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 295, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 84, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+name 'time' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
