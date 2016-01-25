@@ -2,11 +2,13 @@ import FWCore.ParameterSet.Config as cms
 import FWCore.Utilities.FileUtils as FileUtils
 
 import os, sys
-pyFile =  os.path.basename(sys.argv[1])
-print os.path.splitext(pyFile)[0]
+#pyFile =  os.path.basename(sys.argv[1])
+#print os.path.splitext(pyFile)[0]
 
 
 ''' Declare VarParsing options to be used from commandline '''
+from FWCore.ParameterSet.VarParsing import VarParsing
+
 options = VarParsing('analysis')
 options.register('maxNumEvents',
 			1000,

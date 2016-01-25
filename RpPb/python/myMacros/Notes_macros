@@ -14,3 +14,13 @@ root [64] ChargedParticles_v4(ppRefMinBias1.root)
 ppRefMinBias1.root contains the Eta, Pt and Vertex Coordinate hisgorams of the tracks. Produced using the datasets from 2016 Run 2, ppRef for HI.
 
 ------------------------------------------------------
+25-January-2016
+
+When you get this error, it means that the histogram it can also mean it is not properly created. The histogram here is
+hPosPt[1], this file is loaded successfully, but unable to get anything from it. 
+
+=======================================================================================
+Error: illegal pointer to class object hPosPt[1] 0x0 1320  ChargedParticles_v7_temp.C:60:
+*** Interpreter error recovered ***
+=======================================================================================
+

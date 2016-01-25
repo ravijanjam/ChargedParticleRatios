@@ -27,13 +27,24 @@ void ChargedParticles_v7(){
 
 	/* ===================================================================*/
 	// pT Spectra
-	TFile *inputFile1 = new TFile("pPbPAHighPt_HIRun2015_28Sept2013_v1.root");
-	TFile *inputFile2 = new TFile("ppRefMinBias.root");
+	char *fileName1, *fileName2; 
+	fileName1 = "pPbAnalyzer2016-01-25-100241.root";
+	fileName2 = "ppRefOutput2016-01-25-110144.root";
 
+	TFile *inputFile1 = new TFile(fileName1);
+	TFile *inputFile2 = new TFile(fileName2);
+
+	cout << "================================================" << endl;
+	cout << "Are the files open ? " << "\n"
+	     << fileName1 << "\t" << inputFile1->IsOpen() << "\n"
+	     << fileName2 << "\t" << inputFile1->IsOpen() << "\n";
+	cout << "================================================" << endl;
+
+	// Pt Spectra path in the root file
 	TString sPosPt = "/demo/htrackPosPt";
 	TString sNegPt = "/demo/htrackNegPt";
 
-	// Eta Spectra
+	// Eta Spectra path in the root file
 	TString sPosEta = "/demo/htrackPosEta";
 	TString sNegEta = "/demo/htrackNegEta";
 
@@ -51,7 +62,8 @@ void ChargedParticles_v7(){
 	     << endl;
 
 
-	double InvYieldPos[nPosBins], pTPos[nPosBins];
+	//double InvYieldPos[nPosBins], pTPos[nPosBins];
+	double InvYieldPos[1002], pTPos[1002];
 	for (int i=0; i < nPosBins; i++ ){
 
 	

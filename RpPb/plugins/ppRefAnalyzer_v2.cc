@@ -1,7 +1,5 @@
-// system include files
-#include <memory>
 
-// user include files
+// C++ Headers
 #include <memory>
 #include <algorithm>
 
@@ -13,6 +11,7 @@
 #include "FWCore/Framework/interface/MakerMacros.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
+// ROOT Headers
 #include <TH1.h>
 #include <TH2.h>
 #include <TH3.h>
@@ -49,10 +48,10 @@ using namespace reco;
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
 
-class ppRefAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
+class ppRefAnalyzer_v2 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
    public:
-      explicit ppRefAnalyzer_v1(const edm::ParameterSet&);
-      ~ppRefAnalyzer_v1();
+      explicit ppRefAnalyzer_v2(const edm::ParameterSet&);
+      ~ppRefAnalyzer_v2();
 
       static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 	static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );
@@ -75,6 +74,7 @@ class ppRefAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
 	std::vector<double> ptBins_;
 	std::vector<double> etaBins_;
 	bool applyCuts_;
+        int TrackQualityNum_;
 	reco::TrackBase::TrackQuality trackQuality_;
    	double trackCharge;
 	
@@ -85,12 +85,15 @@ class ppRefAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
 		*tracksPerEvent, *primaryVerticesPerEvent;
 
 	double nPosChargedParticles, nNegChargedParticles;
+	TH2D *vtxDistrXY;
+	TH1F *evtMult, *vtxPerEvent;
 
 
 	/* Variable used inside Analyze method */
 	double vxErr, vyErr, vzErr;
 	double dxy, dz, dxysigma, dzsigma;
 	double nTracksWithQualityCut,  nTracksWithoutQualityCut; 
+	double measuredTrackEta, trackChi2;
 };
 
 //
@@ -104,13 +107,14 @@ class ppRefAnalyzer_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
 //
 // constructors and destructor
 //
-ppRefAnalyzer_v1::ppRefAnalyzer_v1(const edm::ParameterSet& iConfig)
+ppRefAnalyzer_v2::ppRefAnalyzer_v2(const edm::ParameterSet& iConfig)
 :trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
 ptBins_(iConfig.getParameter<std::vector<double> >("ptBins")),
 etaBins_(iConfig.getParameter<std::vector<double> >("etaBins")),
-applyCuts_(iConfig.getParameter<bool>("applyCuts"))
+applyCuts_(iConfig.getParameter<bool>("applyCuts")),
+TrackQualityNum_(iConfig.getParameter<int>("TrackQualityNum"))
 {
    //now do what ever initialization is needed
         usesResource("TFileService");
@@ -120,7 +124,7 @@ applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 }
 
 
-ppRefAnalyzer_v1::~ppRefAnalyzer_v1()
+ppRefAnalyzer_v2::~ppRefAnalyzer_v2()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -135,7 +139,7 @@ ppRefAnalyzer_v1::~ppRefAnalyzer_v1()
 
 // ------------ method called for each event  ------------
 void
-ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+ppRefAnalyzer_v2::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
 
 /* Collections */
@@ -146,7 +150,10 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 
    reco::TrackCollection::const_iterator track;
 //   reco::Track::const_iterator track;
+// Fill event multiplicity only when its greater than zero
    double multiplicityPerEvent = tcol->size();
+   if (multiplicityPerEvent > 0 ) evtMult->Fill(multiplicityPerEvent);
+
    cout << "multiplicity per event " << multiplicityPerEvent << endl;
    cout << "eta, pt, charge" << endl;
 
@@ -155,19 +162,27 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    // trackQuality_ = 2 for "highPurity"
    cout << "Track Quality String: " << trackQuality_ << endl;
    nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
-   if (trackQuality_ == 2){
+   double trackEtaMax = 2.4, trackEtaMin = -2.4;
+
+   // 2 = highPurity, 6 = highuritySetWithPV
+   if (trackQuality_ == TrackQualityNum_){
    for(  track = tcol->begin(); track != tcol->end() ; ++track )
    { 
- 	trackCharge = track->charge();	
-	/*  
-	cout << "Track charge : " << trackCharge << "\t" 
-	     << "Track pT : " << track->pt()
-	     << endl;
-	 */
-	if ( trackCharge == 1 ) {
+   	cout << "Track momentum: " << track->momentum() << "\t"
+   	     << "Track ndof: " << track->ndof() << "\t" 
+   	     << "Track chi2: " << track->chi2() << endl;
+
+ 	//trackCharge = track->charge();	
+
+   /* Applying eta cut for the track */
+   measuredTrackEta = track->eta(); 
+   bool trackEtaCut = ( measuredTrackEta < trackEtaMax ) 
+		     && ( measuredTrackEta < trackEtaMin );
+
+	if ( trackCharge == 1 && trackEtaCut ) {
 		trackPosPt->Fill(track->pt());
 		trackPosEta->Fill(track->eta());
-	}else if ( trackCharge == -1 ){
+	}else if ( trackCharge == -1 && trackEtaCut ){
 		trackNegPt->Fill(track->pt());
 		trackNegEta->Fill(track->eta());
 	}
@@ -187,18 +202,33 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 
   Handle<std::vector<reco::Vertex> > vertex;
   iEvent.getByLabel(vertexSrc_, vertex);
-  cout << "Vertex size : " << vertex->size() << endl;
+  // Number of vertices per event
+
+  vtxPerEvent->Fill(vertex->size());
 
 	std::vector<reco::Vertex> vsorted = *vertex;
 	// sort the vertcies by number of tracks in descending order
 	//    // use chi2 as tiebreaker
-	std::sort( vsorted.begin(), vsorted.end(), ppRefAnalyzer_v1::vtxSort );
+	std::sort( vsorted.begin(), vsorted.end(), ppRefAnalyzer_v2::vtxSort );
+
+  cout << "======== INFO RELATED TO VERTICES =========" << "\n";
+  cout << "Vertex size : " << vertex->size() << endl;
 
    // Vertex performance histograms
    int vcount = 0; 
+   if (vcount == 0){/*  Do nothing  */};
    std::vector<reco::Vertex>::const_iterator vi; 
    for( vi = vsorted.begin(); vi != vsorted.end() ; vi++ )
    {
+
+  
+  cout << "Is the vertex fake: " << vi->isFake() << "\t"
+       << "Is the vertex valid: " << vi->isValid() << "\t"
+       << "How many tracks does the vertex have: " << vi->nTracks() << "\n";
+
+  vtxDistrXY->Fill(vi->x(), vi->y());
+
+     /*  
      vtxPerfX->Fill(vi->x());
      vtxPerfY->Fill(vi->y());
      vtxPerfZ->Fill(vi->z());
@@ -210,7 +240,9 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 	  << endl;
 
      vcount++;
+     */
    }
+  cout << "===========================================" << "\n";
 
    // skip events with no PV, this should not happen
    if( vsorted.size() == 0) return;
@@ -241,12 +273,13 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 	if( !passesTrackCuts(*track, vsorted[0]) ) continue;
 		trackpT->Fill(track->pt());
 		trackEta->Fill(track->pt());
-		
+	/*  	
 		cout << "dxy, dx, dy, dzsigma :  " << "\t"
 		     << dxy << "\t"
 		     << dz << "\t"
 		     << dzsigma << "\t"
 		     << endl;
+	*/
 
 	}
 
@@ -272,16 +305,19 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 
 
 bool
-ppRefAnalyzer_v1::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
+ppRefAnalyzer_v2::vtxSort( const reco::Vertex &  a, const reco::Vertex & b )
 {
 	return 0 /*Change here*/;
 }
 
-void ppRefAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs)
+void ppRefAnalyzer_v2::initHistos(const edm::Service<TFileService> & fs)
 {
 	cout << "from inside init histos method" << endl;
 	demoHisto = fs->make<TH1F>("multiplicity","Event Multiplicity (selected tracks)",500,0,500);
 
+	evtMult = fs->make<TH1F>("evtMult", "Event Multiplicity for Selected Tracks", 100, 0, 100);
+
+	vtxPerEvent = fs->make<TH1F>("vtxPerEvent", "Vertices Per Event", 10, 0, 10);
 	// Vertex performance histograms
 	vtxPerfX = fs->make<TH1F>("vtxX","Vertex x position",10,-1,1);
 	vtxPerfY = fs->make<TH1F>("vtxY","Vertex x position",10,-1,1);
@@ -302,28 +338,30 @@ void ppRefAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs)
 	tracksPerEvent = fs->make<TH1F>("tracksPerEvent","Tracks per event",100,0,200);
 	primaryVerticesPerEvent = fs->make<TH1F>("primaryVerticesPerEvent","Primary vertices per event",10,0,10);
 
+	vtxDistrXY = fs->make<TH2D>("vtxDistrXY", "2D Vertex Distribution", 100, -10, 10, 100, -10, 10);
+
 }
 
 bool
-ppRefAnalyzer_v1::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
+ppRefAnalyzer_v2::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
 
 return 1;/* Change here */
 }
 // ------------ method called once each job just before starting event loop  ------------
 void 
-ppRefAnalyzer_v1::beginJob()
+ppRefAnalyzer_v2::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-ppRefAnalyzer_v1::endJob() 
+ppRefAnalyzer_v2::endJob() 
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-ppRefAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+ppRefAnalyzer_v2::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -332,4 +370,4 @@ ppRefAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions)
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(ppRefAnalyzer_v1);
+DEFINE_FWK_MODULE(ppRefAnalyzer_v2);

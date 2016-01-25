@@ -3,6 +3,17 @@ import FWCore.Utilities.FileUtils as FileUtils
 from FWCore.ParameterSet.VarParsing import VarParsing
 
 
+''' timeStamp the outputfile from cmsRun '''
+import datetime, time
+ts = time.time()
+timeLabel = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H%M%S')
+
+timeStampedFileName = "ppRefOutput" + timeLabel + ".root"
+
+import os, sys
+#pyFile =  os.path.basename(sys.argv[1])
+#print os.path.splitext(pyFile)[0]
+
 ''' Declare VarParsing options to be used from commandline '''
 options = VarParsing('analysis')
 options.register('maxNumEvents',
@@ -14,7 +25,7 @@ options.register('maxNumEvents',
 options.parseArguments()
 ''' ====================================================== '''
 
-process = cms.Process("Demo")
+process = cms.Process("userAnalyzer")
 
 process.load("FWCore.MessageService.MessageLogger_cfi")
 
@@ -36,7 +47,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxN
 
 ''' Output histograms go here '''
 process.TFileService = cms.Service("TFileService", 
-	fileName = cms.string("ppRefMinBias1.root") 
+	fileName = cms.string(timeStampedFileName) 
 	)
 
 ''' Files to run in this config file '''
@@ -60,12 +71,17 @@ process.options = cms.untracked.PSet(
 	SkipEvent = cms.untracked.vstring('ProductNotFound')
 )
 
+''' Timing Information per module '''
+#process.Timing = cms.Service("Timing")
+
 ''' All the parameters to EDAnalyzer '''
-process.demo = cms.EDAnalyzer('ppRefAnalyzer_v1',
+process.userAnalyzer= cms.EDAnalyzer('ppRefAnalyzer_v3',
 	trackSrc = cms.InputTag("generalTracks"),
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint
 	TrackQuality = cms.string('highPurity'),
+	TrackQualityNum = cms.int32(2),
+	chi2 = cms.double(0),
 	
         ptBins = cms.vdouble(
         0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
@@ -84,6 +100,7 @@ process.demo = cms.EDAnalyzer('ppRefAnalyzer_v1',
 	   applyCuts = cms.bool(False)
 )
 
+''' Specify the sequency in which the modules need to be run '''
 
 ''' Specify the paths to be run '''
 process.p = cms.Path(process.demo)
