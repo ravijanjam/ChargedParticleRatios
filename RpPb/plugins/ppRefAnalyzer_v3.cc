@@ -142,6 +142,7 @@ void
 ppRefAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
 
+	iEvent.getRun();
 /* Collections */
 
    Handle<reco::TrackCollection> tcol;
@@ -168,6 +169,8 @@ ppRefAnalyzer_v3::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    if (trackQuality_ == TrackQualityNum_){
    for(  track = tcol->begin(); track != tcol->end() ; ++track )
    { 
+	// Fill all the tracks
+   	trackpT->Fill(track->pt());
    	cout << "Track momentum: " << track->momentum() << "\t"
    	     << "Track ndof: " << track->ndof() << "\t" 
    	     << "Track chi2: " << track->chi2() << endl;
@@ -317,8 +320,9 @@ void ppRefAnalyzer_v3::initHistos(const edm::Service<TFileService> & fs)
 
 	evtMult = fs->make<TH1F>("evtMult", "Event Multiplicity for Selected Tracks", 100, 0, 100);
 
-	vtxPerEvent = fs->make<TH1F>("vtxPerEvent", "Vertices Per Event", 10, 0, 10);
+
 	// Vertex performance histograms
+	vtxPerEvent = fs->make<TH1F>("vtxPerEvent", "Vertices Per Event", 10, 0, 10);
 	vtxPerfX = fs->make<TH1F>("vtxX","Vertex x position",10,-1,1);
 	vtxPerfY = fs->make<TH1F>("vtxY","Vertex x position",10,-1,1);
 	vtxPerfZ = fs->make<TH1F>("vtxZ","Vertex x position",10,-1,1);
@@ -335,7 +339,7 @@ void ppRefAnalyzer_v3::initHistos(const edm::Service<TFileService> & fs)
 	trackpT = fs->make<TH1F>("trackpT","pT of all charged tracks",100, 0, 200);
 
 	// Number of tracks per event
-	tracksPerEvent = fs->make<TH1F>("tracksPerEvent","Tracks per event",100,0,200);
+	tracksPerEvent = fs->make<TH1F>("tracksPerEvent","Tracks per event",1000,0,200);
 	primaryVerticesPerEvent = fs->make<TH1F>("primaryVerticesPerEvent","Primary vertices per event",10,0,10);
 
 	vtxDistrXY = fs->make<TH2D>("vtxDistrXY", "2D Vertex Distribution", 100, -10, 10, 100, -10, 10);

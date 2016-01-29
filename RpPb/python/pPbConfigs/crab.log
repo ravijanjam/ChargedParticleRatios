@@ -167,3 +167,19 @@ Traceback (most recent call last):
   File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 445, in loadCache
     raise CachefileNotFoundException(msg)
 CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /gpfs22/home/janjamrk/CMSSW_7_5_8/src/TestAnalyzer_v1/TestAnalyzer_v1/python/pPbConfigs/pPb_crab_projects
+DEBUG 2016-01-27 14:51:57,903: 	 Executing command: 'status'
+DEBUG 2016-01-27 14:51:57,905: 	 Found CRAB cache file /home/janjamrk/.crab3
+ERROR 2016-01-27 14:51:57,906: 	 Error: /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer2016-01-25-143951 is not a valid CRAB project directory.
+ERROR 2016-01-27 14:51:57,906: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 254, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 745, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1512/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 559, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: /gpfs22/home/janjamrk/CMSSW_7_5_8/src/RpPb/RpPb/python/ppRefConfigs/ppRef_crab_projects/crab_ppRefAnalyzer2016-01-25-143951 is not a valid CRAB project directory.

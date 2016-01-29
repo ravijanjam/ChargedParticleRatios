@@ -75,7 +75,7 @@ process.options = cms.untracked.PSet(
 #process.Timing = cms.Service("Timing")
 
 ''' All the parameters to EDAnalyzer '''
-process.userAnalyzer= cms.EDAnalyzer('ppRefAnalyzer_v3',
+process.userAnalyzer= cms.EDAnalyzer('ppRefAnalyzer_v4',
 	trackSrc = cms.InputTag("generalTracks"),
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint
@@ -103,4 +103,4 @@ process.userAnalyzer= cms.EDAnalyzer('ppRefAnalyzer_v3',
 ''' Specify the sequency in which the modules need to be run '''
 
 ''' Specify the paths to be run '''
-process.p = cms.Path(process.demo)
+process.p = cms.Path(process.userAnalyzer)
