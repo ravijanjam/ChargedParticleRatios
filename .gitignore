@@ -1,0 +1,12 @@
+# ROOT Compiled junk
+*.pcm
+*.d
+*.so
+
+
+# VIM Junk
+*.swm
+*.swo
+*.swp
+*.swn
+*.sw*
