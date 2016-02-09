@@ -1,0 +1,21 @@
+09-Feb-2016
+
+This folder contains the spectra of Xi+ particles from the ALICE Experiment
+
+	/*  Data from http://hepdata.cedar.ac.uk/view/ins1243865/first  */
+
+c1.jpg - Spectra for various centralities and merged centrality plot
+c2.jpg 
+c4.jpg
+
+
+Macro : mergeErrors_v6.C
+To Run : 
+1. root -l mergeErrors_v6.C
+
+Centrality normalization is done, as shown below. Since only 4 centrality bins are given, normalized only using those. 
+
+	xiYValAllCent[i] = p8557_d1x1y1_yval[i]*(0.5/4) + p8557_d2x1y1_yval[i]*(0.5/4) + p8557_d3x1y1_yval[i]/4 + p8557_d3x1y1_yval[i]/4 + p8557_d4x1y1_yval[i]/4 + p8557_d5x1y1_yval[i]/4;
+
+Statistical Errors : Sum in Quadrature for SD
+Systematic Errors : Sum of SD
