@@ -1,0 +1,15 @@
+# ROOT Junk
+*.root
+*.so
+*.pcm
+*.d
+
+# VIM Junk
+*.sw*
+
+# Python Compiler Junk
+*.pyc
+
+# C++ Compiled junk
+*.so
+
