@@ -7,9 +7,16 @@
 # VIM Junk
 *.sw*
 
-# Python Compiler Junk
+# Python Compiler Junk, mostly from CRAB
 *.pyc
+*.pkl
+*.tgz
 
 # C++ Compiled junk
 *.so
+*.log
+*.stderr
+*.stdout
 
+# Some strange core file
+core*
