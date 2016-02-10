@@ -49,7 +49,8 @@ using namespace reco;
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
 
-class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
+class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
+{
    public:
       explicit ppRefAnalyzer_v5(const edm::ParameterSet&);
       ~ppRefAnalyzer_v5();
@@ -75,6 +76,7 @@ class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
 	edm::InputTag vertexSrc_;
 	double vertexZMax_;
 	std::vector<double> ptBins_;
+	double pTMin_, pTMax_;
 	double etaMin_;
 	double etaMax_;
 	std::vector<double> etaBins_;
@@ -103,7 +105,7 @@ class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
 
 	bool iVertexZCut, iVertexValid, iVertexFake;
 	int iVertexSize, iVertexTracks;
-	bool iVertexCuts;
+	bool iAllCuts, iTrackCuts, iVertexCuts;
 
 };
 
@@ -123,6 +125,8 @@ ppRefAnalyzer_v5::ppRefAnalyzer_v5(const edm::ParameterSet& iConfig)
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
 ptBins_(iConfig.getParameter<std::vector<double> >("ptBins")),
+pTMin_(iConfig.getParameter<double>("pTMin")),
+pTMax_(iConfig.getParameter<double>("pTMax")),
 etaMin_(iConfig.getParameter<double>("etaMin")),
 etaMax_(iConfig.getParameter<double>("etaMax")),
 etaBins_(iConfig.getParameter<std::vector<double> >("etaBins")),
@@ -167,6 +171,7 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    Handle<reco::TrackCollection> tcol;
    iEvent.getByLabel(trackSrc_, tcol);
 
+   // Iterators for Track and Vertex
    reco::TrackCollection::const_iterator track;
    std::vector<reco::Vertex>::const_iterator vi; 
 
@@ -194,25 +199,26 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    iVertexFake = vi->isFake();
  
    cout << "Information about vertices " << iEvent.id() << "\t"
-	<< "validity: " << iVertexSize << "\t"
+	<< "number of vertices: " << iVertexSize << "\t"
 	<< "fake: " << iVertexFake << "\t"
 	<< "Number of tracks per vertex: " << iVertexTracks << "\t"
 	<< endl;
 	
    iVertexCuts = (iVertexSize == 1) && ( iVertexValid ) && ( iVertexFake );
 
-   }//close for-vertex loop
+   iTrackCuts = (trackQuality_ == TrackQualityNum_);
 
+   iAllCuts = iTrackCuts && iVertexCuts;
 
    // 2 = highPurity, 6 = highuritySetWithPV
-   if ( (trackQuality_ == TrackQualityNum_) ){
-   for(  track = tcol->begin(); track != tcol->end() ; ++track )
+   for(  track = tcol->begin(); track != tcol->end() && iAllCuts ; ++track )
    { 
 	cout << "Net Track Momentum " << track->p() << endl;
 	trackpx->Fill(track->px());
 	trackpy->Fill(track->py());
 	trackpz->Fill(track->pz());
-	// Fill all the tracks
+
+	// Fill all the tracks for pT distribution
    	trackpT->Fill(track->pt());
    	cout << "Track momentum: " << track->momentum() << "\t"
    	     << "Track ndof: " << track->ndof() << "\t" 
@@ -222,6 +228,7 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    /* Applying eta cut for the track */
    measuredTrackEta = track->eta(); 
  	trackCharge = track->charge();	
+
    bool trackEtaCut = ( measuredTrackEta < etaMax_ ) 
 		     && ( measuredTrackEta < etaMin_ );
 
@@ -235,10 +242,9 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 	nTracksWithQualityCut++;
    }
 	cout << endl;
-  }else { 
 	  
 	  nTracksWithoutQualityCut = multiplicityPerEvent - nTracksWithQualityCut ; 
-  }
+  }//close for-vertex loop
 
    cout << "================================================================" << endl;
    cout << "Multiplicity per Events: " << multiplicityPerEvent << endl;
@@ -267,7 +273,7 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    ESHandle<SetupData> pSetup;
    iSetup.get<SetupRecord>().get(pSetup);
 #endif
-}
+} //close-analyze
 
 
 bool
