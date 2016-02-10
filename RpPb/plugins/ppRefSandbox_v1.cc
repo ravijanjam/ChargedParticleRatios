@@ -57,7 +57,7 @@ class ppRefSandbox_v1 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
       static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 	static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );
 	void initHistos(const edm::Service<TFileService> & fs);
-        bool passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex);
+        bool passesTrackCuts(const reco::Track & track);
 
    private:
       virtual void beginJob() override;
@@ -158,6 +158,9 @@ ppRefSandbox_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	iEvent.getRun();
 /* Collections */
 
+   Handle<reco::TrackCollection> tcol;
+   iEvent.getByLabel(trackSrc_, tcol);
+
 
   // Vertex Collection
   Handle<std::vector<reco::Vertex> > vertex;
@@ -180,13 +183,10 @@ ppRefSandbox_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	<< "fake: " << iVertexFake << "\t"
 	<< "Number of tracks per vertex: " << iVertexTracks << "\t"
 	<< endl;
+   iVertexCuts = (iVertexSize == 1) && ( iVertexValid ) && ( iVertexFake );
+
    }
 
-
-//	cout << "number of vertices: " << iVertexSize << "\t";
-//	cout << "validity: " << iVertexSize << "\t";
-
-   iVertexCuts = (iVertexSize == 1) && ( iVertexValid ) && ( iVertexFake );
 
    // 2 = highPurity, 6 = highuritySetWithPV
 
@@ -257,7 +257,8 @@ void ppRefSandbox_v1::initHistos(const edm::Service<TFileService> & fs)
 }
 
 bool
-ppRefSandbox_v1::passesTrackCuts(const reco::Track & track, const reco::Vertex & vertex){
+ppRefSandbox_v1::passesTrackCuts(const reco::Track & trackC ){
+	cout << "Hi from passes Track Cuts" << endl;
 
 return 1;/* Change here */
 }

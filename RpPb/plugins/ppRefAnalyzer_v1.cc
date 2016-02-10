@@ -141,7 +141,6 @@ ppRefAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 /* Collections */
 
    Handle<reco::TrackCollection> tcol;
-//   Handle<reco::Track> tcol;
    iEvent.getByLabel(trackSrc_, tcol);
 
    reco::TrackCollection::const_iterator track;

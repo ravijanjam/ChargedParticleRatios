@@ -183,22 +183,26 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    cout << "Track Quality String: " << trackQuality_ << endl;
    nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
 
-   // Vertex z position cut
+   // Loop over vertices
+   std::vector<reco::Vertex> vtx = *vertex;
+   for ( vi = vtx.begin(); vi != vtx.end(); ++vi ) {
+
    iVertexZCut = (vi->z() > -1*vertexZMax_) && (vi->z() < +1*vertexZMax_);
    iVertexSize = vertex->size();
    iVertexValid = vi->isValid();
    iVertexTracks = vi->nTracks();
    iVertexFake = vi->isFake();
-
-   /*  
-   cout << "Information about vertices "
+ 
+   cout << "Information about vertices " << iEvent.id() << "\t"
 	<< "validity: " << iVertexSize << "\t"
 	<< "fake: " << iVertexFake << "\t"
 	<< "Number of tracks per vertex: " << iVertexTracks << "\t"
 	<< endl;
-
+	
    iVertexCuts = (iVertexSize == 1) && ( iVertexValid ) && ( iVertexFake );
-   */
+
+   }//close for-vertex loop
+
 
    // 2 = highPurity, 6 = highuritySetWithPV
    if ( (trackQuality_ == TrackQualityNum_) ){
