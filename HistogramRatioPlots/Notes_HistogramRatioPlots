@@ -1,0 +1,22 @@
+
+10-Feb-2016
+
+
+Files produced from 2013 High Pt Datasets
+pPbAnalyzer2016-02-08.root
+
+Files produced from ppRef 2015 Minimum Bias 1 dataset
+ppRefOutput2016-02-08.root
+
+Macros :
+pPbDataOnly.C
+ppRefOnly.C
+
+To Run the macros :
+
+.L pPbDataOnly.C++
+pPbDataOnly("pPbAnalyzer2016-02-08.root")
+
+Doing so will produce an output file named outputpPbDataOnly.root
+
+Similary for ppRefOnly.C macro
