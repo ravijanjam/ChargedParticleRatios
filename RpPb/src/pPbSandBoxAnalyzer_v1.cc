@@ -40,10 +40,10 @@ using namespace std;
 using namespace edm;
 using namespace reco;
 
-class pPbAnalyzer_v4 : public edm::EDAnalyzer {
+class pPbSandBoxAnalyzer_v1 : public edm::EDAnalyzer {
    public:
-      explicit pPbAnalyzer_v4(const edm::ParameterSet&);
-      ~pPbAnalyzer_v4();
+      explicit pPbSandBoxAnalyzer_v1(const edm::ParameterSet&);
+      ~pPbSandBoxAnalyzer_v1();
 
        static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
        static bool vtxSort( const reco::Vertex &  a, const reco::Vertex & b );                   void initHistos(const edm::Service<TFileService> & fs);
@@ -107,7 +107,7 @@ class pPbAnalyzer_v4 : public edm::EDAnalyzer {
 //
 // constructors and destructor
 //
-pPbAnalyzer_v4::pPbAnalyzer_v4(const edm::ParameterSet& iConfig)
+pPbSandBoxAnalyzer_v1::pPbSandBoxAnalyzer_v1(const edm::ParameterSet& iConfig)
 :trackSrc_(iConfig.getParameter<edm::InputTag>("trackSrc")),
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
@@ -129,7 +129,7 @@ applyCuts_(iConfig.getParameter<bool>("applyCuts"))
 }
 
 
-pPbAnalyzer_v4::~pPbAnalyzer_v4()
+pPbSandBoxAnalyzer_v1::~pPbSandBoxAnalyzer_v1()
 {
  
    // do anything here that needs to be done at desctruction time
@@ -144,17 +144,17 @@ pPbAnalyzer_v4::~pPbAnalyzer_v4()
 
 // ------------ method called for each event  ------------
 void
-pPbAnalyzer_v4::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+pPbSandBoxAnalyzer_v1::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
    using namespace edm;
 
 //   cout << EventNumber_t << endl;
-	cout << " =========== Event Information =========== " << endl;
-	cout << "Run number: " << iEvent.run() << "\t"
+
+   EventID eid;
+   cout << eid.event() << endl;
+   cout << "Run number: " << iEvent.run() << "\t"
 	   "Event size: " << iEvent.size() << "\t"
 	   "Event id: " << iEvent.id() << endl;
-	cout << " =========== Event Information =========== " << endl;
-
 
    Handle<reco::TrackCollection> tcol;
    iEvent.getByLabel(trackSrc_, tcol);
@@ -225,7 +225,7 @@ pPbAnalyzer_v4::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 #endif
 }
 
-void pPbAnalyzer_v4::initHistos(const edm::Service<TFileService> & fs)
+void pPbSandBoxAnalyzer_v1::initHistos(const edm::Service<TFileService> & fs)
 {
 
 	// Vertex performance histograms
@@ -253,43 +253,43 @@ void pPbAnalyzer_v4::initHistos(const edm::Service<TFileService> & fs)
 
 // ------------ method called once each job just before starting event loop  ------------
 void 
-pPbAnalyzer_v4::beginJob()
+pPbSandBoxAnalyzer_v1::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void 
-pPbAnalyzer_v4::endJob() 
+pPbSandBoxAnalyzer_v1::endJob() 
 {
 }
 
 // ------------ method called when starting to processes a run  ------------
 void 
-pPbAnalyzer_v4::beginRun(edm::Run const&, edm::EventSetup const&)
+pPbSandBoxAnalyzer_v1::beginRun(edm::Run const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when ending the processing of a run  ------------
 void 
-pPbAnalyzer_v4::endRun(edm::Run const&, edm::EventSetup const&)
+pPbSandBoxAnalyzer_v1::endRun(edm::Run const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when starting to processes a luminosity block  ------------
 void 
-pPbAnalyzer_v4::beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
+pPbSandBoxAnalyzer_v1::beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method called when ending the processing of a luminosity block  ------------
 void 
-pPbAnalyzer_v4::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
+pPbSandBoxAnalyzer_v1::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&)
 {
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
 void
-pPbAnalyzer_v4::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+pPbSandBoxAnalyzer_v1::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
   //The following says we do not know what parameters are allowed so do no validation
   // Please change this to state exactly what you do use, even if it is no parameters
   edm::ParameterSetDescription desc;
@@ -298,7 +298,7 @@ pPbAnalyzer_v4::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(pPbAnalyzer_v4);
+DEFINE_FWK_MODULE(pPbSandBoxAnalyzer_v1);
 
 
 /*
