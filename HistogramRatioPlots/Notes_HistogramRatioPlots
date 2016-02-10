@@ -3,9 +3,19 @@
 
 
 Files produced from 2013 High Pt Datasets
+highPurity cuts used
+generalTracks
+offlinePrimaryVertices
+GR_P_V42_AN3:ALL
+CMSSW_5_3_26
 pPbAnalyzer2016-02-08.root
 
 Files produced from ppRef 2015 Minimum Bias 1 dataset
+highPurity cuts used
+generalTracks
+offlinePrimaryVertices
+CMSSW_7_5_8
+pPbAnalyzer2016-02-08.root
 ppRefOutput2016-02-08.root
 
 Macros :
