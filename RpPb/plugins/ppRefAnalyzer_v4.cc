@@ -65,19 +65,22 @@ class ppRefAnalyzer_v4 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
       virtual void endJob() override;
 
       // ----------member data ---------------------------
-      edm::InputTag trackSrc_;
-      edm::InputTag vertexSrc_;
       std::map<std::string,TH1F*> evtPerf_;
-      double vertexZMax_;
 	edm::Service<TFileService> fs;
 
 	// Declaring variables for passing variables to constructor to the parameter set
+
+	/* Variables from python config file */
+	edm::InputTag trackSrc_;
+	edm::InputTag vertexSrc_;
+	double vertexZMax_;
 	std::vector<double> ptBins_;
+	double etaMin_;
+	double etaMax_;
 	std::vector<double> etaBins_;
 	bool applyCuts_;
-        int TrackQualityNum_;
+	int TrackQualityNum_;
 	reco::TrackBase::TrackQuality trackQuality_;
-   	double trackCharge;
 	
 	TH1D *demoHisto; 
 	TH1D *vtxPerfX, *vtxPerfY, *vtxPerfZ, 
@@ -95,6 +98,7 @@ class ppRefAnalyzer_v4 : public edm::one::EDAnalyzer<edm::one::SharedResources> 
 	double dxy, dz, dxysigma, dzsigma;
 	double nTracksWithQualityCut,  nTracksWithoutQualityCut; 
 	double measuredTrackEta, trackChi2;
+	double trackCharge;
 };
 
 //
@@ -113,6 +117,8 @@ ppRefAnalyzer_v4::ppRefAnalyzer_v4(const edm::ParameterSet& iConfig)
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
 ptBins_(iConfig.getParameter<std::vector<double> >("ptBins")),
+etaMin_(iConfig.getParameter<double>("etaMin")),
+etaMax_(iConfig.getParameter<double>("etaMax")),
 etaBins_(iConfig.getParameter<std::vector<double> >("etaBins")),
 applyCuts_(iConfig.getParameter<bool>("applyCuts")),
 TrackQualityNum_(iConfig.getParameter<int>("TrackQualityNum"))
@@ -164,7 +170,6 @@ ppRefAnalyzer_v4::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    // trackQuality_ = 2 for "highPurity"
    cout << "Track Quality String: " << trackQuality_ << endl;
    nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
-   double trackEtaMax = 2.4, trackEtaMin = -2.4;
 
    // 2 = highPurity, 6 = highuritySetWithPV
    if (trackQuality_ == TrackQualityNum_){
@@ -184,8 +189,8 @@ ppRefAnalyzer_v4::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    /* Applying eta cut for the track */
    measuredTrackEta = track->eta(); 
  	trackCharge = track->charge();	
-   bool trackEtaCut = ( measuredTrackEta < trackEtaMax ) 
-		     && ( measuredTrackEta < trackEtaMin );
+   bool trackEtaCut = ( measuredTrackEta < etaMax_ ) 
+		     && ( measuredTrackEta < etaMin_ );
 
 	if ( trackCharge == 1 && trackEtaCut ) {
 		trackPosPt->Fill(track->pt());
