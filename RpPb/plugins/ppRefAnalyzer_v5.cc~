@@ -49,8 +49,7 @@ using namespace reco;
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
 
-class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>  
-{
+class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
    public:
       explicit ppRefAnalyzer_v5(const edm::ParameterSet&);
       ~ppRefAnalyzer_v5();
@@ -76,7 +75,6 @@ class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>
 	edm::InputTag vertexSrc_;
 	double vertexZMax_;
 	std::vector<double> ptBins_;
-	double pTMin_, pTMax_;
 	double etaMin_;
 	double etaMax_;
 	std::vector<double> etaBins_;
@@ -85,14 +83,14 @@ class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>
 	reco::TrackBase::TrackQuality trackQuality_;
 	
 	TH1D *demoHisto; 
-	TH1D *hvtxPerfX, *hvtxPerfY, *hvtxPerfZ, 
-	     *htrackPosEta, *htrackPosPt, *htrackNegEta, *htrackNegPt, 
-	     *htrackpT, *htrackEta, *htrackNetMom, *htrackpx, *htrackpy, *htrackpz,
-		*htracksPerEvent, *hprimaryVerticesPerEvent;
+	TH1D *vtxPerfX, *vtxPerfY, *vtxPerfZ, 
+	     *trackPosEta, *trackPosPt, *trackNegEta, *trackNegPt, 
+	     *trackpT, *trackEta, *trackNetMom, *trackpx, *trackpy, *trackpz,
+		*tracksPerEvent, *primaryVerticesPerEvent;
 
 	double nPosChargedParticles, nNegChargedParticles;
-	TH2D *hvtxDistrXY;
-	TH1D *hevtMult, *hvtxPerEvent;
+	TH2D *vtxDistrXY;
+	TH1D *evtMult, *vtxPerEvent;
 
 
 	/* Variable used inside Analyze method */
@@ -102,13 +100,9 @@ class ppRefAnalyzer_v5 : public edm::one::EDAnalyzer<edm::one::SharedResources>
 	double measuredTrackEta, trackChi2;
 	double trackCharge;
 
-
-	bool iVertexZCut, iVertexValid, iVertexFake;
+	bool iVertexZ, iVertexValid, iVertexFake;
 	int iVertexSize, iVertexTracks;
-	bool iAllCuts, iTrackCuts, iVertexCuts;
-
-	int trackQ;
-
+	bool iVertexCuts;
 };
 
 //
@@ -127,8 +121,6 @@ ppRefAnalyzer_v5::ppRefAnalyzer_v5(const edm::ParameterSet& iConfig)
 vertexSrc_(iConfig.getParameter<edm::InputTag>("vertexSrc")),
 vertexZMax_(iConfig.getParameter<double>("vertexZMax")),
 ptBins_(iConfig.getParameter<std::vector<double> >("ptBins")),
-pTMin_(iConfig.getParameter<double>("pTMin")),
-pTMax_(iConfig.getParameter<double>("pTMax")),
 etaMin_(iConfig.getParameter<double>("etaMin")),
 etaMax_(iConfig.getParameter<double>("etaMax")),
 etaBins_(iConfig.getParameter<std::vector<double> >("etaBins")),
@@ -164,22 +156,19 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 	iEvent.getRun();
 /* Collections */
 
-
-  // Vertex Collection
-  Handle<std::vector<reco::Vertex> > vertex;
-  iEvent.getByLabel(vertexSrc_, vertex);
-
-  // Track Collection
    Handle<reco::TrackCollection> tcol;
    iEvent.getByLabel(trackSrc_, tcol);
 
-   // Iterators for Track and Vertex
+   // Vertex Collection
+  Handle<std::vector<reco::Vertex> > vertex;
+  iEvent.getByLabel(vertexSrc_, vertex);
+
    reco::TrackCollection::const_iterator track;
    std::vector<reco::Vertex>::const_iterator vi; 
 
 // Fill event multiplicity only when its greater than zero
    double multiplicityPerEvent = tcol->size();
-   if (multiplicityPerEvent > 0 ) hevtMult->Fill(multiplicityPerEvent);
+   if (multiplicityPerEvent > 0 ) evtMult->Fill(multiplicityPerEvent);
 
    cout << "multiplicity per event " << multiplicityPerEvent << endl;
    cout << "eta, pt, charge" << endl;
@@ -187,44 +176,30 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    // Apply Track Quality cuts 
    // Populate the histograms for pt, et based on charge
    // trackQuality_ = 2 for "highPurity"
+   cout << "Track Quality String: " << trackQuality_ << endl;
    nTracksWithQualityCut = 0;  nTracksWithoutQualityCut = 0;
 
-   // Loop over vertices
-   std::vector<reco::Vertex> vtx = *vertex;
-   for ( vi = vtx.begin(); vi != vtx.end(); ++vi ) {
+   // 2 = highPurity, 6 = highuritySetWithPV
 
-   iVertexZCut = (vi->z() > -1*vertexZMax_) && (vi->z() < +1*vertexZMax_);
+   // Vertex z position cut
+   iVertexZ = (vi->z() > -1*vertexZMax_) && (vi->z() < +1*vertexZMax_);
    iVertexSize = vertex->size();
    iVertexValid = vi->isValid();
    iVertexTracks = vi->nTracks();
    iVertexFake = vi->isFake();
- 
-   cout << "Information about vertices " << iEvent.id() << "\t"
-	<< "number of vertices: " << iVertexSize << "\t"
-	<< "fake: " << iVertexFake << "\t"
-	<< "Validity?: " << iVertexValid << "\t"
-	<< "Number of tracks per vertex: " << iVertexTracks << "\t"
-	<< endl;
-	
-   iVertexCuts = (iVertexSize == 1) && ( iVertexValid ) && ( !iVertexFake );
 
-   // 2 = highPurity, 6 = highuritySetWithPV
-//   for(  track = tcol->begin(); track != tcol->end() && iVertexCuts ; ++track )
-   for(  track = tcol->begin(); track != tcol->end() && iVertexCuts; ++track )
+   iVertexCuts = (iVertexSize == 1) && ( iVertexValid ) && ( iVertexFake );
+
+	
+   if ( trackQuality_ == TrackQualityNum_ && iVertexCuts ) {
+   for(  track = tcol->begin(); track != tcol->end() ; ++track )
    { 
 	cout << "Net Track Momentum " << track->p() << endl;
-	cout << "Track Quality: " << track->quality(reco::TrackBase::qualityByName("tight")) << endl;
-
-//	iTrackCuts = ( TrackQualityNum_ ==  track->quality(reco::TrackBase::qualityByName("highPurity")));
-	iTrackCuts = ( 1  ==  track->quality(reco::TrackBase::qualityByName("tight")));
-
-	if ( iTrackCuts ){
-	htrackpx->Fill(track->px());
-	htrackpy->Fill(track->py());
-	htrackpz->Fill(track->pz());
-
-	// Fill all the tracks for pT distribution
-   	htrackpT->Fill(track->pt());
+	trackpx->Fill(track->px());
+	trackpy->Fill(track->py());
+	trackpz->Fill(track->pz());
+	// Fill all the tracks
+   	trackpT->Fill(track->pt());
    	cout << "Track momentum: " << track->momentum() << "\t"
    	     << "Track ndof: " << track->ndof() << "\t" 
    	     << "Track chi2: " << track->chi2() << endl;
@@ -233,36 +208,43 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    /* Applying eta cut for the track */
    measuredTrackEta = track->eta(); 
  	trackCharge = track->charge();	
-
    bool trackEtaCut = ( measuredTrackEta < etaMax_ ) 
 		     && ( measuredTrackEta < etaMin_ );
 
 	if ( trackCharge == 1 && trackEtaCut ) {
-		htrackPosPt->Fill(track->pt());
-		htrackPosEta->Fill(track->eta());
+		trackPosPt->Fill(track->pt());
+		trackPosEta->Fill(track->eta());
 	}else if ( trackCharge == -1 && trackEtaCut ){
-		htrackNegPt->Fill(track->pt());
-		htrackNegEta->Fill(track->eta());
+		trackNegPt->Fill(track->pt());
+		trackNegEta->Fill(track->eta());
 	}
 	nTracksWithQualityCut++;
-   }//close if
-   }//close for-track loop
+   }
 	cout << endl;
-	  
-	  nTracksWithoutQualityCut = multiplicityPerEvent - nTracksWithQualityCut ; 
-  }//close for-vertex loop
+  } 
 
-   cout << "================================================================" << endl;
-   cout << "Multiplicity per Events: " << multiplicityPerEvent << endl;
-   cout << "Tracks WITH Track Quality cut " << nTracksWithQualityCut << endl;
-   cout << "Tracks WITHOUT CHOSEN Track Quality cut " << nTracksWithoutQualityCut << endl;
-   cout << "================================================================" << endl;
+  // Number of vertices per event
+  vtxPerEvent->Fill(vertex->size());
 
 
-  hvtxPerEvent->Fill(vertex->size());
+  cout << "======== INFO RELATED TO VERTICES =========" << "\n";
+  cout << "Vertex size : " << vertex->size() << endl;
 
-   // Dummy filling of histograms
-//   cout << "Populating the demo histogram" << endl;
+   // Vertex performance histograms
+   int vcount = 0; 
+   if (vcount == 0){/*  Do nothing  */};
+   {
+
+  
+  cout << "Is the vertex fake: " << vi->isFake() << "\t"
+       << "Is the vertex valid: " << vi->isValid() << "\t"
+       << "How many tracks does the vertex have: " << vi->nTracks() << "\n";
+
+  vtxDistrXY->Fill(vi->x(), vi->y());
+
+   }
+  cout << "===========================================" << "\n";
+
    for (int i=0; i<10000; i++){
 	demoHisto->Fill(i);
 	}
@@ -279,7 +261,7 @@ ppRefAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    ESHandle<SetupData> pSetup;
    iSetup.get<SetupRecord>().get(pSetup);
 #endif
-} //close-analyze
+}
 
 
 bool
@@ -293,35 +275,35 @@ void ppRefAnalyzer_v5::initHistos(const edm::Service<TFileService> & fs)
 	cout << "from inside init histos method" << endl;
 	demoHisto = fs->make<TH1D>("multiplicity","Event Multiplicity (selected tracks)",500,0,500);
 
-	hevtMult = fs->make<TH1D>("hevtMult", "Event Multiplicity for Selected Tracks", 100, 0, 100);
+	evtMult = fs->make<TH1D>("evtMult", "Event Multiplicity for Selected Tracks", 100, 0, 100);
 
 
 	// Vertex performance histograms
-	hvtxPerEvent = fs->make<TH1D>("hvtxPerEvent", "Vertices Per Event", 10, 0, 10);
-	hvtxPerfX = fs->make<TH1D>("hvtxX","Vertex x position",10,-1,1);
-	hvtxPerfY = fs->make<TH1D>("hvtxY","Vertex x position",10,-1,1);
-	hvtxPerfZ = fs->make<TH1D>("hvtxZ","Vertex x position",10,-1,1);
+	vtxPerEvent = fs->make<TH1D>("vtxPerEvent", "Vertices Per Event", 10, 0, 10);
+	vtxPerfX = fs->make<TH1D>("vtxX","Vertex x position",10,-1,1);
+	vtxPerfY = fs->make<TH1D>("vtxY","Vertex x position",10,-1,1);
+	vtxPerfZ = fs->make<TH1D>("vtxZ","Vertex x position",10,-1,1);
 
 	// Track histograms
-	htrackPosPt = fs->make<TH1D>("htrackPosPt","Pt of positively charged tracks",1000,0,200);
-	htrackPosEta = fs->make<TH1D>("htrackPosEta","Eta of positively charged tracks",100,-5,10);
+	trackPosPt = fs->make<TH1D>("trackPosPt","Pt of positively charged tracks",1000,0,200);
+	trackPosEta = fs->make<TH1D>("trackPosEta","Eta of positively charged tracks",100,-5,10);
 
-	htrackNegPt = fs->make<TH1D>("htrackNegPt","Pt of positively charged tracks",1000, 0,200);
-	htrackNegEta = fs->make<TH1D>("trackNegEta","Eta of positively charged tracks",100,-5,10);
+	trackNegPt = fs->make<TH1D>("trackNegPt","Pt of positively charged tracks",1000, 0,200);
+	trackNegEta = fs->make<TH1D>("trackNegEta","Eta of positively charged tracks",100,-5,10);
 
 	// For all tracks
-	htrackEta = fs->make<TH1D>("htrackEta","Eta of all charged tracks",100,-5,10);
-	htrackpT = fs->make<TH1D>("htrackpT","pT of all charged tracks",100, 0, 200);
-	htrackpx = fs->make<TH1D>("htrackpx","px of charged tracks",100, 0, 200);
-	htrackpy = fs->make<TH1D>("htrackpy","py of charged tracks",100, 0, 200);
-	htrackpz = fs->make<TH1D>("htrackpz","pz of charged tracks",100, 0, 200);
-	htrackNetMom = fs->make<TH1D>("htrackNetMom","Net momentum of the track",1000, 0, 200);
+	trackEta = fs->make<TH1D>("trackEta","Eta of all charged tracks",100,-5,10);
+	trackpT = fs->make<TH1D>("trackpT","pT of all charged tracks",100, 0, 200);
+	trackpx = fs->make<TH1D>("trackpx","px of charged tracks",100, 0, 200);
+	trackpy = fs->make<TH1D>("trackpy","py of charged tracks",100, 0, 200);
+	trackpz = fs->make<TH1D>("trackpz","pz of charged tracks",100, 0, 200);
+	trackNetMom = fs->make<TH1D>("trackNetMom","Net momentum of the track",1000, 0, 200);
 
 	// Number of tracks per event
-	htracksPerEvent = fs->make<TH1D>("htracksPerEvent","Tracks per event",1000,0,200);
-	hprimaryVerticesPerEvent = fs->make<TH1D>("hprimaryVerticesPerEvent","Primary vertices per event",10,0,10);
+	tracksPerEvent = fs->make<TH1D>("tracksPerEvent","Tracks per event",1000,0,200);
+	primaryVerticesPerEvent = fs->make<TH1D>("primaryVerticesPerEvent","Primary vertices per event",10,0,10);
 
-	hvtxDistrXY = fs->make<TH2D>("hvtxDistrXY", "2D Vertex Distribution", 100, -10, 10, 100, -10, 10);
+	vtxDistrXY = fs->make<TH2D>("vtxDistrXY", "2D Vertex Distribution", 100, -10, 10, 100, -10, 10);
 
 }
 
