@@ -8,7 +8,7 @@ import datetime, time
 ts = time.time()
 timeLabel = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H%M%S')
 
-timeStampedFolderName = "pPbAnalyzerFull" + timeLabel 
+timeStampedFolderName = "pPbAnalyzerFull" + "info1" + timeLabel 
 
 
 ''' ==================================== '''
@@ -21,7 +21,7 @@ config.General.transferOutputs = True
 config.General.transferLogs = False
 
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'pPbAnalysis_cfg.py'
+config.JobType.psetName = 'pPbAnalysis_v4_cfg.py'
 
 config.Data.inputDataset = '/PAHighPt/HIRun2013-28Sep2013-v1/RECO'
 config.Data.inputDBS = 'global'

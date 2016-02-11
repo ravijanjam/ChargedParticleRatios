@@ -24,6 +24,7 @@
 <use name="RecoHI/HiCentralityAlgos"/>
 <use name="DataFormats/HepMCCandidate"/>
 <use name="DataFormats/Math"/>
+<use name="DataFormats/Provenance"/>
 <use name="DataFormats/Scalers"/>
 <use name="Geometry/TrackerGeometryBuilder"/>
 <use name="SimTracker/Records"/>

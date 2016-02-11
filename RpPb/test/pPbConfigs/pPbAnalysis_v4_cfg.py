@@ -24,6 +24,45 @@ options.register('maxNumEvents',
 			"Maximum number of events"
 		)
 
+
+
+'''
+options.register('vetaMin',
+			-1,
+			VarParsing.multiplicity.singleton,
+			VarParsing.varType.double,
+			"min eta"
+		)
+
+
+
+options.register('vetaMax',
+			1,
+			VarParsing.multiplicity.singleton,
+			VarParsing.varType.double,
+			"max eta"
+		)
+
+
+
+options.register('vpTMin',
+			10,
+			VarParsing.multiplicity.singleton,
+			VarParsing.varType.double,
+			"pT min"
+		)
+
+
+
+options.register('vpTMax',
+			200,
+			VarParsing.multiplicity.singleton,
+			VarParsing.varType.double,
+			"pT max"
+		)
+
+'''
+
 options.parseArguments()
 ''' ====================================================== '''
 
@@ -41,7 +80,6 @@ process.GlobalTag.globaltag = 'GR_P_V42_AN3::All'
 process.load("HLTrigger.HLTfilters.hltHighLevel_cfi")
 process.hltSingleTrigger = process.hltHighLevel.clone()
 process.hltSingleTrigger.HLTPaths = ["HLT_PAZeroBiasPixel_SingleTrack_v1"]
-
 ''' Writes stdout for every 5000th message, the larger will make the code run faster
     as writing to the stdout is a bottleneck in running the code '''
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
@@ -78,6 +116,7 @@ process.options = cms.untracked.PSet(
 
 ''' All the parameters to EDAnalyzer '''
 process.userAnalyzer = cms.EDAnalyzer('pPbAnalyzer_v4',
+#process.userAnalyzer = cms.EDAnalyzer('pPbSandBoxAnalyzer_v1',
 #	trackSrc = cms.InputTag("generalTracks"),
 	trackSrc = cms.InputTag("generalTracks"),
 #	vertexSrc = cms.InputTag("offlinePrimaryVerticesWithBS"),
@@ -85,11 +124,11 @@ process.userAnalyzer = cms.EDAnalyzer('pPbAnalyzer_v4',
 	vertexZMax = cms.double(15.), # The 15cm constraint
 	TrackQuality = cms.string('highPurity'),
 
-	etaMin = cms.double(-1),
-	etaMax = cms.double(+1),
+	etaMin = cms.double(0),
+	etaMax = cms.double(-1),
 
-	pTMax = cms.double(10),
-	pTMin = cms.double(200),
+	pTMax = cms.double(200),
+	pTMin = cms.double(10),
 	
         ptBins = cms.vdouble(
         0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
