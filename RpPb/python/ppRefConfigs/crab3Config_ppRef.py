@@ -7,17 +7,17 @@ import datetime, time
 ts = time.time()
 timeLabel = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H%M%S')
 
-timeStampedFolderName = "ppRefAnalyzer" + timeLabel 
+timeStampedFolderName = "ppRefAnalyzer" + "info1" + timeLabel 
 
 ''' ==================================== '''
 
 config.General.requestName = timeStampedFolderName
 config.General.workArea = 'ppRef_crab_projects'
 config.General.transferOutputs = True
-config.General.transferLogs = False
+config.General.transferLogs = True 
 
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'ppRef_cfg.py'
+config.JobType.psetName = 'ppRef_v5_cfg.py'
 
 config.Data.inputDataset = '/MinimumBias10/Run2015E-PromptReco-v1/AOD'
 config.Data.inputDBS = 'global'

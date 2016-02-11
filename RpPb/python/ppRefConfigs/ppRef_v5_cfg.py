@@ -80,7 +80,7 @@ process.userAnalyzer= cms.EDAnalyzer('ppRefAnalyzer_v5',
 	vertexSrc = cms.InputTag("offlinePrimaryVertices"),
 	vertexZMax = cms.double(15.), # The 15cm constraint
 	TrackQuality = cms.string('highPurity'),
-	TrackQualityNum = cms.int32(2),
+	TrackQualityNum = cms.int32(1),
 	chi2 = cms.double(0),
 
 	etaMax = cms.double(1),
