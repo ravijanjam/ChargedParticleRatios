@@ -53,16 +53,20 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	double nEvents; 
 	double pTMax, pTMin;
 	double gYLow, gYHigh,
-	       gXLow, gXHigh;
+	       gXLow, gXHigh,
+	       hXLow, hXHigh;
+
 	char *outputFileName;
 
 	// Pass variables to the program based on 
 	// the collision system
 	
-	gXLow=1; gXHigh=200;
+	gXLow=1; gXHigh=10;
+	hXLow=1; hXHigh=100;
+	pTMin=0; pTMax=10; 
+
 	if (collisionSystem == "pp"){
 	 nEvents = nEvents_pPb; 
-	 pTMax=200; pTMin=0; 
 	 gYLow=1e-7; gYHigh=1; 
 	 outputFileName = "output_ppInvariantYieldForSelectedpTRange.root";
 
@@ -70,7 +74,6 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 
 	else if (collisionSystem == "pPb"){
 	 nEvents = nEvents_pp;
-	 pTMax=200; pTMin=0; 
 	 gYLow=1e-3; gYHigh=1e+3; 
 	 outputFileName = "output_ppInvariantYieldForSelectedpTRange.root";
 	}
@@ -200,11 +203,12 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	gPad->SetLogx(0);
 	graphNegByPosInvYield->GetYaxis()->SetRangeUser(0, 2);
 	graphNegByPosInvYield->GetXaxis()->SetRangeUser(gXLow, gXHigh);
+//	graphNegByPosInvYield->GetXaxis()->SetRangeUser(0, 100);
 	graphNegByPosInvYield->GetYaxis()->SetTitle("Inv Yield Neg By Pos");
 	graphNegByPosInvYield->GetYaxis()->CenterTitle(true);
 	graphNegByPosInvYield->GetYaxis()->SetTitleOffset(gTitleOffset);
 	graphNegByPosInvYield->GetXaxis()->SetTitle("p_{T}(GeV/c)");
-	graphNegByPosInvYield->Draw();
+	graphNegByPosInvYield->Draw("ACP");
 
 
 	// Ratio plots for histograms
@@ -212,7 +216,7 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	hPosPt->SetTitle("Positively Charged Particles Normalized Hist pT Distribution");
 	hPosPt->GetYaxis()->SetTitle("Counts");
 	hPosPt->GetXaxis()->SetTitle("p_{T} (GeV/c)");
-	hPosPt->SetAxisRange(1, 10, "X");
+	hPosPt->SetAxisRange(hXLow, hXHigh, "X");
 	hPosPt->Scale(1/nEvents);
 	hPosPt->Draw();
 
@@ -220,7 +224,7 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	hNegPt->SetTitle("Negatively Charged Particles Normalized Hist pT Distribution");
 	hNegPt->GetYaxis()->SetTitle("Counts");
 	hNegPt->GetXaxis()->SetTitle("p_{T} (GeV/c)");
-	hNegPt->SetAxisRange(1, 10, "X");
+	hNegPt->SetAxisRange(hXLow, hXHigh, "X");
 	hNegPt->Scale(1/nEvents);
 	hNegPt->Draw();
 
