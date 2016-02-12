@@ -58,23 +58,29 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 
 	char *outputFileName;
 
+	// TGraph ranges for X-axis, Inv Yield
+	gXLow=1; gXHigh=10;
+
+	// Hist ranges for X-axis, pT Raw spectra
+	hXLow=1; hXHigh=10;
+
+	// Range to calculate Invariant Yield
+	pTMin=gXLow; pTMax=gXHigh; 
+
 	// Pass variables to the program based on 
 	// the collision system
-	
-	gXLow=1; gXHigh=10;
-	hXLow=1; hXHigh=100;
-	pTMin=0; pTMax=10; 
-
 	if (collisionSystem == "pp"){
 	 nEvents = nEvents_pPb; 
 	 gYLow=1e-7; gYHigh=1; 
+//	 gYLow=1e-8; gYHigh=1; 
 	 outputFileName = "output_ppInvariantYieldForSelectedpTRange.root";
 
 	}
 
 	else if (collisionSystem == "pPb"){
 	 nEvents = nEvents_pp;
-	 gYLow=1e-3; gYHigh=1e+3; 
+//	 gYLow=1e-3; gYHigh=1e+3; 
+	 gYLow=1e-7; gYHigh=1e+3; 
 	 outputFileName = "output_ppInvariantYieldForSelectedpTRange.root";
 	}
 
@@ -201,7 +207,7 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	cInvYield->cd(3);
 	gPad->SetLogy(0);
 	gPad->SetLogx(0);
-	graphNegByPosInvYield->GetYaxis()->SetRangeUser(0, 2);
+	graphNegByPosInvYield->GetYaxis()->SetRangeUser(0, 4);
 	graphNegByPosInvYield->GetXaxis()->SetRangeUser(gXLow, gXHigh);
 //	graphNegByPosInvYield->GetXaxis()->SetRangeUser(0, 100);
 	graphNegByPosInvYield->GetYaxis()->SetTitle("Inv Yield Neg By Pos");
@@ -214,17 +220,21 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	// Ratio plots for histograms
 	c->cd(1);
 	hPosPt->SetTitle("Positively Charged Particles Normalized Hist pT Distribution");
-	hPosPt->GetYaxis()->SetTitle("Counts");
+	hPosPt->GetYaxis()->SetTitle("Counts per 200MeV/c");
 	hPosPt->GetXaxis()->SetTitle("p_{T} (GeV/c)");
 	hPosPt->SetAxisRange(hXLow, hXHigh, "X");
+	hPosPt->GetYaxis()->SetTitleOffset(gTitleOffset);
+	hPosPt->GetYaxis()->CenterTitle(true);
 	hPosPt->Scale(1/nEvents);
 	hPosPt->Draw();
 
 	c->cd(2);
 	hNegPt->SetTitle("Negatively Charged Particles Normalized Hist pT Distribution");
-	hNegPt->GetYaxis()->SetTitle("Counts");
+	hNegPt->GetYaxis()->SetTitle("Counts per 200MeV/c");
 	hNegPt->GetXaxis()->SetTitle("p_{T} (GeV/c)");
 	hNegPt->SetAxisRange(hXLow, hXHigh, "X");
+	hNegPt->GetYaxis()->SetTitleOffset(gTitleOffset);
+	hNegPt->GetYaxis()->CenterTitle(true);
 	hNegPt->Scale(1/nEvents);
 	hNegPt->Draw();
 
@@ -236,8 +246,11 @@ void InvYield_smallerpTRange(char *inFile, string collisionSystem){
 	hNegPtClone->SetTitle("Neg By Pos Normalized Hist Ratio");
 	hNegPtClone->GetYaxis()->SetTitle("#frac{Pos}{Neg} (GeV/c)");
 	hNegPtClone->GetXaxis()->SetTitle("p_{T} (GeV/c)");
-	hNegPtClone->Draw();
+	hNegPtClone->GetYaxis()->SetTitleOffset(gTitleOffset);
+	hNegPtClone->GetYaxis()->CenterTitle(true);
 	gPad->SetLogy(0);
+	gPad->SetLogx(0);
+	hNegPtClone->Draw();
 
 
 	// Writing to an output file
