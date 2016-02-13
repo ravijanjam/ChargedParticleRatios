@@ -261,6 +261,10 @@ pPbAnalyzer_v5::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 void pPbAnalyzer_v5::initHistos(const edm::Service<TFileService> & fs)
 {
 
+	// To account for error bars
+	TH1::SetDefaultSumw2();
+	TH2::SetDefaultSumw2();
+
 	hevtMult = fs->make<TH1F>("hevtMult", "Event Multiplicity for Selected Tracks", 100, 0, 100);
 
 	// Vertex performance histograms
