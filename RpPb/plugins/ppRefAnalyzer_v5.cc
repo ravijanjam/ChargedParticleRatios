@@ -292,6 +292,7 @@ void ppRefAnalyzer_v5::initHistos(const edm::Service<TFileService> & fs)
 {
 
 	TH1::SetDefaultSumw2();
+	TH2::SetDefaultSumw2();
 	cout << "from inside init histos method" << endl;
 	demoHisto = fs->make<TH1D>("multiplicity","Event Multiplicity (selected tracks)",500,0,500);
 
