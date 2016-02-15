@@ -277,18 +277,27 @@ void InvYieldVariableBinning(const char *inFile, string collisionSystem){
 	hVarNegPt = (TH1D*)hNegPt->Rebin(nBins, "hVarNegPt", binArr);
 
 
+	double lbinWidth, lbinContent, lbinError;	
 	for (int tBin=1; tBin < nBins; tBin++){
 
-		double lbinWidth = hVarPosPt->GetBinWidth(tBin);
-		double lbinContent = hVarPosPt->GetBinContent(tBin);
+		// Positively Charged Particles
+		lbinWidth = hVarPosPt->GetBinWidth(tBin);
+		lbinContent = hVarPosPt->GetBinContent(tBin);
+		lbinError = hVarPosPt->GetBinError(tBin);
 		hVarPosPt->SetBinContent(tBin, lbinContent/lbinWidth);
+		hVarPosPt->SetBinError(tBin, lbinError/lbinWidth);
 
+		// Negatively Charged Particles
 		lbinWidth = hVarNegPt->GetBinWidth(tBin);
 		lbinContent = hVarNegPt->GetBinContent(tBin);
+		lbinError = hVarNegPt->GetBinError(tBin);
 		hVarNegPt->SetBinContent(tBin, lbinContent/lbinWidth);
+		hVarNegPt->SetBinError(tBin, lbinContent/lbinWidth);
 
-		cout << "hVarNegPt : " << hVarNegPt->GetBinContent(tBin) << "\t"
-		     << "hVarPosPt : " << hVarPosPt->GetBinContent(tBin) << "\n";
+		cout << "hVarNegPt, hVarPosPt (binContent, binError) : "  << "\t"
+		     << hVarNegPt->GetBinContent(tBin) << "\t"
+		     << hVarNegPt->GetBinError(tBin) << "\t" << ","
+		     << hVarPosPt->GetBinContent(tBin) << "\n";
 
 	}
 
