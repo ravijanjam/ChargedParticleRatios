@@ -28,19 +28,25 @@ options.parseArguments()
 process = cms.Process("userAnalyzer")
 
 process.load("FWCore.MessageService.MessageLogger_cfi")
+process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
+
+''' Global Tag Information '''
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 from Configuration.AlCa.GlobalTag_condDBv2 import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '75X_dataRun2_Prompt_ppAt5TeV_v0', '')
 
 
+''' High Level Trigger Paths '''
+'''https://github.com/cms-sw/cmssw/blob/CMSSW_7_5_X/HLTrigger/Configuration/tables/HIon.txt'''
 process.load("HLTrigger.HLTfilters.hltHighLevel_cfi")
 process.hltL1MinimumBiasHF1AND = process.hltHighLevel.clone()
-process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_L1MinimumBiasHF1AND_v1"]
+#process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_Physics_v2"]
+process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_ZeroBias_v2"]
+#process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_ZeroBiasPixel_SingleTrack_v*"]
+#process.hltL1MinimumBiasHF1AND.HLTPaths = ["HLT_FullTrack24_v2"]
 
-
-process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
 ''' Number of events to run this config file '''
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxNumEvents) )
@@ -50,7 +56,9 @@ process.TFileService = cms.Service("TFileService",
 	fileName = cms.string(timeStampedFileName) 
 	)
 
-''' Files to run in this config file '''
+process.options = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
+
+''' Files to run in this config file ''' 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
 #	'/store/data/Run2015E/MinimumBias1/AOD/PromptReco-v1/000/261/397/00000/D6A5BA37-3A8E-E511-9DC8-02163E014418.root'
@@ -109,4 +117,6 @@ process.userAnalyzer= cms.EDAnalyzer('ppRefAnalyzer_v5',
 ''' Specify the sequency in which the modules need to be run '''
 
 ''' Specify the paths to be run '''
-process.p = cms.Path(process.userAnalyzer)
+process.p = cms.Path(process.hltL1MinimumBiasHF1AND*process.userAnalyzer )
+#process.p = cms.Path(process.userAnalyzer*process.hltL1MinimumBiasHF1AND )
+#process.p = cms.Path( process.userAnalyzer )
